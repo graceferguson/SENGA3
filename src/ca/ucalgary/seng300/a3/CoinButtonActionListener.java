@@ -16,6 +16,7 @@ public class CoinButtonActionListener implements ActionListener {
 
 	private VendingMachine vend;
 	private int coinValue;
+	private CoinInputGUIDocListener cigl;
 	
 	/**
 	 * Creates an action listener for the JButton that allows the user of
@@ -23,9 +24,9 @@ public class CoinButtonActionListener implements ActionListener {
 	 * @param i the value of the coin the user wishes to enter
 	 * @param vending the vending machine associated with the GUI
 	 */
-	public CoinButtonActionListener(int i, VendingMachine vending) {
+	public CoinButtonActionListener(CoinInputGUIDocListener listener, VendingMachine vending) {
 		vend = vending;
-		coinValue = i;
+		cigl = listener;
 	}
 	
 	/**
@@ -35,6 +36,7 @@ public class CoinButtonActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		try {
+			coinValue = cigl.getValue();
 			vend.getCoinSlot().addCoin(new Coin(coinValue));
 		} catch (DisabledException e) {
 			// TODO Auto-generated catch block

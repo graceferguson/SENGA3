@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.HashMap;
-
+import java.awt.event.*;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -133,9 +133,15 @@ public class GUI extends JFrame{
         }
         
         //Connecting the coin entering elements together
-        //coinInput;
-        int enteredValue = 0;
-        coinButton.addActionListener(new CoinButtonActionListener(enteredValue, vend));
+        coinInput.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e){
+                coinInput.setText("");
+            }
+        });
+        CoinInputGUIDocListener cigl = new CoinInputGUIDocListener(coinInput);
+        coinInput.getDocument().addDocumentListener(cigl);
+        coinButton.addActionListener(new CoinButtonActionListener(cigl, vend));
         
     }
     
@@ -285,15 +291,6 @@ public class GUI extends JFrame{
 	
 		vendingMachine.configure(popCanNames, popCanCosts);		
 		vendingMachine.loadPopCans(popCanCounts);
-        
-		try {
-			vendingMachine.getCoinSlot().addCoin(new Coin(200));
-			vendingMachine.getCoinSlot().addCoin(new Coin(200));
-			vendingMachine.getCoinSlot().addCoin(new Coin(200));
-		} catch (DisabledException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		new GUI(vendingMachine, comm);
 		

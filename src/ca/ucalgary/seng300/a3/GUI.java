@@ -14,6 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
@@ -28,20 +29,23 @@ public class GUI extends JFrame{
     private GridBagConstraints c = new GridBagConstraints();
     
     //Indicator "lights", they are labels with a background that changes
-    private JLabel outOfOrder = new JLabel("Out of Order");
+    private JLabel outOfOrder = new JLabel("Out of Order", SwingConstants.CENTER);
     
-    private JLabel exactOnly = new JLabel("Exact change only");
+    private JLabel exactOnly = new JLabel("Exact change only", SwingConstants.CENTER);
     
     //Display Box
-    private JLabel display = new JLabel("Default Display");
+    private JLabel display = new JLabel("Default Display", SwingConstants.CENTER);
     
     
     //input slots are actually 3 objects, a label, a input box, and a button, similar thing for card payments
-    private JLabel coinLabel = new JLabel("Coin Slot: ");
+    private JLabel coinLabel = new JLabel("Coin Slot: ", SwingConstants.RIGHT);
     private JTextField coinInput = new JTextField("Type a coin value");
     private JButton coinButton = new JButton("Enter coins");
     
-    private JLabel cardLabel = new JLabel("Card Slot: ");
+    //Request to return coins button
+    private JButton requestButton = new JButton("Return coins");
+    
+    private JLabel cardLabel = new JLabel("Card Slot: ", SwingConstants.RIGHT);
     private JTextField cardInput = new JTextField("Type a value");
     private JButton cardButton = new JButton("Confirm payment");
     
@@ -50,8 +54,8 @@ public class GUI extends JFrame{
     private JButton[] selection;
     
     //Coin return is basically like input again, but with a label instead of input
-    private JLabel retLabel = new JLabel("Coin Return: ");
-    private JLabel retInput = new JLabel("0");
+    private JLabel retLabel = new JLabel("Coin Return: ", SwingConstants.RIGHT);
+    private JLabel retInput = new JLabel("0", SwingConstants.CENTER);
     private JButton retButton = new JButton("Unload coins");
     
     private VendingMachine vend;
@@ -64,6 +68,9 @@ public class GUI extends JFrame{
      */
     public GUI(VendingMachine vend, VendCommunicator comm) {
     		super("Vending Machine GUI");
+    		//enable "X" to close the application and kill the process, without this line it continues to run but invisibly
+    		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    		
     		int numSelections = vend.getNumberOfPopCanRacks();
     		this.vend = vend;
         
@@ -99,18 +106,24 @@ public class GUI extends JFrame{
         c.gridy = 3;
         c.gridx = 0;
         p.add(coinLabel, c);
-
+        
+        c.weightx = 0.7;
         c.gridy = 3;
         c.gridx = 1;
         p.add(coinInput, c);
-
+        
+        c.weightx = 0.3;
         c.gridy = 3;
         c.gridx = 2;
         p.add(coinButton, c);
         
+        c.weightx = 0.5;
+        c.gridy = 3;
+        c.gridx = 3;
+        p.add(requestButton, c);
+        
         //set constraints for pop buttons outside of loop since they are all the same
         
-        c.weightx = 0.5;
         c.gridwidth = 2;
         c.gridx = 1;
         

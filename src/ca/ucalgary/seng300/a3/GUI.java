@@ -4,7 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -12,7 +15,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import org.lsmr.vending.hardware.VendingMachine;
+import org.lsmr.vending.*;
+import org.lsmr.vending.hardware.*;
 
 import ca.ucalgary.seng300.a2.*;
 
@@ -50,40 +54,18 @@ public class GUI extends JFrame{
     private JLabel retInput = new JLabel("0");
     private JButton retButton = new JButton("Unload coins");
     
+    private VendingMachine vend;
+    private VendCommunicator communicator;
     
-  
-    
-    //FOR TESTING PURPOSES-- REMOVE LATER********************************
-    public static void main(String[] args) {
-    	int[] canadianCoins = { 5, 10, 25, 100, 200 };
-
-
-    	int coinRackCapacity = 15; 
-    	int numPopTypes = 6;
-		VendingMachine vendingMachine = new VendingMachine(canadianCoins, numPopTypes, coinRackCapacity, 15, 200, 200, 15);
-		
-
-		// Customize the pop kinds and pop costs in the vending machine
-				java.util.List<String> popCanNames = Arrays.asList("Cola","Sprite","Fonda","Diet","Ginger Ale","Dr Pepper");
-		java.util.List<Integer> popCanCosts = Arrays.asList(250,250,250,250,250,250);
-		int[] popCanCounts = new int[vendingMachine.getNumberOfPopCanRacks()];
-		for (int i = 0; i < popCanCounts.length; i++) {
-			popCanCounts[i] = 1;
-		}
-	
-		vendingMachine.configure(popCanNames, popCanCosts);		
-		vendingMachine.loadPopCans(popCanCounts);
-        
-		new GUI(vendingMachine);
-		
-		
-		
-    }
-    
-    public GUI(VendingMachine vend) {
+    /**
+     * 
+     * @param vend the VendingMachine connected to the GUI
+     * @param comm the VendCommunicator connected to the GUI
+     */
+    public GUI(VendingMachine vend, VendCommunicator comm) {
     	super("Vending Machine GUI");
-    	int numSelections = vend.getNumberOfPopCanRacks(); 
-        
+    	int numSelections = vend.getNumberOfPopCanRacks();
+    	this.vend = vend;
         
         setSize(500, 700);
         setResizable(true);
@@ -97,7 +79,6 @@ public class GUI extends JFrame{
         //Configure backgrounds/colors and the such
         display.setForeground(Color.blue);
         
-
         c.gridy =0 ;
         c.gridx =3 ;
         p.add(outOfOrder, c);
@@ -105,8 +86,7 @@ public class GUI extends JFrame{
         c.gridy = 1;
         c.gridx = 3;
         p.add(exactOnly, c);
-
-        
+ 
         c.gridy = 0;
         c.gridx = 1;
         p.add(display, c);
@@ -141,15 +121,25 @@ public class GUI extends JFrame{
         c.gridy = numSelections + 5;
         c.gridx = 2;
         p.add(retButton, c);
-        
-        
-        
+           
         add(p);
         setVisible(true);
         
+        //Event handling to connect the GUI to VendCommunicator
+        
+        //Connecting the pop buttons to the vending machine
+        for (int i = 0; i < selection.length; i++) {
+        	selection[i].addActionListener(new PopButtonActionListener(i, vend));
+        }
+        
+        //Connecting the coin entering elements together
+        //coinInput;
+        int enteredValue = 0;
+        coinButton.addActionListener(new CoinButtonActionListener(enteredValue, vend));
+        
     }
     
-    /*
+    /**
      * Adds labels and buttons to allow for credit card payments
      */
     public void enableCreditCard() {
@@ -168,8 +158,7 @@ public class GUI extends JFrame{
         setVisible(true);
     }
     
-    
-    /*
+    /**
      * Changes colour of Out of Order light to simulate it turning on
      */
     public void orderLightOn() {
@@ -180,7 +169,7 @@ public class GUI extends JFrame{
     	
     }
     
-    /*
+    /**
      * Changes colour of Out of Order light to simulate it turning off
      */
     public void orderLightOff() {
@@ -190,7 +179,7 @@ public class GUI extends JFrame{
         setVisible(true);
     }
     
-    /*
+    /**
      * Changes colour of Exact Change Only light to simulate it turning on
      */
     public void changeLightOn() {
@@ -200,7 +189,7 @@ public class GUI extends JFrame{
         setVisible(true);
     }
     
-    /*
+    /**
      * Changes colour of Out of Order light to simulate it turning off
      */
     public void changeLightOff() {
@@ -210,7 +199,7 @@ public class GUI extends JFrame{
         setVisible(true);
     }
     
-    /*
+    /**
      * Setter method for changing the display message
      * @param: message: String to be displayed
      */
@@ -220,8 +209,7 @@ public class GUI extends JFrame{
 
     }
     
-    
-    /*
+    /**
      * Setter method for changing the value displayed in the coin return.
      * @params: value: the integer value to be set
      */
@@ -230,4 +218,87 @@ public class GUI extends JFrame{
     }
     
     
-}
+  
+    
+    //FOR TESTING PURPOSES-- REMOVE LATER********************************
+    public static void main(String[] args) {
+    	int[] canadianCoins = { 5, 10, 25, 100, 200 };
+
+
+    	int coinRackCapacity = 15; 
+    	int numPopTypes = 6;
+		VendingMachine vendingMachine = new VendingMachine(canadianCoins, numPopTypes, coinRackCapacity, 15, 200, 200, 15);
+		VendCommunicator comm = new VendCommunicator();
+		
+		// Do all the VendCommunicator things
+		try {
+			LogFile.createLogFile();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		CoinSlotListening slot = new CoinSlotListening();
+		CoinRackListening[] racks = new CoinRackListening[canadianCoins.length];
+		SelectionButtonListening[] buttons = new SelectionButtonListening[numPopTypes];
+		emptyMsgLoop msgLoop = new emptyMsgLoop("Hi there!", comm);
+		CoinReceptacleListening receptacle = new CoinReceptacleListening(50,comm,msgLoop); //ESB 
+		PopCanRackListening[] canRacks = new PopCanRackListening[6];
+		DeliveryChuteListening chute = new DeliveryChuteListening();
+		vendingMachine.getCoinSlot().register(slot);
+		CoinReturnListening coinReturn = new CoinReturnListening();
+		vendingMachine.getCoinReturn().register(coinReturn);
+		IndicatorLighListening changeLight = new IndicatorLighListening();
+		OutOfOrderLightListening outOfOrderLight  = new OutOfOrderLightListening();
+		HashMap<CoinRack, CoinRackListening> rackMap = new HashMap<CoinRack, CoinRackListening>();
+		vendingMachine.getCoinReceptacle().register(receptacle);
+		vendingMachine.getDeliveryChute().register(chute);
+		vendingMachine.getExactChangeLight().register(changeLight);
+		vendingMachine.getOutOfOrderLight().register(outOfOrderLight);
+		for (int i = 0; i < canadianCoins.length; i++) {
+			racks[i] = new CoinRackListening(canadianCoins[i]);
+			vendingMachine.getCoinRack(i).register(racks[i]);
+			//machine.getCoinRack(i).connect(new CoinChannel(new CoinReturn(200)));
+			rackMap.put(vendingMachine.getCoinRack(i), racks[i]);
+		}
+		for (int i = 0; i < numPopTypes; i++) {
+			buttons[i] = new SelectionButtonListening(i, comm);
+			vendingMachine.getSelectionButton(i).register(buttons[i]);
+		}
+		for (int i = 0; i < 6; i++) {
+			canRacks[i] = new PopCanRackListening();
+			vendingMachine.getPopCanRack(i).register(canRacks[i]);
+			vendingMachine.getPopCanRack(i).load(new PopCan(vendingMachine.getPopKindName(i)));
+		}
+		comm.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, vendingMachine, rackMap);
+		
+
+		// Customize the pop kinds and pop costs in the vending machine
+		java.util.List<String> popCanNames = Arrays.asList("Cola","Sprite","Fonda","Diet","Ginger Ale","Dr Pepper");
+		java.util.List<Integer> popCanCosts = Arrays.asList(250,250,250,250,250,250);
+		int[] popCanCounts = new int[vendingMachine.getNumberOfPopCanRacks()];
+		for (int i = 0; i < popCanCounts.length; i++) {
+			popCanCounts[i] = 1;
+		}
+	
+		vendingMachine.configure(popCanNames, popCanCosts);		
+		vendingMachine.loadPopCans(popCanCounts);
+        
+		try {
+			vendingMachine.getCoinSlot().addCoin(new Coin(200));
+			vendingMachine.getCoinSlot().addCoin(new Coin(200));
+			vendingMachine.getCoinSlot().addCoin(new Coin(200));
+		} catch (DisabledException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		new GUI(vendingMachine, comm);
+		
+		
+		
+    } // end main
+    
+} // end class

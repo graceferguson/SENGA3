@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -50,7 +51,9 @@ public class GUI extends JFrame{
     private JLabel retInput = new JLabel("0");
     private JButton retButton = new JButton("Unload coins");
     
-    
+    private JLabel popRetLabel = new JLabel("Pops in delivery chute: ");
+    private JLabel popRetInput = new JLabel("0");
+    private JButton popRetButton = new JButton("Unload pop");
   
     
     //FOR TESTING PURPOSES-- REMOVE LATER********************************
@@ -74,10 +77,8 @@ public class GUI extends JFrame{
 		vendingMachine.configure(popCanNames, popCanCosts);		
 		vendingMachine.loadPopCans(popCanCounts);
         
-		new GUI(vendingMachine);
-		
-		
-		
+		GUI machineGUI = new GUI(vendingMachine);
+
     }
     
     public GUI(VendingMachine vend) {
@@ -126,7 +127,7 @@ public class GUI extends JFrame{
         //for loop for remaining buttons
         for(int i = 0; i < numSelections; i++) {
             c.gridy = 5+i;
-            c.gridx = 2;
+            c.gridx = 1;
             p.add(selection[i], c);
         }    
 
@@ -142,6 +143,17 @@ public class GUI extends JFrame{
         c.gridx = 2;
         p.add(retButton, c);
         
+        c.gridy = numSelections + 6;
+        c.gridx = 0;
+        p.add(popRetLabel, c);
+        
+        c.gridy = numSelections + 6;
+        c.gridx = 1;
+        p.add(popRetInput, c);
+        
+        c.gridy = numSelections + 6;
+        c.gridx = 2;
+        p.add(popRetButton, c);
         
         
         add(p);
@@ -229,5 +241,12 @@ public class GUI extends JFrame{
     	retInput.setText(Integer.toString(value));
     }
     
+    /*
+     * Setter method for changing the value displayed in the pop delivery chute.
+     * @params: value: the integer value to be set
+     */
+    public void setPopReturnVal(int value) {
+    	popRetInput.setText(Integer.toString(value));
+    }
     
 }

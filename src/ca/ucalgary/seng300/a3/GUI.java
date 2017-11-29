@@ -143,6 +143,12 @@ public class GUI extends JFrame{
         coinInput.getDocument().addDocumentListener(cigl);
         coinButton.addActionListener(new CoinButtonActionListener(cigl, vend));
         
+        // Connecting GUI display to vending machine display
+        GUIDisplayListener guidisplay = new GUIDisplayListener(vend, this);
+        
+        //Connecting indicator lights
+        GUIIndicatorLightListener lights = new GUIIndicatorLightListener(this, vend);
+        
     }
     
     /**

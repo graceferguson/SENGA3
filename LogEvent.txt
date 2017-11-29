@@ -488,3 +488,11 @@ Time of creation 28/11/17 20:08:26\n\n
 28/11/17 22:28:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
 
 28/11/17 22:28:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 29/11/17 12:23:03\n\n
+
+
+29/11/17 12:23:03	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+29/11/17 12:23:03	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+29/11/17 12:23:03	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed

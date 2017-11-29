@@ -63,9 +63,9 @@ public class GUI extends JFrame{
      * @param comm the VendCommunicator connected to the GUI
      */
     public GUI(VendingMachine vend, VendCommunicator comm) {
-    	super("Vending Machine GUI");
-    	int numSelections = vend.getNumberOfPopCanRacks();
-    	this.vend = vend;
+    		super("Vending Machine GUI");
+    		int numSelections = vend.getNumberOfPopCanRacks();
+    		this.vend = vend;
         
         setSize(500, 700);
         setResizable(true);
@@ -75,6 +75,9 @@ public class GUI extends JFrame{
         for(int i = 0; i < numSelections;i++) {
             selection[i] = new JButton(vend.getPopKindName(i));
         }
+        
+        //this makes all the buttons the same size in a cell
+        c.fill = GridBagConstraints.HORIZONTAL;
         
         //Configure backgrounds/colors and the such
         display.setForeground(Color.blue);
@@ -89,8 +92,10 @@ public class GUI extends JFrame{
  
         c.gridy = 0;
         c.gridx = 1;
+        c.gridwidth = 2;
         p.add(display, c);
-
+        
+        c.gridwidth=1;
         c.gridy = 3;
         c.gridx = 0;
         p.add(coinLabel, c);
@@ -103,13 +108,21 @@ public class GUI extends JFrame{
         c.gridx = 2;
         p.add(coinButton, c);
         
-        //for loop for remaining buttons
+        //set constraints for pop buttons outside of loop since they are all the same
+        
+        c.weightx = 0.5;
+        c.gridwidth = 2;
+        c.gridx = 1;
+        
+        //for loop for soda selection buttons
         for(int i = 0; i < numSelections; i++) {
             c.gridy = 5+i;
-            c.gridx = 2;
             p.add(selection[i], c);
         }    
 
+        //reset c.gridwidth to 1 and restore other constraints
+        c.gridwidth = 1;
+        
         c.gridy = numSelections + 5;
         c.gridx = 0;
         p.add(retLabel, c);

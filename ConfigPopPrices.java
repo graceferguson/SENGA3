@@ -36,7 +36,7 @@ public class ConfigPopPrices extends AbstractConfigMode {
 		if (subMode == 0) {
 			message = "Choose a Pop type that you would like to change the price of: \n";
 			for (int i = 0; i < names.length; i++) {
-				message += names[i] + " : $" + (double) ((double) prices[i] / 100) + "\n";
+				message += names[i] + " : $" + String.format("%.2f", (double) ((double) prices[i] / 100)) + "\n";
 			}
 			if (selectedPop < 0)
 				message += "Selection: ";
@@ -46,7 +46,8 @@ public class ConfigPopPrices extends AbstractConfigMode {
 		else if (subMode == 1) {
 			message = "Use 0 - 9 (b for backspace) to enter new price for " 
 					+ names[selectedPop] + ": \n $";
-			message += ((double) enteredPrice / (double) 100);
+			double dub = ((double) enteredPrice / (double) 100);
+			message += String.format("%.2f", dub);
 		}
 		else {
 			throw new SimulationException("Unknown mode in ConfigPopPrice");

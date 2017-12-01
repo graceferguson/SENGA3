@@ -62,7 +62,8 @@ public class ConfigPopPrices extends AbstractConfigMode {
 	public boolean enterKeyPressed() {
 		boolean finished = false;
 		if (subMode == 0) {
-			subMode = 1;
+			if (selectedPop != -1)
+				subMode = 1;
 		}
 		else if (subMode == 1) {
 			subMode = 0;

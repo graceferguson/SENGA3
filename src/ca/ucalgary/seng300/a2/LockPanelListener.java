@@ -14,6 +14,7 @@ public class LockPanelListener implements org.lsmr.vending.hardware.LockListener
 	public LockPanelListener(VendCommunicator vend) {
 		this.communicator = vend;
 	}
+	
 	@Override
 	public void enabled(AbstractHardware<? extends AbstractHardwareListener> hardware) {
 		// TODO Auto-generated method stub
@@ -25,7 +26,9 @@ public class LockPanelListener implements org.lsmr.vending.hardware.LockListener
 		// TODO Auto-generated method stub
 		
 	}
-	
+	/**
+	* Function that disables safety on the vending machine and logs it
+	*/
 	private void panelLocked() {
 	// call event log here 
 		
@@ -38,7 +41,9 @@ public class LockPanelListener implements org.lsmr.vending.hardware.LockListener
 			e.printStackTrace();
 		} 
 	}
-	
+	/**
+	* Function that enables safety on the vending machine and logs it
+	*/	
 	private void panelUnlocked() {
 		String currentTime = LogFile.df.format(LogFile.dateobj);
 		String classType  = this.getClass().getName();
@@ -63,6 +68,7 @@ public class LockPanelListener implements org.lsmr.vending.hardware.LockListener
 		// TODO Auto-generated method stub
 		communicator.enableSafety();
 		panelUnlocked();
+		
 	}
 
 }

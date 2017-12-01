@@ -58,6 +58,10 @@ public class GUI extends JFrame{
     private JLabel retInput = new JLabel("0", SwingConstants.CENTER);
     private JButton retButton = new JButton("Unload coins");
     
+    private JLabel popRetLabel = new JLabel("Pops in delivery chute:",SwingConstants.RIGHT);
+    private JLabel popRetInput = new JLabel("0",SwingConstants.CENTER);
+    private JButton popRetButton = new JButton("Unload pop");
+    
     private VendingMachine vend;
     private VendCommunicator communicator;
     
@@ -147,6 +151,18 @@ public class GUI extends JFrame{
         c.gridy = numSelections + 5;
         c.gridx = 2;
         p.add(retButton, c);
+        
+        c.gridy = numSelections + 6;
+        c.gridx = 0;
+        p.add(popRetLabel, c);
+        
+        c.gridy = numSelections + 6;
+        c.gridx = 1;
+        p.add(popRetInput, c);
+        
+        c.gridy = numSelections + 6;
+        c.gridx = 2;
+        p.add(popRetButton, c);
            
         add(p);
         setVisible(true);
@@ -259,8 +275,17 @@ public class GUI extends JFrame{
      */
     public void setCoinReturnVal(int value) {
     	retInput.setText(Integer.toString(value));
+    	setVisible(true);
     }
     
+    /*
+     * Setter method for changing the value displayed in the pop delivery chute.
+     * @param: value: the integer value to be set
+     */
+    public void setPopReturnVal(int value) {
+    	popRetInput.setText(Integer.toString(value));
+    	setVisible(true);
+    }
     
   
     

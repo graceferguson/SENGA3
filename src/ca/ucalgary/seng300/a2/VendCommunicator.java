@@ -18,20 +18,22 @@ public class VendCommunicator {
 	private IndicatorLighListening changeLight;
 	private OutOfOrderLightListening outOfOrderLight;
 	private Boolean changeLightFlag = false;
-
+	private LockPanelListener lockPanel;
+	
 	public VendCommunicator() {
 	}
 	
 
 	// Links the appropriate parts to their corresponding variables
 	public void linkVending(CoinReceptacleListening receptacle,IndicatorLighListening indicator, OutOfOrderLightListening display, PopCanRackListening[] pRacks, VendingMachine machine,
-			HashMap<CoinRack, CoinRackListening> cRacks) {
+			HashMap<CoinRack, CoinRackListening> cRacks, LockPanelListener lockPanel) {
 		this.receptacle = receptacle;
 		this.pRacks = pRacks;
 		this.machine = machine;
 		this.cRacks = cRacks;
 		this.changeLight = indicator;
 		this.outOfOrderLight = display;
+		this.lockPanel = lockPanel;
 	}
 
 	/**
@@ -85,6 +87,19 @@ public class VendCommunicator {
 		else {
 			machine.getExactChangeLight().deactivate();
 		}
+	}
+
+/**
+* Function that enables safety on the vending machine
+*/
+	public void enableSafety() {
+		machine.enableSafety();
+	}
+/**
+* Function that disables safety on the vending machine
+*/	
+	public void disableSafety() {
+		machine.disableSafety();
 	}
 
 /**
@@ -302,79 +317,4 @@ public class VendCommunicator {
 		return out;
 	}
 
-		
-	/** 
-	 * A method to determine what action should be done when a button is pressed 
-	 * TODO how is disabling a part going to affect what action is taken?
-	 * @param button
-	 */
-	public void determineButtonAction(PushButton button) {
-		boolean found = false;
-		
-		if(vm.isSafetyEnabled() == false) {
-			// search through the selection buttons to see if the parameter button is a selection button
-			for (int index = 0; (found == false) && (index < vm.getNumberOfSelectionButtons()); index++) {
-				if (vm.getSelectionButton(index) == button) {
-					selectionButtonAction(index);
-					found = true;
-				}
-			}
-		}
-		
-		// search through the configuration panel to see if the parameter button is part of these buttons
-		// NOTE!!! the configuration panel has a hard coded list of 37 buttons.  If this changes it could cause an error here!
-		for (int index = 0; (found == false) && (index < 37); index++) {
-			if (vm.getConfigurationPanel().getButton(index) == button) {
-				// TODO figure out how to configure
-				found = true;
-			}
-		}
-		
-		// check to see if the button is the configuration panels enter button.
-		if ((found == false) && (button == vm.getConfigurationPanel().getEnterButton())) {
-			// TODO figure out how to configure
-			found = true;
-			
-		}
-		
-		if (found == false) {
-			throw new SimulationException("Unknown Button pressed! Could not determine action");
-		}
-			
-	}
-
-	/**
-	 * Method to react to the press of a selection button
-	 * @param index - the index of the selection button that was pressed
-	 */
-	public void selectionButtonAction(int index) {
-		if ((vm.getPopKindCost(index) <= credit) && (circuitEnabled[index] == true)) {
-			try {
-				vm.getPopCanRack(index).dispensePopCan();
-				this.dispensingMessage();
-				credit -= vm.getPopKindCost(index);		// deduct the price of the pop
-				returnChange();
-				if (credit == 0)
-					this.welcomeMessageTimer();		// begin cycling the welcome message again
-				else
-					this.displayCredit();
-			} catch (DisabledException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (EmptyException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (CapacityExceededException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		else if (circuitEnabled[index] != true) {
-			vm.getDisplay().display("Option unavailable");
-		}
-		else {
-			this.displayPrice(index);
-			this.displayCredit();
-		}
-	}
 }

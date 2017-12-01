@@ -1,4 +1,4 @@
-package groupAssignment4;
+package ca.ucalgary.seng300.a3;
 
 import java.util.*;
 import org.lsmr.vending.hardware.*;

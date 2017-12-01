@@ -1,4 +1,4 @@
-package groupAssignment4;
+package ca.ucalgary.seng300.a3;
 
 import org.lsmr.vending.hardware.SimulationException;
 
@@ -125,5 +125,23 @@ public class ConfigPopPrices extends AbstractConfigMode {
 		enteredPrice = 0;
 		selectedPop = -1;
 	}
-
+	
+	/**
+	 * getters, useful for testing
+	 */
+	public int getSubMode() {
+		return subMode;
+	}
+	
+	public int getEnteredPrice() {
+		return enteredPrice;
+	}
+	
+	public int getSelectedPop() {
+		return selectedPop;
+	}
+	
+	public int getNumOfPopKinds() {
+		return numberOfPopKinds;
+	}
 }

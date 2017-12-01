@@ -66,8 +66,13 @@ public class ConfigPopPrices extends AbstractConfigMode {
 				subMode = 1;
 		}
 		else if (subMode == 1) {
-			subMode = 0;
-			finished = true;
+			if ((enteredPrice % 5) != 0) {
+				enteredPrice = 0;
+			}
+			else {
+				subMode = 0;
+				finished = true;
+			}
 		}
 		else {
 			throw new SimulationException("Unknown mode in ConfigPopPrice");

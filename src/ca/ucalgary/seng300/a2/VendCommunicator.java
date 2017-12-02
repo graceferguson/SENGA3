@@ -1,6 +1,6 @@
 //SENG300 Group Assignment 2
 
-package ca.ucalgary.seng300.a2;
+package ca.ucalgary.seng300.a3;
 
 import org.lsmr.vending.hardware.*;
 import java.util.*;
@@ -34,6 +34,7 @@ public class VendCommunicator {
 		this.changeLight = indicator;
 		this.outOfOrderLight = display;
 		this.lockPanel = lockPanel;
+		CongifPanelLogic.initializeCP(machine);
 	}
 
 	/**
@@ -316,5 +317,37 @@ public class VendCommunicator {
 		}
 		return out;
 	}
-
+	
+	public void determineButtonAction(PushButton button) {
+		boolean found = false;
+		// search through the selection buttons to see if the parameter button is a selection button
+		for (int index = 0; (found == false) && (index < machine.getNumberOfSelectionButtons()); index++) {
+			if (machine.getSelectionButton(index) == button) {
+				found = true;
+				if(machine.getLock().isLocked == true) {
+					purchasePop(index);
+				}
+			}
+		}
+		
+		
+		// search through the configuration panel to see if the parameter button is part of these buttons
+		// NOTE!!! the configuration panel has a hard coded list of 37 buttons.  If this changes it could cause an error here!
+		for (int index = 0; (found == false) && (index < 37); index++) {
+			if (machine.getConfigurationPanel().getButton(index) == button) {
+				found = true;
+				if (machine.getLock().isLocked == false) { // if lock is not enabled do not allow configPanel to be used
+					ConfigPanelLogic.configButtonAction(button);
+				}
+			}
+		}
+		
+		// check to see if the button is the configuration panels enter button.
+		if ((found == false) && (button == machine.getConfigurationPanel().getEnterButton())) {
+			found = true;
+			if (machine.getLock().isLocked == false) {  // if lock is not enabled do not allow configPanel to be used
+				ConfigPanelLogic.configButtonAction(button);
+			}
+		}
+	}
 }

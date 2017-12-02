@@ -4,28 +4,31 @@ import java.util.*;
 import org.lsmr.vending.hardware.*;
 
 public class ConfigPanelLogic {
-	protected int mode;
-	protected final int MAX_MODE = 1;   // the number of modes currently available
-	protected int input;		// input value from the user
-	protected VendingMachine vend;
-	protected ConfigPopPrices configPopPriceLogic;
+	protected static int mode;
+	protected static final int MAX_MODE = 1;   // the number of modes currently available
+	protected static int input;		// input value from the user
+	protected static VendingMachine vend;
+	protected static ConfigPopPrices configPopPriceLogic;
 	
-	public ConfigPanelLogic(VendingMachine vending) {
+	private ConfigPanelLogic() {
+	}
+	
+	public static void initialzeCP(VendingMachine vending) {
 		mode = 0;
 		input = -1;
 		vend = vending;
 		configPopPriceLogic = new ConfigPopPrices(vend.getNumberOfSelectionButtons());
-		this.displayConfigMessage();
+		ConfigPanelLogic.displayConfigMessage();
 	}
 	
 	/**
 	 * A method to branch into the specific display message depending on the current mode
 	 */
-	private void displayConfigMessage() {
+	private static void displayConfigMessage() {
 		String message = "";
 
 		if (mode == 0) {	// all configuration options for the control panel
-			message = this.displayPanelOptions();
+			message = ConfigPanelLogic.displayPanelOptions();
 		}
 		else if (mode == 1) { // mode for configuring pop prices
 			String[] names = new String[vend.getNumberOfSelectionButtons()];
@@ -37,7 +40,7 @@ public class ConfigPanelLogic {
 			message = configPopPriceLogic.modeInstructions(names, prices);
 		}
 		else {
-			throw new SimulationException("Invalid Configuration panel mode in ConfigPanelLogic : mode = " + mode); 
+			//throw new SimulationException("Invalid Configuration panel mode in ConfigPanelLogic : mode = " + mode); 
 		}
 		
 		vend.getConfigurationPanel().getDisplay().display(message);
@@ -46,7 +49,7 @@ public class ConfigPanelLogic {
 	/**
 	 * a method to display the options available for configurations 
 	 */
-	private String displayPanelOptions() {
+	private static String displayPanelOptions() {
 		String message = "Select which aspect to configure: \n";
 		message += "0 - " + configPopPriceLogic.modeName() + "\n";
 		//message += "1 - "; // TODO more messages to display options 
@@ -61,7 +64,7 @@ public class ConfigPanelLogic {
 	 * A method to determine what action should be taken when a button on the configuration panel is pressed
 	 * @param button - the reference to the button that was pressed 
 	 */
-	public void configButtonAction(PushButton button) {
+	public static void configButtonAction(PushButton button) {
 		if (button == vend.getConfigurationPanel().getEnterButton()) {
 			if (mode == 0) {
 				if (input + 1 < MAX_MODE) {
@@ -72,13 +75,13 @@ public class ConfigPanelLogic {
 			else if (mode == 1) {
 				boolean finished = configPopPriceLogic.enterKeyPressed();
 				if (finished) {
-					this.reconfigureVend();
+					ConfigPanelLogic.reconfigureVend();
 					configPopPriceLogic.reset();
 					mode = 0;
 				}
 			}
 			else
-				throw new SimulationException("Invalid Configuration panel mode in ConfigPanelLogic : mode = " + mode);
+				//throw new SimulationException("Invalid Configuration panel mode in ConfigPanelLogic : mode = " + mode);
 		}
 		
 		else {
@@ -91,17 +94,17 @@ public class ConfigPanelLogic {
 						configPopPriceLogic.buttonPressed(i);
 					}
 					else
-						throw new SimulationException("Invalid Configuration panel mode in ConfigPanelLogic : mode = " + mode);
+						//throw new SimulationException("Invalid Configuration panel mode in ConfigPanelLogic : mode = " + mode);
 				}
 			}
 		}
-		this.displayConfigMessage();		// re-display the current state of the panel
+		ConfigPanelLogic.displayConfigMessage();		// re-display the current state of the panel
 	}
 	
 	/**
 	 * The method that applies the inputs made by the user to the configuration of the vending machine.
 	 */
-	private void reconfigureVend() {
+	private static void reconfigureVend() {
 		List<String> popCanNames = new ArrayList<String>(vend.getNumberOfSelectionButtons());
 		List<Integer> popCanCosts = new ArrayList<Integer>(vend.getNumberOfSelectionButtons());
 		

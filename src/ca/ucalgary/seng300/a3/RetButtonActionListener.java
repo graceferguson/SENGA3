@@ -15,13 +15,17 @@ import org.lsmr.vending.hardware.VendingMachine;
 public class RetButtonActionListener implements ActionListener {
 
 	private VendingMachine vend;
+	private GUI gui;
+	private GUICoinReturnListener l;
 	
 	/**
 	 * Creates a listener for the unload coins GUI button 
 	 * @param vending the vending machine linked to the GUI
 	 */
-	public RetButtonActionListener(VendingMachine vending) {
+	public RetButtonActionListener(VendingMachine vending, GUI mygui, GUICoinReturnListener listener) {
 		vend = vending;
+		gui = mygui;
+		l = listener;
 	}
 	
 	/**
@@ -31,6 +35,8 @@ public class RetButtonActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		vend.getCoinReturn().unload();
+		gui.setCoinReturnVal(0);
+		l.clearTotal();
 	}
 
 } //end class

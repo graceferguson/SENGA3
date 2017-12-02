@@ -618,3 +618,996 @@ Time of creation 28/11/17 20:08:26\n\n
 29/11/17 12:42:13	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
 
 29/11/17 12:42:13	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 22:21:38\n\n
+
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:21:38	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 22:45:52\n\n
+
+
+30/11/17 22:45:52	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:45:52	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:45:52	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+30/11/17 22:45:52	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 22:45:52	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 22:47:39\n\n
+
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 23:13:28\n\n
+
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 23:13:28\n\n
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now false
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now false
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now false
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now false
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 23:13:28\n\n
+
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now false
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 23:13:28\n\n
+
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now false
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 23:13:28\n\n
+
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 23:13:28\n\n
+
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 23:13:28\n\n
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now false
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now false
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 23:13:28\n\n
+
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now false
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now false
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 23:13:28\n\n
+
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now false
+--------------------This is the start of a new run for VM--------------------- Time of creation 30/11/17 23:13:28\n\n
+
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 23:13:28	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+30/11/17 22:47:39	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 01/12/17 16:56:19\n\n
+
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:20	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+01/12/17 16:56:19	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 12:18:31\n\n
+
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:18:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 12:23:07\n\n
+
+
+02/12/17 12:23:07	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:23:07	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:23:07	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 12:23:07	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 12:23:07	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 12:27:30\n\n
+
+
+02/12/17 12:27:30	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:27:30	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:27:30	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 12:27:30	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 12:27:30	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:27:30	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:27:30	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 12:39:32\n\n
+
+
+02/12/17 12:39:32	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:39:32	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:39:32	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 12:39:32	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 12:39:32	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:39:32	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:39:32	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 12:48:42\n\n
+
+
+02/12/17 12:48:42	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:48:42	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:48:42	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 12:48:42	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 12:48:42	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:48:42	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 12:54:32\n\n
+
+
+02/12/17 12:54:32	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:54:32	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 12:54:32	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 12:54:32	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 12:54:32	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 12:54:32	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 13:06:59\n\n
+
+
+02/12/17 13:06:59	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:06:59	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:06:59	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 13:06:59	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 13:06:59	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:06:59	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:06:59	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:06:59	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:06:59	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 13:09:58\n\n
+
+
+02/12/17 13:09:58	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:09:58	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:09:58	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 13:09:58	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 13:09:59	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:09:59	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:09:58	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:09:58	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:09:58	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:09:59	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:09:59	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:09:58	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:09:58	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 13:12:16\n\n
+
+
+02/12/17 13:12:16	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:12:16	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:12:16	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 13:12:16	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 13:12:16	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:12:16	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:12:16	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:12:16	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:12:16	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 13:19:31\n\n
+
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:19:31	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 13:22:45\n\n
+
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:22:45	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 02/12/17 13:25:40\n\n
+
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted

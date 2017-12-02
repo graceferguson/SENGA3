@@ -26,6 +26,8 @@ public class GUICoinReturnListener implements CoinReturnListener {
 	public GUICoinReturnListener(VendingMachine vending, GUI mygui) {
 		vend = vending;
 		gui = mygui;
+		
+		vend.getCoinReturn().register(this);
 	}
 	
 	@Override
@@ -47,13 +49,17 @@ public class GUICoinReturnListener implements CoinReturnListener {
 		for (int i = 0; i < coins.length; i++) {
 			returnTotal += coins[i].getValue();
 		}
-		
+
 		gui.setCoinReturnVal(returnTotal);
 	}
 
 	@Override
 	public void returnIsFull(CoinReturn coinReturn) {
 		// TODO Auto-generated method stub
+	}
+	
+	public void clearTotal() {
+		returnTotal = 0;
 	}
 
 }// end class

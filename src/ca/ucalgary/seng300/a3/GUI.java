@@ -204,7 +204,14 @@ public class GUI extends JFrame{
         GUICoinReturnListener coinRet = new GUICoinReturnListener(vend, this);
         
         //Connecting unload coins button
-        retButton.addActionListener(new RetButtonActionListener(vend));
+        retButton.addActionListener(new RetButtonActionListener(vend, this, coinRet));
+        
+        //Connecting pop delivery chute elements
+        GUIPopReturnListener popsInChute = new GUIPopReturnListener(vend, this);
+        popRetButton.addActionListener(new PopUnloadButtonActionListener(vend, this, popsInChute));
+        
+        //Connecting return coins button
+        requestButton.addActionListener(new CoinReturnButtonActionListener());
         
     }
     
@@ -363,6 +370,12 @@ public class GUI extends JFrame{
 	
 		vendingMachine.configure(popCanNames, popCanCosts);		
 		vendingMachine.loadPopCans(popCanCounts);
+		
+		int[] coinLoading = new int[vendingMachine.getNumberOfCoinRacks()];
+		for (int i = 0; i < coinLoading.length; i++) {
+			coinLoading[i] = coinRackCapacity - 5;
+		}
+		vendingMachine.loadCoins(coinLoading);
 		
 		new GUI(vendingMachine, comm);
 		

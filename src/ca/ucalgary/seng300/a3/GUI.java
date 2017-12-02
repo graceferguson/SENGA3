@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
@@ -27,6 +28,8 @@ import javax.swing.JLabel;
 public class GUI extends JFrame{
     private JPanel p = new JPanel(new GridBagLayout());
     private GridBagConstraints c = new GridBagConstraints();
+    private Color chartreuse = new Color(127,255,0);
+    private Color clientBlue = new Color(0, 0, 255);
     
     //Indicator "lights", they are labels with a background that changes
     private JLabel outOfOrder = new JLabel("Out of Order", SwingConstants.CENTER);
@@ -74,11 +77,12 @@ public class GUI extends JFrame{
     		super("Vending Machine GUI");
     		//enable "X" to close the application and kill the process, without this line it continues to run but invisibly
     		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    		p.setBackground(chartreuse);
     		
     		int numSelections = vend.getNumberOfPopCanRacks();
     		this.vend = vend;
         
-        setSize(500, 700);
+        setSize(600, 700);
         setResizable(true);
         selection = new JButton[numSelections];
         
@@ -89,6 +93,7 @@ public class GUI extends JFrame{
         
         //this makes all the buttons the same size in a cell
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.insets = new Insets(5, 0, 5, 0);
         
         //Configure backgrounds/colors and the such
         display.setForeground(Color.blue);
@@ -135,6 +140,10 @@ public class GUI extends JFrame{
         for(int i = 0; i < numSelections; i++) {
             c.gridy = 5+i;
             p.add(selection[i], c);
+            selection[i].setBackground(clientBlue);
+            selection[i].setForeground(Color.WHITE);
+            selection[i].setOpaque(true);
+            selection[i].setBorderPainted(false);
         }    
 
         //reset c.gridwidth to 1 and restore other constraints

@@ -10,7 +10,18 @@ public class ConfigPopPrices extends AbstractConfigMode {
 	private int selectedPop;
 	private int numberOfPopKinds;
 	
-	public ConfigPopPrices(int numPopKinds) {
+	private ConfigPopPrices() {
+	}
+	
+	private static class ConfigPopPricesHolder {
+		private static final ConfigPopPrices INSTANCE = new ConfigPopPrices();
+	}
+	
+	public static ConfigPopPrices getInstance() {
+		return ConfigPopPricesHolder.INSTANCE;
+	}
+	
+	public void initializeCPP(int numPopKinds) {
 		subMode = 0;
 		message = "";
 		enteredPrice = 0;
@@ -95,7 +106,7 @@ public class ConfigPopPrices extends AbstractConfigMode {
 				selectedPop = index;
 			}
 		}
-		else if (subMode == 2) {
+		else if (subMode == 1) {
 			if (index == 34) {	// button number 34 is 'b'.  used for backspace
 				enteredPrice = (int) Math.floor((double) enteredPrice / 10); 
 			}
@@ -131,7 +142,7 @@ public class ConfigPopPrices extends AbstractConfigMode {
 		enteredPrice = 0;
 		selectedPop = -1;
 	}
-	
+
 	/**
 	 * getters, useful for testing
 	 */

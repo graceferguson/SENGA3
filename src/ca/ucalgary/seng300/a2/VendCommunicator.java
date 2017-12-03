@@ -19,6 +19,8 @@ public class VendCommunicator {
 	private OutOfOrderLightListening outOfOrderLight;
 	private Boolean changeLightFlag = false;
 	private LockPanelListener lockPanel;
+	private ConfigPanelLogic configPanelLogic;
+	
 	
 	public VendCommunicator() {
 	}
@@ -34,7 +36,8 @@ public class VendCommunicator {
 		this.changeLight = indicator;
 		this.outOfOrderLight = display;
 		this.lockPanel = lockPanel;
-		CongifPanelLogic.initializeCP(machine);
+		configPanelLogic = ConfigPanelLogic.getInstance();
+		configPanelLogic.initializeCP(machine);
 	}
 
 	/**
@@ -337,7 +340,7 @@ public class VendCommunicator {
 			if (machine.getConfigurationPanel().getButton(index) == button) {
 				found = true;
 				if (machine.getLock().isLocked == false) { // if lock is not enabled do not allow configPanel to be used
-					ConfigPanelLogic.configButtonAction(button);
+					configPanelLogic.configButtonAction(button);
 				}
 			}
 		}
@@ -346,7 +349,7 @@ public class VendCommunicator {
 		if ((found == false) && (button == machine.getConfigurationPanel().getEnterButton())) {
 			found = true;
 			if (machine.getLock().isLocked == false) {  // if lock is not enabled do not allow configPanel to be used
-				ConfigPanelLogic.configButtonAction(button);
+				configPanelLogic.configButtonAction(button);
 			}
 		}
 	}

@@ -113,7 +113,8 @@ public class ConfigPanelTests {
 		}
 		*/
 		
-		cfp = new ConfigPopPrices(2);
+		cfp = ConfigPopPrices.getInstance();
+		cfp.initializeCPP(2);
 		
 		/*
 		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap);

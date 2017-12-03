@@ -1,4 +1,4 @@
-package ca.ucalgary.seng300.a2.test;
+package ca.ucalgary.seng300.a3;
 
 import static org.junit.Assert.*;
 
@@ -17,12 +17,12 @@ import org.lsmr.vending.hardware.CoinRack;
 import org.lsmr.vending.hardware.IndicatorLight;
 import org.lsmr.vending.hardware.VendingMachine;
 
-import ca.ucalgary.seng300.a2.CoinRackListening;
 import ca.ucalgary.seng300.a2.CoinReceptacleListening;
 import ca.ucalgary.seng300.a2.CoinReturnListening;
 import ca.ucalgary.seng300.a2.CoinSlotListening;
 import ca.ucalgary.seng300.a2.DeliveryChuteListening;
 import ca.ucalgary.seng300.a2.IndicatorLighListening;
+import ca.ucalgary.seng300.a2.LockPanelListener;
 import ca.ucalgary.seng300.a2.LogFile;
 import ca.ucalgary.seng300.a2.OutOfOrderLightListening;
 import ca.ucalgary.seng300.a2.PopCanRackListening;
@@ -130,7 +130,9 @@ public class testOutOfOrderLight {
 					machine.getPopCanRack(i).load(new PopCan(machine.getPopKindName(i)));
 				}
 
-				communicator.linkVending(receptacle, indicatorLighListening, outOfOrderLightListening, canRacks, machine, rackMap);
+				LockPanelListener lockListener = new LockPanelListener(communicator);
+				communicator.linkVending(receptacle, indicatorLighListening, outOfOrderLightListening, canRacks, machine, rackMap, lockListener);
+				
 				msgLoop.startThread();
 	}
 

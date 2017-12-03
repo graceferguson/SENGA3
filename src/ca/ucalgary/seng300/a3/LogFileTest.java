@@ -1,4 +1,4 @@
-package ca.ucalgary.seng300.a2.test;
+package ca.ucalgary.seng300.a3;
 
 import static org.junit.Assert.assertEquals;
 

@@ -5,7 +5,7 @@
  * A class that sets up and tests the vending machine
  */
 
-package ca.ucalgary.seng300.a2.test;
+package ca.ucalgary.seng300.a3;
 import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
@@ -18,12 +18,12 @@ import org.junit.Test;
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
 
-import ca.ucalgary.seng300.a2.CoinRackListening;
 import ca.ucalgary.seng300.a2.CoinReceptacleListening;
 import ca.ucalgary.seng300.a2.CoinReturnListening;
 import ca.ucalgary.seng300.a2.CoinSlotListening;
 import ca.ucalgary.seng300.a2.DeliveryChuteListening;
 import ca.ucalgary.seng300.a2.IndicatorLighListening;
+import ca.ucalgary.seng300.a2.LockPanelListener;
 import ca.ucalgary.seng300.a2.LogFile;
 import ca.ucalgary.seng300.a2.OutOfOrderLightListening;
 import ca.ucalgary.seng300.a2.PopCanRackListening;
@@ -125,8 +125,8 @@ public class VendingMachineTest {
 			machine.getPopCanRack(i).register(canRacks[i]);
 			machine.getPopCanRack(i).load(new PopCan(machine.getPopKindName(i)));
 		}
-
-		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap);
+		LockPanelListener lockListener = new LockPanelListener(communicator);
+		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap, lockListener);
 		msgLoop.startThread();
 	}
 

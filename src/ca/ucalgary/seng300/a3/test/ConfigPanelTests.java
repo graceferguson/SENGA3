@@ -1,6 +1,8 @@
 package ca.ucalgary.seng300.a3.test;
 
 import org.junit.Test;
+
+
 import org.junit.Before;
 import org.junit.After;
 
@@ -13,21 +15,9 @@ import java.util.HashMap;
 
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
+import ca.ucalgary.seng300.a3.*;
+import ca.ucalgary.seng300.a2.*;
 
-import ca.ucalgary.seng300.a3.CoinRackListening;
-import ca.ucalgary.seng300.a3.CoinReceptacleListening;
-import ca.ucalgary.seng300.a3.CoinReturnListening;
-import ca.ucalgary.seng300.a3.CoinSlotListening;
-import ca.ucalgary.seng300.a3.ConfigPanelLogic;
-import ca.ucalgary.seng300.a3.ConfigPopPrices;
-import ca.ucalgary.seng300.a3.DeliveryChuteListening;
-import ca.ucalgary.seng300.a3.IndicatorLighListening;
-import ca.ucalgary.seng300.a3.LogFile;
-import ca.ucalgary.seng300.a3.OutOfOrderLightListening;
-import ca.ucalgary.seng300.a3.PopCanRackListening;
-import ca.ucalgary.seng300.a3.SelectionButtonListening;
-import ca.ucalgary.seng300.a3.VendCommunicator;
-import ca.ucalgary.seng300.a3.emptyMsgLoop;
 
 public class ConfigPanelTests {
 	private VendingMachine machine;

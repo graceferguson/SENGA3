@@ -1,4 +1,4 @@
-package ca.ucalgary.seng300.a2.test;
+package ca.ucalgary.seng300.a3;
 
 import static org.junit.Assert.*;
 import org.lsmr.vending.*;
@@ -28,6 +28,7 @@ public class EmptyMsgLoopTest {
 	private CoinReturnListening coinReturn;
 	private IndicatorLighListening changeLight = new IndicatorLighListening();
 	private OutOfOrderLightListening outOfOrderLight  = new OutOfOrderLightListening();
+	private LockPanelListener lockListener;
 	
 	@Before 
 	public void setup() throws FileNotFoundException, UnsupportedEncodingException {
@@ -57,7 +58,7 @@ public class EmptyMsgLoopTest {
 		VendCommunicator communicator = new VendCommunicator();
 		msgLoop = new emptyMsgLoop("Hi there!", communicator);
 		
-
+		lockListener = new LockPanelListener(communicator);
 
 		
 
@@ -109,7 +110,7 @@ public class EmptyMsgLoopTest {
 			machine.getPopCanRack(i).load(new PopCan(machine.getPopKindName(i)));
 		}
 
-		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap);
+		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap, lockListener);
 		
 		
 		}

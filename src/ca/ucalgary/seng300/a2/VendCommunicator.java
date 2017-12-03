@@ -3,6 +3,9 @@
 package ca.ucalgary.seng300.a2;
 
 import org.lsmr.vending.hardware.*;
+
+import ca.ucalgary.seng300.a3.CoinRackListening;
+
 import java.util.*;
 
 /**

@@ -22,6 +22,11 @@ public class VendCommunicator {
 	public VendCommunicator() {
 	}
 	
+	//getter for the coin receptacle that holds all the change
+	public CoinReceptacleListening getReceptacle() {
+		return receptacle;
+	}
+	
 
 	// Links the appropriate parts to their corresponding variables
 	public void linkVending(CoinReceptacleListening receptacle,IndicatorLighListening indicator, OutOfOrderLightListening display, PopCanRackListening[] pRacks, VendingMachine machine,

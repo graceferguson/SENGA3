@@ -55,7 +55,8 @@ public class CoinReceptacleListening implements CoinReceptacleListener {
 			msgLoop.interruptThread();
 		}
 		value += coin.getValue();
-		message = "Credit: "+ value;
+		double decVal = value/100.0;
+		message = "Credit: $"+ decVal;
 		communicator.displayMsg(message);
 	}
 

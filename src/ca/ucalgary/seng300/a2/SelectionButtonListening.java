@@ -3,9 +3,10 @@
  * Elodie Boudes 10171818, Grace Ferguson 30004869, 
  * Tae Chyung 10139101, Karndeep Dhami 10031989, 
  * Andrew Garcia-Corley 10015169 & Michael de Grood 10134884
+ * Trent Johnston 10023544
  */
 
-package ca.ucalgary.seng300.a2;
+package ca.ucalgary.seng300.a3;
 
 import java.io.IOException;
 import java.text.*;
@@ -49,7 +50,7 @@ public class SelectionButtonListening implements PushButtonListener {
 	 * method for dealing with button pressed
 	 */
 	public void pressed(PushButton button) {
-		communicator.purchasePop(index);
+		communicator.determineButtonAction(button);
 		try {
 			LogFile.writeLog("\n"+df.format(dateobj) + "\t" + getClass().getName() + "\t" + "button pressed");
 		} catch (IOException e) {

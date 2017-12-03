@@ -60,6 +60,7 @@ public class GUI extends JFrame{
     private JLabel retLabel = new JLabel("Coin Return: ", SwingConstants.RIGHT);
     private JLabel retInput = new JLabel("0", SwingConstants.CENTER);
     private JButton retButton = new JButton("Unload coins");
+    private int	retAmount = 0;
     
     private JLabel popRetLabel = new JLabel("Pops in delivery chute:",SwingConstants.RIGHT);
     private JLabel popRetInput = new JLabel("0",SwingConstants.CENTER);
@@ -79,6 +80,7 @@ public class GUI extends JFrame{
     		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     		p.setBackground(chartreuse);
     		
+    		communicator = comm;
     		int numSelections = vend.getNumberOfPopCanRacks();
     		this.vend = vend;
         
@@ -88,7 +90,8 @@ public class GUI extends JFrame{
         
         //Set the selection buttons up
         for(int i = 0; i < numSelections;i++) {
-            selection[i] = new JButton(vend.getPopKindName(i));
+        	double theCost = vend.getPopKindCost(i)/100.0;
+            selection[i] = new JButton(vend.getPopKindName(i) + "  $" + theCost);
         }
         
         //this makes all the buttons the same size in a cell
@@ -211,7 +214,7 @@ public class GUI extends JFrame{
         popRetButton.addActionListener(new PopUnloadButtonActionListener(vend, this, popsInChute));
         
         //Connecting return coins button
-        requestButton.addActionListener(new CoinReturnButtonActionListener());
+        requestButton.addActionListener(new CoinReturnButtonActionListener(vend, this, communicator));
         
     }
     
@@ -282,7 +285,10 @@ public class GUI extends JFrame{
     public void setDisplay(String message) {
     	display.setText(message);
     	setVisible(true);
-
+    }
+    public void displayCredit() {
+    	double val = communicator.getReceptacle().getValue()/100.0;
+    	setDisplay("Credit: $" + val);
     }
     
     /**
@@ -290,9 +296,15 @@ public class GUI extends JFrame{
      * @params: value: the integer value to be set
      */
     public void setCoinReturnVal(int value) {
-    	retInput.setText(Integer.toString(value));
+    	double decVal = value/100.0;
+    	retInput.setText("$" + Double.toString(decVal));
+    	retAmount = value;
     	setVisible(true);
     }
+    public int getCoinReturnVal() {
+    	return retAmount;
+    }
+
     
     /*
      * Setter method for changing the value displayed in the pop delivery chute.
@@ -362,7 +374,7 @@ public class GUI extends JFrame{
 
 		// Customize the pop kinds and pop costs in the vending machine
 		java.util.List<String> popCanNames = Arrays.asList("Cola","Sprite","Fonda","Diet","Ginger Ale","Dr Pepper");
-		java.util.List<Integer> popCanCosts = Arrays.asList(250,250,250,250,250,250);
+		java.util.List<Integer> popCanCosts = Arrays.asList(325,250,250,250,250,250);
 		int[] popCanCounts = new int[vendingMachine.getNumberOfPopCanRacks()];
 		for (int i = 0; i < popCanCounts.length; i++) {
 			popCanCounts[i] = 1;

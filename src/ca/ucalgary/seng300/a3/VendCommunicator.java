@@ -25,6 +25,10 @@ public class VendCommunicator {
 	private Boolean changeLightFlag = false;
 	private LockPanelListener lockPanel;
 	private boolean validCardFlag;
+	private int credit;
+	private boolean displayWelcome;
+	private Timer timer1;
+	private Timer timer2;
 	
 	//For use with writing to our log file
 	static DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
@@ -40,10 +44,18 @@ public class VendCommunicator {
 	public VendCommunicator() {
 	}
 	
+	private static class VendCommunicatorHolder {
+		private static final VendCommunicator INSTANCE = new VendCommunicator();
+	}
+	
+	public static VendCommunicator getInstance()
+	{
+		return VendCommunicatorHolder.INSTANCE;
+	}
 
 	// Links the appropriate parts to their corresponding variables
 	public void linkVending(CoinReceptacleListening receptacle,IndicatorLighListening indicator, OutOfOrderLightListening display, PopCanRackListening[] pRacks, VendingMachine machine,
-			HashMap<CoinRack, CoinRackListening> cRacks, LockPanelListener lockPanel) {
+			HashMap<CoinRack, CoinRackListening> cRacks, LockPanelListener lockPanel, int credit) {
 		this.receptacle = receptacle;
 		this.pRacks = pRacks;
 		this.machine = machine;
@@ -54,6 +66,11 @@ public class VendCommunicator {
 		this.paymentType = 0; //Payment type defaults to cash
 		this.amount = -1; //Payment amount defaults to -1
 		this.validCardFlag = false; //Consider cards to be invalid by default
+		this.credit = credit;
+		if (credit == 0) {
+			displayWelcome = true;
+			welcomeMessageTimer();
+		}
 	}
 
 	/**
@@ -88,10 +105,10 @@ public class VendCommunicator {
 				//Verify there is enough change in the machine to pay for the full price
 				if (receptacle.getValue() >= machine.getPopKindCost(index)) {
 					this.costRemaining -= machine.getPopKindCost(index);
+					updateCredit(-1 * machine.getPopKindCost(index));
 					changePaid = machine.getPopKindCost(index);
 				}
 				else {
-					//System.out.println("Insufficient Funds.");
 					displayMsg("Insufficient Funds. Please specify payment amount for partial cash payment.");
 				}
 			}
@@ -109,6 +126,7 @@ public class VendCommunicator {
 						receptacle.Purchase(this.amount);
 					}
 					this.costRemaining -= this.amount;
+					updateCredit(-1 * this.amount);
 					changePaid += this.amount;
 					displayMsg(this.amount + " paid by cash. Please pay off remaining " + this.costRemaining);
 				}
@@ -176,13 +194,16 @@ public class VendCommunicator {
 			machine.getExactChangeLight().deactivate();
 		}
 	}
+	public int getCredit() {
+		return this.credit;
+	}
 	public void setValidCardFlag(boolean flag) {
 		this.validCardFlag = flag;
 	}
-  	//Setter for the payment type
+	//Setter for the payment type
 	public void setPaymentType(int paymentType) {
 		this.paymentType = paymentType;
-	}
+	}	
 	//Setter for the amount to be paid
 	public void setAmount(int amount) {
 		this.amount = amount;
@@ -212,6 +233,37 @@ public class VendCommunicator {
 	public boolean verifyCard(boolean isValid) {
 		return isValid;
 	}
+	
+	/**
+	* Function that updates the value of credit, and displays it to the screen
+	*
+	* @param value - The value by which to increase or decrease credit in the machine
+	*/
+	public void updateCredit(int value) {
+		credit += value;
+	}
+	
+	/**
+     * A method to begin the timers for the welcome message
+     */
+    public void welcomeMessageTimer() {
+        displayWelcome = true;
+        timer1 = new Timer();
+        timer1.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    displayMsg("Hi there!");
+                    }
+        }, 0, 15000);
+        
+        timer2 = new Timer();
+        timer2.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+            	displayMsg("");
+                }
+        }, 5000, 15000);       
+    }
 	
 	/**
 	* Function that is called when enough cash payment is taken to dispense a pop
@@ -255,6 +307,10 @@ public class VendCommunicator {
 	* message - the message being outputted to the display
 	*/
 	public void displayMsg(String message) {
+		if (this.credit != 0) {
+			timer1.cancel();
+			timer2.cancel();
+		}
 		machine.getDisplay().display(message);
 	}
 

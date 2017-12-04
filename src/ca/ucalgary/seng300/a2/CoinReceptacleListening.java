@@ -5,7 +5,7 @@
  * Andrew Garcia-Corley 10015169 & Michael de Grood 10134884
  */
 
-package ca.ucalgary.seng300.a2;
+package ca.ucalgary.seng300.a3;
 
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
@@ -22,12 +22,12 @@ public class CoinReceptacleListening implements CoinReceptacleListener {
 	 * 
 	 * @param reCap
 	 */
-	public CoinReceptacleListening(int reCap, VendCommunicator communicator, emptyMsgLoop msgLoop) {
+	public CoinReceptacleListening(int reCap, emptyMsgLoop msgLoop) {
 		isOn = true;
 		value = 0;
 		coinCount = 0;
 		message = "";
-		this.communicator = communicator;
+		this.communicator = VendCommunicator.getInstance();
 		this.msgLoop = msgLoop;
 	}
 

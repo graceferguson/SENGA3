@@ -131,4 +131,11 @@ public class ConfigPanelLogic {
 				popCanCosts.add(i, vend.getPopKindCost(i));
 		}
 	}
+	
+	/**
+	* A method to get the vending machine for the gui
+	*/
+	public VendingMachine getMachine() {
+		return vend;
+	}
 }

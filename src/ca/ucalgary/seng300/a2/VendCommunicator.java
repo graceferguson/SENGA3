@@ -254,36 +254,6 @@ public class VendCommunicator {
 			this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) this.getCredit() / 100)));
 		}
 	}
-	
-	/**
-     * A method to begin the timers for the welcome message
-     */
-    public void welcomeMessageTimer() {
-        displayWelcome = true;
-        timer1 = new Timer();
-        timer1.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    welcomeMessage();
-                    }
-        }, 0, 15000);
-        
-        timer2 = new Timer();
-        timer2.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-            	clearWelcomeMessage();
-                }
-        }, 5000, 15000);       
-    }
-	
-    public void welcomeMessage() {
-    	machine.getDisplay().display("Hi there!");
-    }
-    
-    public void clearWelcomeMessage() {
-    	machine.getDisplay().display("");
-    }
     
 	/**
 	* Function that is called when enough cash payment is taken to dispense a pop

@@ -21,10 +21,17 @@ public class VendCommunicator {
 	private LockPanelListener lockPanel;
 	private ConfigPanelLogic configPanelLogic;
 	
-	
-	public VendCommunicator() {
+	private VendCommunicator() {
 	}
 	
+	private static class VendCommunicatorHolder {
+		private static final VendCommunicator INSTANCE = new VendCommunicator();
+	}
+	
+	public static VendCommunicator getInstance()
+	{
+		return VendCommunicatorHolder.INSTANCE;
+	}
 
 	// Links the appropriate parts to their corresponding variables
 	public void linkVending(CoinReceptacleListening receptacle,IndicatorLighListening indicator, OutOfOrderLightListening display, PopCanRackListening[] pRacks, VendingMachine machine,
@@ -327,7 +334,7 @@ public class VendCommunicator {
 		for (int index = 0; (found == false) && (index < machine.getNumberOfSelectionButtons()); index++) {
 			if (machine.getSelectionButton(index) == button) {
 				found = true;
-				if(machine.getLock().isLocked == true) {
+				if(machine.getLock().isLocked() == true) {
 					purchasePop(index);
 				}
 			}
@@ -339,7 +346,7 @@ public class VendCommunicator {
 		for (int index = 0; (found == false) && (index < 37); index++) {
 			if (machine.getConfigurationPanel().getButton(index) == button) {
 				found = true;
-				if (machine.getLock().isLocked == false) { // if lock is not enabled do not allow configPanel to be used
+				if (machine.getLock().isLocked() == false) { // if lock is not enabled do not allow configPanel to be used
 					configPanelLogic.configButtonAction(button);
 				}
 			}
@@ -348,7 +355,7 @@ public class VendCommunicator {
 		// check to see if the button is the configuration panels enter button.
 		if ((found == false) && (button == machine.getConfigurationPanel().getEnterButton())) {
 			found = true;
-			if (machine.getLock().isLocked == false) {  // if lock is not enabled do not allow configPanel to be used
+			if (machine.getLock().isLocked() == false) {  // if lock is not enabled do not allow configPanel to be used
 				configPanelLogic.configButtonAction(button);
 			}
 		}

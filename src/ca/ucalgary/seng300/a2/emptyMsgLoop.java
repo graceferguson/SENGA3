@@ -7,7 +7,7 @@
  */
 
 
-package ca.ucalgary.seng300.a2;
+package ca.ucalgary.seng300.a3;
 import java.lang.InterruptedException;
 
 /**
@@ -22,11 +22,11 @@ public class emptyMsgLoop implements Runnable
 	private Thread msgLoopThread;
 	private Boolean reactivateReady;
 	
-	public emptyMsgLoop(String message, VendCommunicator communicator)
+	public emptyMsgLoop(String message)
 	{
 		this.message = message;
 		reactivate = false;
-		this.communicator = communicator;
+		this.communicator = VendCommunicator.getInstance();
 		msgLoopThread = new Thread(this);
 		reactivateReady = false;
 	}

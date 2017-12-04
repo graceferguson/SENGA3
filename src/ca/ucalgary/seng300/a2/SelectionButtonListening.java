@@ -26,10 +26,10 @@ public class SelectionButtonListening implements PushButtonListener {
 	 * @param num numerical representation of button pressed
 	 * @param com communicator 
 	 */
-	public SelectionButtonListening(int num, VendCommunicator com) {
+	public SelectionButtonListening(int num) {
 		isOn = true;
 		index = num;
-		communicator = com;
+		communicator = VendCommunicator.getInstance();
 	}
 
 	/**

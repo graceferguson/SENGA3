@@ -9,10 +9,8 @@ import org.lsmr.vending.hardware.Lock;
 public class LockPanelListener implements org.lsmr.vending.hardware.LockListener{
 
 	
-	private VendCommunicator communicator;
-	
-	public LockPanelListener(VendCommunicator vend) {
-		this.communicator = vend;
+	public LockPanelListener() {
+		this.communicator = VendCommunicator.getInstance();
 	}
 	
 	@Override

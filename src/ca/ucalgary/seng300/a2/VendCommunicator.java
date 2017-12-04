@@ -508,6 +508,14 @@ public class VendCommunicator {
 		}
 		return out;
 	}
+	
+	/**
+	*	A method that is used to determine what action the communicator should take when a button has been pressed.
+	*		The referenced button will be compared to all buttons in the vending machine to figure out what type of, 
+	*		and if nessasary what index, the button is.  This is then passed on to the appropriate method to complete the action.
+	*
+	*	@param button - the reference to the button that was pressed.
+	*/
 	public void determineButtonAction(PushButton button) {
 		boolean found = false;
 		// search through the selection buttons to see if the parameter button is a selection button

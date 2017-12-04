@@ -93,7 +93,9 @@ public class VendCommunicator {
 	 */
 	public void purchasePop(int index) {
 		//Variables to calculate remaining cost and change that was paid
-		this.costRemaining = machine.getPopKindCost(index);
+		if (this.costRemaining == 0) {
+			this.costRemaining = machine.getPopKindCost(index);
+		}
 		int changePaid = 0;
 		if (pRacks[index].isEmpty()) {
 			System.out.println("Out of " + machine.getPopKindName(index));
@@ -103,10 +105,10 @@ public class VendCommunicator {
 			//If amount is -1, then no amount was specified. User pays for the full price in change.
 			if (this.amount == -1) {
 				//Verify there is enough change in the machine to pay for the full price
-				if (receptacle.getValue() >= machine.getPopKindCost(index)) {
-					this.costRemaining -= machine.getPopKindCost(index);
-					updateCredit(-1 * machine.getPopKindCost(index));
-					changePaid = machine.getPopKindCost(index);
+				if (this.credit >= this.costRemaining) {
+					updateCredit(-1 * this.costRemaining);
+					changePaid = this.costRemaining;
+					this.costRemaining -= this.costRemaining;
 				}
 				else {
 					displayMsg("Insufficient Funds. Please specify payment amount for partial cash payment.");
@@ -115,7 +117,7 @@ public class VendCommunicator {
 			//If a different amount to be paid is specified, only pay off that portion
 			else {
 				//Verify there is enough change in the machine to pay the specified amount
-				if (receptacle.getValue() >= this.amount) {
+				if (this.credit >= this.amount) {
 					//Adjust amount so you don't overpay for the price of a pop
 					if (this.amount > this.costRemaining) {
 						this.amount = this.costRemaining;
@@ -144,7 +146,7 @@ public class VendCommunicator {
 			if (this.amount == -1) {
 				//Make sure the card is valid before taking payment
 				if (verifyCard(this.validCardFlag)) {
-					this.costRemaining -= machine.getPopKindCost(index);
+					this.costRemaining -= this.costRemaining;
 				}
 			}
 			//If an amount to be paid was specified, then the user only pays for that amount
@@ -240,7 +242,7 @@ public class VendCommunicator {
 	* @param value - The value by which to increase or decrease credit in the machine
 	*/
 	public void updateCredit(int value) {
-		credit += value;
+		this.credit += value;
 	}
 	
 	/**

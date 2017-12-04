@@ -83,6 +83,13 @@ public class VendCommunicator {
 		} else {
 			System.out.println("Insufficient Funds");
 		}
+		this.wait(5000);  // wait 5 seconds
+		if (credit == 0); {
+			displayWelcome = true;
+			this.welcomeMessageTimer();
+		}
+		else
+			this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) this.getCredit() / 100)));
 	}
 	
 	public boolean getChangeLightFlag() {

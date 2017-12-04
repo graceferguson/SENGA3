@@ -11,9 +11,6 @@ public class ConfigPanelLogic {
 	protected ConfigPopPrices configPopPriceLogic;
 	
 	private ConfigPanelLogic() {
-		mode = 0;
-		input = -1;
-		configPopPriceLogic = ConfigPopPrices.getInstance();
 	}
 	
 	private static class ConfigPanelLogicHolder {
@@ -26,6 +23,9 @@ public class ConfigPanelLogic {
 	
 	public void initializeCP(VendingMachine vending) {
 		vend = vending;
+		mode = 0;
+		input = -1;
+		configPopPriceLogic = ConfigPopPrices.getInstance();
 		this.displayConfigMessage();
 	}
 	
@@ -36,7 +36,7 @@ public class ConfigPanelLogic {
 		String message = "";
 
 		if (mode == 0) {	// all configuration options for the control panel
-			message = this.displayPanelOptions();
+			message += this.displayPanelOptions();
 		}
 		else if (mode == 1) { // mode for configuring pop prices
 			String[] names = new String[vend.getNumberOfSelectionButtons()];
@@ -58,8 +58,8 @@ public class ConfigPanelLogic {
 	 * a method to display the options available for configurations 
 	 */
 	private String displayPanelOptions() {
-		String message = "Select which aspect to configure: \n";
-		message += "0 - " + configPopPriceLogic.modeName() + "\n";
+		String message = "Select which aspect to configure: \n ";
+		message += "0 - " + configPopPriceLogic.modeName() + "\n ";
 		//message += "1 - "; // TODO more messages to display options 
 		if (input < 0)
 			message += "Selection: ";
@@ -75,7 +75,7 @@ public class ConfigPanelLogic {
 	public void configButtonAction(PushButton button) {
 		if (button == vend.getConfigurationPanel().getEnterButton()) {
 			if (mode == 0) {
-				if (input + 1 < MAX_MODE) {
+				if (input + 1 <= MAX_MODE) {
 					mode = input + 1; // since the selections start at 0 but the new modes start at 1.
 				}
 				input = -1;

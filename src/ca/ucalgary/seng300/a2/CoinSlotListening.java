@@ -19,11 +19,13 @@ import org.lsmr.vending.hardware.*;
  */
 public class CoinSlotListening implements CoinSlotListener {
 	private boolean isOn;
+	private VendCommunicator vc;
 	
 	static DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
     static Date dateobj = new Date();
 
 	public CoinSlotListening() {
+		vc = VendCommunicator.getInstance();
 		isOn = true;
 	}
 
@@ -50,6 +52,7 @@ public class CoinSlotListening implements CoinSlotListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		vc.updateCredit(coin.getValue());
 	}
 
 	/**
@@ -66,5 +69,4 @@ public class CoinSlotListening implements CoinSlotListener {
 	public boolean isOn() {
 		return isOn;
 	}
-
 }

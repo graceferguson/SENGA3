@@ -181,13 +181,7 @@ public class VendCommunicator {
 			e.printStackTrace();
 		}
 
-		
-		if (this.credit == 0); {
-			emptyMsgL.reactivateCheck();
-		}
-		if (this.getCredit() != 0) {
-			this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) this.getCredit() / 100)));
-		}
+		updateCredit(0);
 	}
 	
 	//Required setters and getters
@@ -252,7 +246,13 @@ public class VendCommunicator {
 	*/
 	public void updateCredit(int value) {
 		credit += value;
-		this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) this.getCredit() / 100)));
+		
+		if (this.credit == 0) {
+			emptyMsgL.reactivateCheck();
+		}
+		else {
+			this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) this.getCredit() / 100)));
+		}
 	}
 	
 	/**

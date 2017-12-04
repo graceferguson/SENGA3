@@ -1,8 +1,13 @@
-//SENG300 Group Assignment 2
+//SENG300 Group Assignment 3
 
 package ca.ucalgary.seng300.a3;
 
 import org.lsmr.vending.hardware.*;
+import ca.ucalgary.seng300.a3.CoinRackListening;
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -19,9 +24,26 @@ public class VendCommunicator {
 	private OutOfOrderLightListening outOfOrderLight;
 	private Boolean changeLightFlag = false;
 	private LockPanelListener lockPanel;
+	private boolean validCardFlag;
+	private int credit;
+	private boolean displayWelcome;
+	private Timer timer1;
+	private Timer timer2;
 	private ConfigPanelLogic configPanelLogic;
+	private emptyMsgLoop emptyMsgL;
 	
-	private VendCommunicator() {
+	//For use with writing to our log file
+	static DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+    static Date dateobj = new Date();
+	
+	//0 = Cash, 1 = Debit, 2 = Credit
+	private int paymentType;
+	//The amount the user wants to pay
+	private int amount;
+	//The remaining cost after paying for a portion of pop
+	private int costRemaining;
+
+	public VendCommunicator() {
 	}
 	
 	private static class VendCommunicatorHolder {
@@ -35,7 +57,7 @@ public class VendCommunicator {
 
 	// Links the appropriate parts to their corresponding variables
 	public void linkVending(CoinReceptacleListening receptacle,IndicatorLighListening indicator, OutOfOrderLightListening display, PopCanRackListening[] pRacks, VendingMachine machine,
-			HashMap<CoinRack, CoinRackListening> cRacks, LockPanelListener lockPanel) {
+			HashMap<CoinRack, CoinRackListening> cRacks, LockPanelListener lockPanel, int credit) {
 		this.receptacle = receptacle;
 		this.pRacks = pRacks;
 		this.machine = machine;
@@ -43,14 +65,29 @@ public class VendCommunicator {
 		this.changeLight = indicator;
 		this.outOfOrderLight = display;
 		this.lockPanel = lockPanel;
+		this.paymentType = 0; //Payment type defaults to cash
+		this.amount = -1; //Payment amount defaults to -1
+		this.validCardFlag = false; //Consider cards to be invalid by default
+		this.credit = credit;
 		configPanelLogic = ConfigPanelLogic.getInstance();
 		configPanelLogic.initializeCP(machine);
+		this.emptyMsgL = new emptyMsgLoop("Hi there!", this);
+		emptyMsgL.reactivateMsg();
+		//emptyMsgL.startThread();
 	}
 
 	/**
 	 * Function that is called by SelectionButtonListening
 	 * 
-	 * index - index of the selectionButton calling the function
+	 * @param index
+	 * 				- index of the selectionButton calling the function
+	 * @param amount
+	 * 				- the amount the user wants to pay with the selected tender
+	 * @param tenderType
+	 * 				- the type of tender the user is making payment with
+	 * 				- 0 = Cash
+	 * 				- 1 = Debit
+	 * 				- 2 = Credit
 	 * 
 	 * Checks if the requested pop is available. If it is, checks to see if the
 	 * machine has enough credit to purchase the soda. If enough credit is
@@ -58,40 +95,102 @@ public class VendCommunicator {
 	 * to dispense said pop. Prints an appropriate message in each instance.
 	 */
 	public void purchasePop(int index) {
+		//Variables to calculate remaining cost and change that was paid
+		this.costRemaining = machine.getPopKindCost(index);
+		int changePaid = 0;
 		if (pRacks[index].isEmpty()) {
 			System.out.println("Out of " + machine.getPopKindName(index));
-		} else if (receptacle.getValue() >= machine.getPopKindCost(index)) {
-			try {
-				int change = receptacle.getValue() - machine.getPopKindCost(index);
-				machine.getCoinReceptacle().unload();
-				//receptacle.Purchase(machine.getPopKindCost(index));
-				machine.getPopCanRack(index).dispensePopCan();
-				int remainder = giveChange(change);
-				receptacle.setValue(remainder);
-				if (!hasChange() && !changeLightFlag) {
-					machine.getExactChangeLight().activate();
-					changeLightFlag = true;
+		}
+		//Take cash payments
+		else if (paymentType == 0) {
+			//If amount is -1, then no amount was specified. User pays for the full price in change.
+			if (this.amount == -1) {
+				//Verify there is enough change in the machine to pay for the full price
+				if (receptacle.getValue() >= machine.getPopKindCost(index)) {
+					this.costRemaining -= machine.getPopKindCost(index);
+					updateCredit(-1 * machine.getPopKindCost(index));
+					changePaid = machine.getPopKindCost(index);
 				}
-				else if (hasChange() && changeLightFlag) {
-					machine.getExactChangeLight().deactivate();
-					changeLightFlag = false;
+				else {
+					displayMsg("Insufficient Funds. Please specify payment amount for partial cash payment.");
 				}
-			} catch (DisabledException e) {
-			} catch (EmptyException e) {
-			} catch (CapacityExceededException e) {
 			}
-		} else {
-			System.out.println("Insufficient Funds");
+			//If a different amount to be paid is specified, only pay off that portion
+			else {
+				//Verify there is enough change in the machine to pay the specified amount
+				if (receptacle.getValue() >= this.amount) {
+					//Adjust amount so you don't overpay for the price of a pop
+					if (this.amount > this.costRemaining) {
+						this.amount = this.costRemaining;
+					}
+					//Decrease the receptacle value by the amount paid
+					//This happens on its own if dispensePopWithChange is called, don't want to double up
+					else if (this.amount < this.costRemaining) {
+						receptacle.Purchase(this.amount);
+					}
+					this.costRemaining -= this.amount;
+					updateCredit(-1 * this.amount);
+					changePaid += this.amount;
+					displayMsg(this.amount + " paid by cash. Please pay off remaining " + this.costRemaining);
+				}
+				else {
+					displayMsg("Insufficient Funds. Please specify a payment amount for which you have sufficient credit.");
+				}
+			}
+			//Dispense a pop only if the remaining cost ever reaches 0
+			if (this.costRemaining == 0) {
+				dispensePopWithChange(index, changePaid);
+			}
 		}
-		this.wait(5000);  // wait 5 seconds
-		if (credit == 0); {
-			displayWelcome = true;
-			this.welcomeMessageTimer();
+		else if (this.paymentType == 1 || this.paymentType == 2){
+			//If amount is -1, then no amount was specified. User pays for the full price using card.
+			if (this.amount == -1) {
+				//Make sure the card is valid before taking payment
+				if (verifyCard(this.validCardFlag)) {
+					this.costRemaining -= machine.getPopKindCost(index);
+				}
+			}
+			//If an amount to be paid was specified, then the user only pays for that amount
+			else {
+				//Make sure the card is valid before taking payment
+				if (verifyCard(this.validCardFlag)) {
+					//Adjust amount so you don't overpay for the price of a pop
+					if (this.amount > this.costRemaining) {
+						this.amount = this.costRemaining;
+					}
+					this.costRemaining -= this.amount;
+					displayMsg(this.amount + " paid by card. Please pay off remaining " + this.costRemaining);
+				}
+			}
+			//Dispense a pop only if the remaining cost ever reaches 0
+			if (this.costRemaining == 0) {
+				dispensePopWithChange(index, changePaid);
+			}
 		}
-		else
+		else {
+			displayMsg("Payment type not supported at this time.");
+			try {
+				LogFile.writeLog("\n"+df.format(dateobj) + "\t" + getClass().getName() + "\t" + "payment type not yet supported");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			LogFile.writeLog("\n"+df.format(dateobj) + "\t" + getClass().getName() + "\t" + "button pressed");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		
+		if (this.credit == 0); {
+			emptyMsgL.reactivateCheck();
+		}
+		if (this.getCredit() != 0) {
 			this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) this.getCredit() / 100)));
+		}
 	}
 	
+	//Required setters and getters
 	public boolean getChangeLightFlag() {
 		return changeLightFlag;
 	}
@@ -106,26 +205,130 @@ public class VendCommunicator {
 			machine.getExactChangeLight().deactivate();
 		}
 	}
-
-/**
-* Function that enables safety on the vending machine
-*/
-	public void enableSafety() {
-		machine.enableSafety();
+	public int getCredit() {
+		return this.credit;
 	}
-/**
-* Function that disables safety on the vending machine
-*/	
+	public void setValidCardFlag(boolean flag) {
+		this.validCardFlag = flag;
+	}
+	//Setter for the payment type
+	public void setPaymentType(int paymentType) {
+		this.paymentType = paymentType;
+	}	
+	//Setter for the amount to be paid
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	
+	/**
+	*Function that enables safety on the vending machine		
+	*/		
+	public void enableSafety() {		
+		machine.enableSafety();		
+	}
+	/**
+	*Function that disables safety on the vending machine
+	*/
 	public void disableSafety() {
 		machine.disableSafety();
 	}
+	
+	/**
+	* Function that tells us if a debit/credit card is valid.
+	* A valid card means the payment processor has checked the
+	* card number, balance, and PIN. If any of these are invalid,
+	* return false. Otherwise, return true.
+	*
+	* @param isValid - The flag we would receive from the payment processor
+	*/
+	public boolean verifyCard(boolean isValid) {
+		return isValid;
+	}
+	
+	/**
+	* Function that updates the value of credit, and displays it to the screen
+	*
+	* @param value - The value by which to increase or decrease credit in the machine
+	*/
+	public void updateCredit(int value) {
+		credit += value;
+	}
+	
+	/**
+     * A method to begin the timers for the welcome message
+     */
+    public void welcomeMessageTimer() {
+        displayWelcome = true;
+        timer1 = new Timer();
+        timer1.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    welcomeMessage();
+                    }
+        }, 0, 15000);
+        
+        timer2 = new Timer();
+        timer2.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+            	clearWelcomeMessage();
+                }
+        }, 5000, 15000);       
+    }
+	
+    public void welcomeMessage() {
+    	machine.getDisplay().display("Hi there!");
+    }
+    
+    public void clearWelcomeMessage() {
+    	machine.getDisplay().display("");
+    }
+    
+	/**
+	* Function that is called when enough cash payment is taken to dispense a pop
+	*
+	* @param index - the index of the pop can rack
+	*/
+	public void dispensePopWithChange(int index, int changePaid) {
+		try {
+			int change = receptacle.getValue() - changePaid;
+			machine.getCoinReceptacle().unload();
+			machine.getPopCanRack(index).dispensePopCan();
+			try {
+				LogFile.writeLog("\n"+df.format(dateobj) + "\t" + getClass().getName() + "\t" + "pop dispensed\n");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			int remainder = giveChange(change);
+			receptacle.setValue(remainder);
+			try {
+				LogFile.writeLog("\n"+df.format(dateobj) + "\t" + getClass().getName() + "\t" + remainder + " cents in change given\n");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			if (!hasChange() && !changeLightFlag) {
+				machine.getExactChangeLight().activate();
+				changeLightFlag = true;
+			}
+			else if (hasChange() && changeLightFlag) {
+				machine.getExactChangeLight().deactivate();
+				changeLightFlag = false;
+			}
+		} catch (DisabledException e) {
+		} catch (EmptyException e) {
+		} catch (CapacityExceededException e) {
+		}
+	}
 
-/**
+	/**
 	* Function that is called when something needs to print to the display
 	*
 	* message - the message being outputted to the display
 	*/
 	public void displayMsg(String message) {
+		//timer1.cancel();
+		//timer2.cancel();
+		emptyMsgL.interruptThread();
 		machine.getDisplay().display(message);
 	}
 
@@ -334,14 +537,13 @@ public class VendCommunicator {
 		}
 		return out;
 	}
-	
 	public void determineButtonAction(PushButton button) {
 		boolean found = false;
 		// search through the selection buttons to see if the parameter button is a selection button
 		for (int index = 0; (found == false) && (index < machine.getNumberOfSelectionButtons()); index++) {
 			if (machine.getSelectionButton(index) == button) {
 				found = true;
-				if(machine.getLock().isLocked() == true) {
+				if(machine.isSafetyEnabled() == false) {
 					purchasePop(index);
 				}
 			}
@@ -353,18 +555,14 @@ public class VendCommunicator {
 		for (int index = 0; (found == false) && (index < 37); index++) {
 			if (machine.getConfigurationPanel().getButton(index) == button) {
 				found = true;
-				if (machine.getLock().isLocked() == false) { // if lock is not enabled do not allow configPanel to be used
-					configPanelLogic.configButtonAction(button);
-				}
+				configPanelLogic.configButtonAction(button);
 			}
 		}
 		
 		// check to see if the button is the configuration panels enter button.
 		if ((found == false) && (button == machine.getConfigurationPanel().getEnterButton())) {
 			found = true;
-			if (machine.getLock().isLocked() == false) {  // if lock is not enabled do not allow configPanel to be used
-				configPanelLogic.configButtonAction(button);
-			}
+			configPanelLogic.configButtonAction(button);
 		}
 	}
 }

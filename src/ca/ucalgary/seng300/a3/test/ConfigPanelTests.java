@@ -8,6 +8,7 @@ import org.junit.After;
 
 import static org.junit.Assert.*;
 
+import java.awt.Button;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -104,6 +105,10 @@ public class ConfigPanelTests {
 		*/
 		
 		cfp = new ConfigPopPrices(2);
+		
+		int[] coinKinds = new int[] {1,5,10,25,100,200};
+		machine = new VendingMachine(coinKinds, 6, 200,10,200, 200, 200);
+		cpl = new ConfigPanelLogic(machine);
 		
 		/*
 		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap);
@@ -330,5 +335,15 @@ public class ConfigPanelTests {
 		String message = cfp.modeInstructions(names, prices);
 		String expected = "Use 0 - 9 (b for backspace) to enter new price for Sprite: \n $2.75";
 		assertTrue(message.equals(expected));
+	}
+	
+	/**
+	 * ConfigPanelLogicTests
+	 */
+	@Test
+	public void displayPanelOptionsTest() {
+		PushButton button = null;
+		cpl.configButtonAction(button);
+		
 	}
 }

@@ -25,7 +25,7 @@ public class CoinSlotListening implements CoinSlotListener {
     static Date dateobj = new Date();
 
 	public CoinSlotListening() {
-		vendCommunicator = VendCommunicatorHolder.INSTANCE;
+		vendCommunicator = VendCommunicatorHolder.getInstance();
 		isOn = true;
 	}
 

@@ -29,10 +29,12 @@ public class CoinReturnButtonActionListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		ret = vc.getReceptacle().getValue();
-		vc.getReceptacle().setValue(0);
+		//dispense all the credit entered thus far as change
+		vc.giveChange(vc.getReceptacle().getValue());
+		//update the display right away
 		gui.setDisplay("Credit: $0.00");
-		gui.setCoinReturnVal(gui.getCoinReturnVal() + ret);
+		//the credit receptacle is now empty
+		vc.getReceptacle().setValue(0);
 	}
 
 }

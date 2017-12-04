@@ -38,10 +38,12 @@ public class ConfigPanelTests {
 	private emptyMsgLoop msgLoop;
 	private HashMap<CoinRack, CoinRackListening> rackMap;
 	private CoinReturnListening coinReturn;
-	private IndicatorLighListening changeLight = new IndicatorLighListening();
-	private OutOfOrderLightListening outOfOrderLight  = new OutOfOrderLightListening();
+	private IndicatorLighListening changeLight;
+	private OutOfOrderLightListening outOfOrderLight;
 	private ConfigPopPrices cfp;
 	private ConfigPanelLogic cpl;
+	private LockPanelListener lockListening;
+	private DisplayListening displayListener = new DisplayListening();
 	
 	/**
 	 * setup to initialize vending machine and accompanying listeners
@@ -50,7 +52,10 @@ public class ConfigPanelTests {
 	 */
 	@Before
 	public void setup() throws FileNotFoundException, UnsupportedEncodingException {
-		/* 
+		
+		changeLight = new IndicatorLighListening();
+		outOfOrderLight  = new OutOfOrderLightListening();
+		 
 		LogFile.createLogFile();
 		int[] coinTypes = {1, 5, 10, 25, 100, 200 };
 		int numButtons = 6;
@@ -73,13 +78,8 @@ public class ConfigPanelTests {
 		int[] coinKinds = new int[] {1,5,10,25,100,200};
 		
 		machine = new VendingMachine(coinKinds, 6, 200,10,200, 200, 200);
-		VendCommunicator communicator = new VendCommunicator();
+		VendCommunicator communicator = VendCommunicator.getInstance();
 		msgLoop = new emptyMsgLoop("Hi there!", communicator);
-		
-
-		// communicator needs to be created before selection buttons, since
-		// selection button takes in a reference to the communicator
-//		VendCommunicator communicator = new VendCommunicator();
 
 		buttons = new SelectionButtonListening[numButtons];
 		receptacle = new CoinReceptacleListening(reCap,communicator,msgLoop); //ESB 
@@ -97,13 +97,15 @@ public class ConfigPanelTests {
 		machine.getDeliveryChute().register(chute);
 		machine.getExactChangeLight().register(changeLight);
 		machine.getOutOfOrderLight().register(outOfOrderLight);
+		machine.getDisplay().register(displayListener);
+		rackMap = new HashMap<CoinRack, CoinRackListening>();
 		for (int i = 0; i < coinTypes.length; i++) {
 			racks[i] = new CoinRackListening(coinTypes[i]);
 			machine.getCoinRack(i).register(racks[i]);
 			rackMap.put(machine.getCoinRack(i), racks[i]);
 		}
 		for (int i = 0; i < numButtons; i++) {
-			buttons[i] = new SelectionButtonListening(i, communicator);
+			buttons[i] = new SelectionButtonListening(i);
 			machine.getSelectionButton(i).register(buttons[i]);
 		}
 		for (int i = 0; i < 6; i++) {
@@ -111,15 +113,16 @@ public class ConfigPanelTests {
 			machine.getPopCanRack(i).register(canRacks[i]);
 			machine.getPopCanRack(i).load(new PopCan(machine.getPopKindName(i)));
 		}
-		*/
+		
 		
 		cfp = ConfigPopPrices.getInstance();
 		cfp.initializeCPP(2);
 		
-		/*
-		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap);
-		msgLoop.startThread();
-		*/
+		lockListening = new LockPanelListener();
+		
+		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap, lockListening, 0);
+		//msgLoop.startThread();
+		
 	}
 	
 	/**

@@ -53,6 +53,7 @@ public class VendCommunicator {
 		this.lockPanel = lockPanel;
 		this.paymentType = 0; //Payment type defaults to cash
 		this.amount = -1; //Payment amount defaults to -1
+		this.validCardFlag = false; //Consider cards to be invalid by default
 	}
 
 	/**

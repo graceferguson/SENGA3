@@ -3,6 +3,7 @@
 package ca.ucalgary.seng300.a3;
 
 import org.lsmr.vending.hardware.*;
+import ca.ucalgary.seng300.a3.CoinRackListening;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -22,6 +23,7 @@ public class VendCommunicator {
 	private IndicatorLighListening changeLight;
 	private OutOfOrderLightListening outOfOrderLight;
 	private Boolean changeLightFlag = false;
+	private LockPanelListener lockPanel;
 	private boolean validCardFlag;
 	
 	//For use with writing to our log file
@@ -41,13 +43,14 @@ public class VendCommunicator {
 
 	// Links the appropriate parts to their corresponding variables
 	public void linkVending(CoinReceptacleListening receptacle,IndicatorLighListening indicator, OutOfOrderLightListening display, PopCanRackListening[] pRacks, VendingMachine machine,
-			HashMap<CoinRack, CoinRackListening> cRacks) {
+			HashMap<CoinRack, CoinRackListening> cRacks, LockPanelListener lockPanel) {
 		this.receptacle = receptacle;
 		this.pRacks = pRacks;
 		this.machine = machine;
 		this.cRacks = cRacks;
 		this.changeLight = indicator;
 		this.outOfOrderLight = display;
+		this.lockPanel = lockPanel;
 		this.paymentType = 0; //Payment type defaults to cash
 		this.amount = -1; //Payment amount defaults to -1
 	}
@@ -175,13 +178,26 @@ public class VendCommunicator {
 	public void setValidCardFlag(boolean flag) {
 		this.validCardFlag = flag;
 	}
-  //Setter for the payment type
+  	//Setter for the payment type
 	public void setPaymentType(int paymentType) {
 		this.paymentType = paymentType;
 	}
 	//Setter for the amount to be paid
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+	
+	/**
+	*Function that enables safety on the vending machine		
+	*/		
+	public void enableSafety() {		
+		machine.enableSafety();		
+	}
+	/**
+	*Function that disables safety on the vending machine
+	*/
+	public void disableSafety() {
+		machine.disableSafety();
 	}
 	
 	/**

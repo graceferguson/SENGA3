@@ -252,6 +252,7 @@ public class VendCommunicator {
 	*/
 	public void updateCredit(int value) {
 		credit += value;
+		this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) this.getCredit() / 100)));
 	}
 	
 	/**

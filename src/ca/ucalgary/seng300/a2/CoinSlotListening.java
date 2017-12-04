@@ -19,11 +19,13 @@ import org.lsmr.vending.hardware.*;
  */
 public class CoinSlotListening implements CoinSlotListener {
 	private boolean isOn;
+	vendCommunicator;
 	
 	static DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
     static Date dateobj = new Date();
 
 	public CoinSlotListening() {
+		vendCommunicator = VendCommunicatorHolder.INSTANCE;
 		isOn = true;
 	}
 

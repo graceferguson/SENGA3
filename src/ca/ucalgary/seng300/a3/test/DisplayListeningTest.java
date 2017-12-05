@@ -13,8 +13,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.lsmr.vending.hardware.*;
 
-import ca.ucalgary.seng300.a2.DisplayListening;
-import ca.ucalgary.seng300.a2.LogFile;
+import ca.ucalgary.seng300.a3.DisplayListening;
+import ca.ucalgary.seng300.a3.LogFile;
 
 public class DisplayListeningTest {
 	

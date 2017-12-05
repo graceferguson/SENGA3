@@ -3,7 +3,7 @@ package ca.ucalgary.seng300.a3.test;
 import static org.junit.Assert.*;
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
-import ca.ucalgary.seng300.a2.*;
+import ca.ucalgary.seng300.a3.*;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
@@ -55,7 +55,7 @@ public class EmptyMsgLoopTest {
 		
 		machine = new VendingMachine(coinKinds, 6, 200,10,200, 200, 200);
 		VendCommunicator communicator = new VendCommunicator();
-		msgLoop = new emptyMsgLoop("Hi there!", communicator);
+		msgLoop = new emptyMsgLoop("Hi there!");
 		
 
 
@@ -66,7 +66,7 @@ public class EmptyMsgLoopTest {
 //		VendCommunicator communicator = new VendCommunicator();
 
 		buttons = new SelectionButtonListening[numButtons];
-		receptacle = new CoinReceptacleListening(reCap,communicator,msgLoop); //ESB 
+		receptacle = new CoinReceptacleListening(reCap,msgLoop); //ESB 
 		canRacks = new PopCanRackListening[6];
 		chute = new DeliveryChuteListening();
 
@@ -100,7 +100,7 @@ public class EmptyMsgLoopTest {
 			rackMap.put(machine.getCoinRack(i), racks[i]);
 		}
 		for (int i = 0; i < numButtons; i++) {
-			buttons[i] = new SelectionButtonListening(i, communicator);
+			buttons[i] = new SelectionButtonListening(i);
 			machine.getSelectionButton(i).register(buttons[i]);
 		}
 		for (int i = 0; i < 6; i++) {
@@ -109,7 +109,7 @@ public class EmptyMsgLoopTest {
 			machine.getPopCanRack(i).load(new PopCan(machine.getPopKindName(i)));
 		}
 
-		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap);
+		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap, null, reCap, null);
 		
 		
 		}

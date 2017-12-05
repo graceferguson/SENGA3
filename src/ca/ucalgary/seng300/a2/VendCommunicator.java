@@ -26,9 +26,6 @@ public class VendCommunicator {
 	private LockPanelListener lockPanel;
 	private boolean validCardFlag;
 	private int credit;
-	private boolean displayWelcome;
-	private Timer timer1;
-	private Timer timer2;
 	private ConfigPanelLogic configPanelLogic;
 	private emptyMsgLoop emptyMsgL;
 	
@@ -73,7 +70,7 @@ public class VendCommunicator {
 		configPanelLogic.initializeCP(machine);
 		this.emptyMsgL = new emptyMsgLoop("Hi there!", this);
 		emptyMsgL.reactivateMsg();
-		//emptyMsgL.startThread();
+		emptyMsgL.startThread();
 	}
 
 	/**
@@ -248,9 +245,10 @@ public class VendCommunicator {
 		credit += value;
 		
 		if (this.credit == 0) {
-			emptyMsgL.reactivateCheck();
+			emptyMsgL.reactivateMsg();
 		}
 		else {
+			emptyMsgL.deactivateMsg();
 			this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) this.getCredit() / 100)));
 		}
 	}
@@ -299,7 +297,6 @@ public class VendCommunicator {
 	public void displayMsg(String message) {
 		//timer1.cancel();
 		//timer2.cancel();
-		emptyMsgL.interruptThread();
 		machine.getDisplay().display(message);
 	}
 

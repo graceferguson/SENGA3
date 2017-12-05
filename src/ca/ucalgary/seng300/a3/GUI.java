@@ -101,6 +101,7 @@ public class GUI extends JFrame{
         //Configure backgrounds/colors and the such
         display.setForeground(Color.blue);
         
+        //Add the various jswing components to the grid layout
         c.gridy =0 ;
         c.gridx =3 ;
         p.add(outOfOrder, c);
@@ -135,11 +136,10 @@ public class GUI extends JFrame{
         p.add(requestButton, c);
         
         //set constraints for pop buttons outside of loop since they are all the same
-        
         c.gridwidth = 2;
         c.gridx = 1;
         
-        //for loop for soda selection buttons
+        //for-loop to add soda selection buttons
         for(int i = 0; i < numSelections; i++) {
             c.gridy = 5+i;
             p.add(selection[i], c);
@@ -152,6 +152,7 @@ public class GUI extends JFrame{
         //reset c.gridwidth to 1 and restore other constraints
         c.gridwidth = 1;
         
+        //continue adding other components
         c.gridy = numSelections + 5;
         c.gridx = 0;
         p.add(retLabel, c);

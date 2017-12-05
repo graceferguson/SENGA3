@@ -1611,3 +1611,28 @@ Time of creation 28/11/17 20:08:26\n\n
 02/12/17 13:25:40	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
 
 02/12/17 13:25:40	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+--------------------This is the start of a new run for VM--------------------- Time of creation 05/12/17 12:42:30\n\n
+
+
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.IndicatorLighListening	Light isActive value is now true
+
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed
+
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.CoinSlotListening	coin inserted
+
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.DeliveryChuteListening	pop dispensed
+
+05/12/17 12:42:30	ca.ucalgary.seng300.a2.SelectionButtonListening	button pressed

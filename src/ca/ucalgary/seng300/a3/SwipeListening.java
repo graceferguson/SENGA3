@@ -8,7 +8,6 @@ import org.lsmr.vending.hardware.AbstractHardware;
 import org.lsmr.vending.hardware.AbstractHardwareListener;
 import org.lsmr.vending.hardware.CoinReceptacle;
 
-import ca.ucalgary.seng300.a3.Payment.ElectronicCurrency;
 
 
 

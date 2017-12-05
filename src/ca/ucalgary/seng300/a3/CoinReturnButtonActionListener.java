@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 import org.lsmr.vending.hardware.VendingMachine;
 
-import ca.ucalgary.seng300.a2.VendCommunicator;
+import ca.ucalgary.seng300.a3.VendCommunicator;
 
 public class CoinReturnButtonActionListener implements ActionListener {
 	VendingMachine vm;
@@ -30,7 +30,7 @@ public class CoinReturnButtonActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		//dispense all the credit entered thus far as change
-		vc.giveChange(vc.getReceptacle().getValue());
+		vc.giveChange(vc.getCredit());
 		//update the display right away
 		gui.setDisplay("Credit: $0.00");
 		//empty receptacle of coins

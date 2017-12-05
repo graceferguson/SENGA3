@@ -70,7 +70,7 @@ public class VendCommunicator {
 		this.credit = credit;
 		configPanelLogic = ConfigPanelLogic.getInstance();
 		configPanelLogic.initializeCP(machine);
-		this.emptyMsgL = new emptyMsgLoop("Hi there!", this);
+		this.emptyMsgL = new emptyMsgLoop("Hi there!");
 		emptyMsgL.reactivateMsg();
 		emptyMsgL.startThread();
 		this.swipeListening = swipe;
@@ -251,7 +251,7 @@ public class VendCommunicator {
 			emptyMsgL.reactivateMsg();
 		}
 		else {
-			emptyMsgL.deactivateMsg();
+			emptyMsgL.reactivateMsg();
 			this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) this.getCredit() / 100)));
 		}
 	}

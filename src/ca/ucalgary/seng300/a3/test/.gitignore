@@ -10,3 +10,11 @@
 /msgLoopTest.class
 /testChange.class
 /testOutOfOrderLight.class
+/AbstractConfigMode.class
+/ButtonTests.class
+/ConfigPanelLogic$ConfigPanelLogicHolder.class
+/ConfigPanelLogic.class
+/ConfigPanelTests.class
+/ConfigPopPrices$ConfigPopPricesHolder.class
+/ConfigPopPrices.class
+/SwipeListeningTest.class

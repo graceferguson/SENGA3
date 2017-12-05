@@ -11,7 +11,6 @@ package ca.ucalgary.seng300.a3;
 import java.awt.event.*;
 import org.lsmr.vending.hardware.*;
 
-import ca.ucalgary.seng300.a2.VendCommunicator;
 
 public class PopButtonActionListener implements ActionListener {
 
@@ -40,7 +39,7 @@ public class PopButtonActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		vend.getSelectionButton(buttonIndex).press();
-		double myVal = vcom.getReceptacle().getValue()/100.0;
+		double myVal = vcom.getCredit()/100.0;
 		graph.setDisplay("Credit: $" + myVal);
 	}
 

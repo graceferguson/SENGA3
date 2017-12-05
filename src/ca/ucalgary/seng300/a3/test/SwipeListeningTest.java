@@ -1,4 +1,4 @@
-package ca.ucalgary.seng300.a3;
+package ca.ucalgary.seng300.a3.test;
 
 import static org.junit.Assert.*;
 

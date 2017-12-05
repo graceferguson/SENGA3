@@ -12,18 +12,18 @@ import org.junit.Test;
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
 
-import ca.ucalgary.seng300.a3.CoinRackListening;
-import ca.ucalgary.seng300.a3.CoinReceptacleListening;
-import ca.ucalgary.seng300.a3.CoinReturnListening;
-import ca.ucalgary.seng300.a3.CoinSlotListening;
-import ca.ucalgary.seng300.a3.DeliveryChuteListening;
-import ca.ucalgary.seng300.a3.IndicatorLighListening;
-import ca.ucalgary.seng300.a3.LogFile;
-import ca.ucalgary.seng300.a3.OutOfOrderLightListening;
-import ca.ucalgary.seng300.a3.PopCanRackListening;
-import ca.ucalgary.seng300.a3.SelectionButtonListening;
-import ca.ucalgary.seng300.a3.VendCommunicator;
-import ca.ucalgary.seng300.a3.emptyMsgLoop;
+import ca.ucalgary.seng300.a2.CoinRackListening;
+import ca.ucalgary.seng300.a2.CoinReceptacleListening;
+import ca.ucalgary.seng300.a2.CoinReturnListening;
+import ca.ucalgary.seng300.a2.CoinSlotListening;
+import ca.ucalgary.seng300.a2.DeliveryChuteListening;
+import ca.ucalgary.seng300.a2.IndicatorLighListening;
+import ca.ucalgary.seng300.a2.LogFile;
+import ca.ucalgary.seng300.a2.OutOfOrderLightListening;
+import ca.ucalgary.seng300.a2.PopCanRackListening;
+import ca.ucalgary.seng300.a2.SelectionButtonListening;
+import ca.ucalgary.seng300.a2.VendCommunicator;
+import ca.ucalgary.seng300.a2.emptyMsgLoop;
 
 public class msgLoopTest {
 

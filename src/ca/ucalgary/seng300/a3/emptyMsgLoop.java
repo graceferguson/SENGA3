@@ -53,6 +53,10 @@ public class emptyMsgLoop implements Runnable
 		return reactivateReady;
 	}
 	
+	public void deactivateMsg() {
+		reactivate = false;
+	}
+	
 	public void run()
 	{
 		// overall loops indefinitely until program stops

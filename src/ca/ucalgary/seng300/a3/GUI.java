@@ -20,7 +20,7 @@ import javax.swing.SwingConstants;
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
 
-import ca.ucalgary.seng300.a2.*;
+import ca.ucalgary.seng300.a3.*;
 
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
@@ -287,7 +287,7 @@ public class GUI extends JFrame{
     	setVisible(true);
     }
     public void displayCredit() {
-    	double val = communicator.getReceptacle().getValue()/100.0;
+    	double val = communicator.getCredit()/100.0;
     	setDisplay("Credit: $" + val);
     }
     
@@ -340,8 +340,8 @@ public class GUI extends JFrame{
 		CoinSlotListening slot = new CoinSlotListening();
 		CoinRackListening[] racks = new CoinRackListening[canadianCoins.length];
 		SelectionButtonListening[] buttons = new SelectionButtonListening[numPopTypes];
-		emptyMsgLoop msgLoop = new emptyMsgLoop("Hi there!", comm);
-		CoinReceptacleListening receptacle = new CoinReceptacleListening(50,comm,msgLoop); //ESB 
+		emptyMsgLoop msgLoop = new emptyMsgLoop("Hi there!");
+		CoinReceptacleListening receptacle = new CoinReceptacleListening(50,msgLoop); //ESB 
 		PopCanRackListening[] canRacks = new PopCanRackListening[6];
 		DeliveryChuteListening chute = new DeliveryChuteListening();
 		vendingMachine.getCoinSlot().register(slot);
@@ -361,7 +361,7 @@ public class GUI extends JFrame{
 			rackMap.put(vendingMachine.getCoinRack(i), racks[i]);
 		}
 		for (int i = 0; i < numPopTypes; i++) {
-			buttons[i] = new SelectionButtonListening(i, comm);
+			buttons[i] = new SelectionButtonListening(i);
 			vendingMachine.getSelectionButton(i).register(buttons[i]);
 		}
 		for (int i = 0; i < 6; i++) {
@@ -369,7 +369,7 @@ public class GUI extends JFrame{
 			vendingMachine.getPopCanRack(i).register(canRacks[i]);
 			vendingMachine.getPopCanRack(i).load(new PopCan(vendingMachine.getPopKindName(i)));
 		}
-		comm.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, vendingMachine, rackMap);
+		comm.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, vendingMachine, rackMap, null, numPopTypes, null);
 		
 
 		// Customize the pop kinds and pop costs in the vending machine

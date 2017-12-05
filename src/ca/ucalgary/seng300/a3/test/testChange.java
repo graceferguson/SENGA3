@@ -15,18 +15,18 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 import java.util.HashMap;
 
-
+import org.junit.Test;
 import org.lsmr.vending.hardware.CoinChannel;
 import org.lsmr.vending.hardware.CoinRack;
 import org.lsmr.vending.hardware.CoinReturn;
 import org.lsmr.vending.hardware.VendingMachine;
 
-import ca.ucalgary.seng300.a3.CoinRackListening;
-import ca.ucalgary.seng300.a3.CoinReceptacleListening;
-import ca.ucalgary.seng300.a3.IndicatorLighListening;
-import ca.ucalgary.seng300.a3.OutOfOrderLightListening;
-import ca.ucalgary.seng300.a3.PopCanRackListening;
-import ca.ucalgary.seng300.a3.VendCommunicator;
+import ca.ucalgary.seng300.a2.CoinRackListening;
+import ca.ucalgary.seng300.a2.CoinReceptacleListening;
+import ca.ucalgary.seng300.a2.IndicatorLighListening;
+import ca.ucalgary.seng300.a2.OutOfOrderLightListening;
+import ca.ucalgary.seng300.a2.PopCanRackListening;
+import ca.ucalgary.seng300.a2.VendCommunicator;
 
 public class testChange {
 		//Simple test wherein one specific coin is meant to be given as change

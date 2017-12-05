@@ -221,6 +221,15 @@ public class GUI extends JFrame{
     }
     
     /**
+     * Changes the text of the pop buttons when their values are updated
+     * @param buttonIndex
+     * @param newText
+     */
+    public void setPopButtonText(int buttonIndex, double newPrice) {
+    	selection[buttonIndex].setText(vend.getPopKindName(buttonIndex) + "  $" + newPrice);
+    }
+    
+    /**
      * Adds labels and buttons to allow for credit card payments
      */
     public void enableCreditCard() {
@@ -398,12 +407,14 @@ public class GUI extends JFrame{
 		}
 		vendingMachine.loadCoins(coinLoading);
 		
-		new GUI(vendingMachine, comm);
+		GUI gui = new GUI(vendingMachine, comm);
 		
 		GUIConfigPanel configP = new GUIConfigPanel(vendingMachine);
 		ConfigPanelDisplayListening configPanelDisplayListening = new ConfigPanelDisplayListening(configP);
 		vendingMachine.getConfigurationPanel().getDisplay().register(configPanelDisplayListening);
 		configP.init();
+		
+		ConfigPanelLogicListener configListener; // Where is the ConfigPanelLogic initialized????????????????
 		
     } // end main
     

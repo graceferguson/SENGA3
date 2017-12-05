@@ -8,7 +8,7 @@ import org.lsmr.vending.hardware.AbstractHardware;
 import org.lsmr.vending.hardware.AbstractHardwareListener;
 import org.lsmr.vending.hardware.CoinReceptacle;
 
-import ca.ucalgary.seng300.a2.Payment.ElectronicCurrency;
+import ca.ucalgary.seng300.a3.Payment.ElectronicCurrency;
 
 
 
@@ -17,7 +17,7 @@ import ca.ucalgary.seng300.a2.Payment.ElectronicCurrency;
  *
  */
 
-public class SwipeListening implements SwipListener {
+public class SwipeListening implements SwipeListener {
 
 	private boolean declined = false;
 

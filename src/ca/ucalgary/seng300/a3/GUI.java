@@ -414,7 +414,7 @@ public class GUI extends JFrame{
 		vendingMachine.getConfigurationPanel().getDisplay().register(configPanelDisplayListening);
 		configP.init();
 		
-		ConfigPanelLogicListener configListener; // Where is the ConfigPanelLogic initialized????????????????
+		ConfigPanelLogicListener configListener = new ConfigPanelLogicListener(gui); // Where is the ConfigPanelLogic initialized????????????????
 		
     } // end main
     

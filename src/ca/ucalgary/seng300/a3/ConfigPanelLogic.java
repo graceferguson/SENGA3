@@ -74,7 +74,7 @@ public class ConfigPanelLogic {
 	 * @param button - the reference to the button that was pressed 
 	 */
 	public void configButtonAction(PushButton button) {
-		if (vend.getLock().isLocked() == false) {
+		if (vend.getLock().isLocked() == true) {
 			if (button == vend.getConfigurationPanel().getEnterButton()) {
 				if (mode == 0) {
 					if (input + 1 <= MAX_MODE) {

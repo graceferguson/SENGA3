@@ -3,12 +3,10 @@ package ca.ucalgary.seng300.a3;
 public class ConfigPanelLogicListener {
 	
 	private GUI mygui;
-	private ConfigPanelLogic mylogic;
 	
-	public ConfigPanelLogicListener(ConfigPanelLogic c, GUI g) {
+	public ConfigPanelLogicListener(GUI g) {
 		mygui = g;
-		mylogic = c;
-		mylogic.register(this);
+		ConfigPanelLogic.getInstance().register(this);
 	}
 	
 	public void priceUpdate(int buttonIndex, int newPrice) {

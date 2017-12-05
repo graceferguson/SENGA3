@@ -5,7 +5,7 @@
  * Andrew Garcia-Corley 10015169 & Michael de Grood 10134884
  */
 
-package  ca.ucalgary.seng300.a2;
+package  ca.ucalgary.seng300.a3;
 
 import java.io.IOException;
 

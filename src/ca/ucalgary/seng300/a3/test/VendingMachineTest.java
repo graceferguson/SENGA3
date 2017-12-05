@@ -5,7 +5,7 @@
  * A class that sets up and tests the vending machine
  */
 
-package ca.ucalgary.seng300.a2.test;
+package ca.ucalgary.seng300.a3.test;
 import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;

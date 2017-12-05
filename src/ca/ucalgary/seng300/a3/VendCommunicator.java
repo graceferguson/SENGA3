@@ -28,7 +28,9 @@ public class VendCommunicator {
 	private int credit;
 	private ConfigPanelLogic configPanelLogic;
 	private emptyMsgLoop emptyMsgL;
-	
+	private SwipeListening swipeListening;
+	private double partialAmount = 0;
+
 	//For use with writing to our log file
 	static DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
     static Date dateobj = new Date();
@@ -43,7 +45,6 @@ public class VendCommunicator {
 	public VendCommunicator() {
 	}
 	
-<<<<<<< HEAD
 	private static class VendCommunicatorHolder {
 		private static final VendCommunicator INSTANCE = new VendCommunicator();
 	}
@@ -52,17 +53,10 @@ public class VendCommunicator {
 	{
 		return VendCommunicatorHolder.INSTANCE;
 	}
-=======
-	//getter for the coin receptacle that holds all the change
-	public CoinReceptacleListening getReceptacle() {
-		return receptacle;
-	}
-	
->>>>>>> cb4fe6c8c431440a46431f30e2e4e6287759c350
 
 	// Links the appropriate parts to their corresponding variables
 	public void linkVending(CoinReceptacleListening receptacle,IndicatorLighListening indicator, OutOfOrderLightListening display, PopCanRackListening[] pRacks, VendingMachine machine,
-			HashMap<CoinRack, CoinRackListening> cRacks, LockPanelListener lockPanel, int credit) {
+			HashMap<CoinRack, CoinRackListening> cRacks, LockPanelListener lockPanel, int credit, SwipeListening swipe) {
 		this.receptacle = receptacle;
 		this.pRacks = pRacks;
 		this.machine = machine;
@@ -79,6 +73,7 @@ public class VendCommunicator {
 		this.emptyMsgL = new emptyMsgLoop("Hi there!", this);
 		emptyMsgL.reactivateMsg();
 		emptyMsgL.startThread();
+		this.swipeListening = swipe;
 	}
 
 	/**

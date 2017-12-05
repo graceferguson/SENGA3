@@ -42,7 +42,7 @@ public class GUI extends JFrame{
     
     //input slots are actually 3 objects, a label, a input box, and a button, similar thing for card payments
     private JLabel coinLabel = new JLabel("Coin Slot: ", SwingConstants.RIGHT);
-    private JTextField coinInput = new JTextField("Type a coin value (in cents)");
+    private JTextField coinInput = new JTextField("Type a coin value");
     private JButton coinButton = new JButton("Enter coins");
     
     //Request to return coins button
@@ -183,7 +183,7 @@ public class GUI extends JFrame{
         
         //Connecting the pop buttons to the vending machine
         for (int i = 0; i < selection.length; i++) {
-        	selection[i].addActionListener(new PopButtonActionListener(i, vend));
+        	selection[i].addActionListener(new PopButtonActionListener(i, vend, this, communicator));
         }
         
         //Connecting the coin entering elements together

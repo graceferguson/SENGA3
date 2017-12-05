@@ -11,10 +11,14 @@ package ca.ucalgary.seng300.a3;
 import java.awt.event.*;
 import org.lsmr.vending.hardware.*;
 
+import ca.ucalgary.seng300.a2.VendCommunicator;
+
 public class PopButtonActionListener implements ActionListener {
 
 	private int buttonIndex;
 	private VendingMachine vend;
+	private VendCommunicator vcom;
+	private GUI graph;
 	
 	/**
 	 * Creates an action listener for the JButtons that correspond
@@ -22,9 +26,11 @@ public class PopButtonActionListener implements ActionListener {
 	 * @param i the index of the button in the array of buttons
 	 * @param vending the vending machine associated with the GUI
 	 */
-	public PopButtonActionListener(int i, VendingMachine vending) {
+	public PopButtonActionListener(int i, VendingMachine vending, GUI gui, VendCommunicator vc) {
 		buttonIndex = i;
 		vend = vending;
+		vcom = vc;
+		graph = gui;
 	}
 	
 	/**
@@ -33,7 +39,9 @@ public class PopButtonActionListener implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		vend.getSelectionButton(buttonIndex).press();	
+		vend.getSelectionButton(buttonIndex).press();
+		double myVal = vcom.getReceptacle().getValue()/100.0;
+		graph.setDisplay("Credit: $" + myVal);
 	}
 
 }

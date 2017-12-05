@@ -69,6 +69,8 @@ public class GUI extends JFrame{
     private VendingMachine vend;
     private VendCommunicator communicator;
     
+    ConfigPanelDisplayListening configPanelDisplayListening;
+    
     /**
      * 
      * @param vend the VendingMachine connected to the GUI
@@ -325,7 +327,7 @@ public class GUI extends JFrame{
     	int coinRackCapacity = 15; 
     	int numPopTypes = 6;
 		VendingMachine vendingMachine = new VendingMachine(canadianCoins, numPopTypes, coinRackCapacity, 15, 200, 200, 15);
-		VendCommunicator comm = new VendCommunicator();
+		VendCommunicator comm = VendCommunicator.getInstance();
 		
 		// Do all the VendCommunicator things
 		try {
@@ -369,7 +371,14 @@ public class GUI extends JFrame{
 			vendingMachine.getPopCanRack(i).register(canRacks[i]);
 			vendingMachine.getPopCanRack(i).load(new PopCan(vendingMachine.getPopKindName(i)));
 		}
-		comm.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, vendingMachine, rackMap, null, numPopTypes, null);
+		
+		for (int i = 0; i < 37; i++) {
+			vendingMachine.getConfigurationPanel().getButton(i).register(new SelectionButtonListening(i));
+		}
+		
+		vendingMachine.getConfigurationPanel().getEnterButton().register(new SelectionButtonListening(37));
+		
+		comm.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, vendingMachine, rackMap, null, 0, null);
 		
 
 		// Customize the pop kinds and pop costs in the vending machine
@@ -391,7 +400,10 @@ public class GUI extends JFrame{
 		
 		new GUI(vendingMachine, comm);
 		
-		
+		GUIConfigPanel configP = new GUIConfigPanel(vendingMachine);
+		ConfigPanelDisplayListening configPanelDisplayListening = new ConfigPanelDisplayListening(configP);
+		vendingMachine.getConfigurationPanel().getDisplay().register(configPanelDisplayListening);
+		configP.init();
 		
     } // end main
     

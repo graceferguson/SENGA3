@@ -81,10 +81,10 @@ public class ConfigPanelTests {
 		
 		machine = new VendingMachine(coinKinds, 6, 200,10,200, 200, 200);
 		VendCommunicator communicator = VendCommunicator.getInstance();
-		msgLoop = new emptyMsgLoop("Hi there!");
+		msgLoop = new emptyMsgLoop("Hi there!", communicator);
 
 		buttons = new SelectionButtonListening[numButtons];
-		receptacle = new CoinReceptacleListening(reCap,msgLoop); //ESB 
+		receptacle = new CoinReceptacleListening(reCap,communicator,msgLoop); //ESB 
 		canRacks = new PopCanRackListening[6];
 		chute = new DeliveryChuteListening();
 
@@ -122,7 +122,7 @@ public class ConfigPanelTests {
 		
 		lockListening = new LockPanelListener();
 		
-		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap, lockListening, 0, null);
+		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap, lockListening, 0);
 		//msgLoop.startThread();
 		
 	}

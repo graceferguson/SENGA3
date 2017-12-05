@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import ca.ucalgary.seng300.a3.LogFile;
+import ca.ucalgary.seng300.a2.LogFile;
 
 public class LogFileTest {
 

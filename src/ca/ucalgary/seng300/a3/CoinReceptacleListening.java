@@ -16,7 +16,7 @@ public class CoinReceptacleListening implements CoinReceptacleListener {
 	private int coinCount;
 	private String message;
 	private VendCommunicator communicator;
-	private emptyMsgLoop msgLoop;
+	//private emptyMsgLoop msgLoop;
 
 	/**
 	 * 
@@ -28,7 +28,7 @@ public class CoinReceptacleListening implements CoinReceptacleListener {
 		coinCount = 0;
 		message = "";
 		this.communicator = VendCommunicator.getInstance();
-		this.msgLoop = msgLoop;
+		//this.msgLoop = msgLoop;
 	}
 
 	/**
@@ -50,14 +50,10 @@ public class CoinReceptacleListening implements CoinReceptacleListener {
 	 */
 	public void coinAdded(CoinReceptacle receptacle, Coin coin) {
 		coinCount++;
-		if(value == 0)
-		{
-			msgLoop.interruptThread();
-		}
 		value += coin.getValue();
 		double decVal = value/100.0;
 		message = "Credit: $"+ decVal;
-		communicator.displayMsg(message);
+		communicator.displayCreditMsg();
 	}
 
 	/**
@@ -66,7 +62,7 @@ public class CoinReceptacleListening implements CoinReceptacleListener {
 	public void coinsRemoved(CoinReceptacle receptacle) {
 		value = 0;
 		coinCount = 0;
-		msgLoop.reactivateMsg();
+		//msgLoop.reactivateMsg();
 	}
 
 	/**
@@ -103,10 +99,6 @@ public class CoinReceptacleListening implements CoinReceptacleListener {
 	 */
 	public void Purchase(int amount) {
 		value -= amount;
-		if(value <= 0)
-		{
-			msgLoop.reactivateMsg();
-		}
 	}
 
 	/**
@@ -120,10 +112,6 @@ public class CoinReceptacleListening implements CoinReceptacleListener {
 	
 	public void setValue(int value){
 		this.value = value;
-		if(value == 0 && msgLoop.reactivateCheck())
-		{
-			msgLoop.reactivateMsg();
-		}
 	}
 
 	/**

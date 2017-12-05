@@ -18,18 +18,18 @@ import org.junit.Test;
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
 
-import ca.ucalgary.seng300.a3.CoinRackListening;
-import ca.ucalgary.seng300.a3.CoinReceptacleListening;
-import ca.ucalgary.seng300.a3.CoinReturnListening;
-import ca.ucalgary.seng300.a3.CoinSlotListening;
-import ca.ucalgary.seng300.a3.DeliveryChuteListening;
-import ca.ucalgary.seng300.a3.IndicatorLighListening;
-import ca.ucalgary.seng300.a3.LogFile;
-import ca.ucalgary.seng300.a3.OutOfOrderLightListening;
-import ca.ucalgary.seng300.a3.PopCanRackListening;
-import ca.ucalgary.seng300.a3.SelectionButtonListening;
-import ca.ucalgary.seng300.a3.VendCommunicator;
-import ca.ucalgary.seng300.a3.emptyMsgLoop;
+import ca.ucalgary.seng300.a2.CoinRackListening;
+import ca.ucalgary.seng300.a2.CoinReceptacleListening;
+import ca.ucalgary.seng300.a2.CoinReturnListening;
+import ca.ucalgary.seng300.a2.CoinSlotListening;
+import ca.ucalgary.seng300.a2.DeliveryChuteListening;
+import ca.ucalgary.seng300.a2.IndicatorLighListening;
+import ca.ucalgary.seng300.a2.LogFile;
+import ca.ucalgary.seng300.a2.OutOfOrderLightListening;
+import ca.ucalgary.seng300.a2.PopCanRackListening;
+import ca.ucalgary.seng300.a2.SelectionButtonListening;
+import ca.ucalgary.seng300.a2.VendCommunicator;
+import ca.ucalgary.seng300.a2.emptyMsgLoop;
 
 public class VendingMachineTest {
 
@@ -77,7 +77,7 @@ public class VendingMachineTest {
 		
 		machine = new VendingMachine(coinKinds, 6, 200,10,200, 200, 200);
 		VendCommunicator communicator = new VendCommunicator();
-		msgLoop = new emptyMsgLoop("Hi there!");
+		msgLoop = new emptyMsgLoop("Hi there!", communicator);
 		
 
 		// communicator needs to be created before selection buttons, since
@@ -85,7 +85,7 @@ public class VendingMachineTest {
 //		VendCommunicator communicator = new VendCommunicator();
 
 		buttons = new SelectionButtonListening[numButtons];
-		receptacle = new CoinReceptacleListening(reCap,msgLoop); //ESB 
+		receptacle = new CoinReceptacleListening(reCap,communicator,msgLoop); //ESB 
 		canRacks = new PopCanRackListening[6];
 		chute = new DeliveryChuteListening();
 
@@ -117,7 +117,7 @@ public class VendingMachineTest {
 			rackMap.put(machine.getCoinRack(i), racks[i]);
 		}
 		for (int i = 0; i < numButtons; i++) {
-			buttons[i] = new SelectionButtonListening(i);
+			buttons[i] = new SelectionButtonListening(i, communicator);
 			machine.getSelectionButton(i).register(buttons[i]);
 		}
 		for (int i = 0; i < 6; i++) {
@@ -126,7 +126,7 @@ public class VendingMachineTest {
 			machine.getPopCanRack(i).load(new PopCan(machine.getPopKindName(i)));
 		}
 
-		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap, null, reCap, null);
+		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap);
 		msgLoop.startThread();
 	}
 

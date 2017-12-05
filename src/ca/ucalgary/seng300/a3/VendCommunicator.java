@@ -30,6 +30,8 @@ public class VendCommunicator {
 	private emptyMsgLoop emptyMsgL;
 	private SwipeListening swipeListening;
 	private double partialAmount = 0;
+	private Timer timer1;
+	private Timer timer2;
 
 	//For use with writing to our log file
 	static DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
@@ -71,9 +73,10 @@ public class VendCommunicator {
 		configPanelLogic = ConfigPanelLogic.getInstance();
 		configPanelLogic.initializeCP(machine);
 		this.emptyMsgL = new emptyMsgLoop("Hi there!");
-		emptyMsgL.reactivateMsg();
-		emptyMsgL.startThread();
+		//emptyMsgL.reactivateMsg();
+		//emptyMsgL.startThread();
 		this.swipeListening = swipe;
+		welcomeMessageTimer();
 	}
 
 	/**
@@ -99,17 +102,17 @@ public class VendCommunicator {
 		this.costRemaining = machine.getPopKindCost(index);
 		int changePaid = 0;
 		if (pRacks[index].isEmpty()) {
-			System.out.println("Out of " + machine.getPopKindName(index));
+			displayMsg("Out of " + machine.getPopKindName(index));
 		}
 		//Take cash payments
 		else if (paymentType == 0) {
 			//If amount is -1, then no amount was specified. User pays for the full price in change.
 			if (this.amount == -1) {
 				//Verify there is enough change in the machine to pay for the full price
-				if (receptacle.getValue() >= machine.getPopKindCost(index)) {
-					this.costRemaining -= machine.getPopKindCost(index);
+				if (credit >= machine.getPopKindCost(index)) {
+					this.costRemaining = 0;
+					changePaid = 0;
 					updateCredit(-1 * machine.getPopKindCost(index));
-					changePaid = machine.getPopKindCost(index);
 				}
 				else {
 					displayMsg("Insufficient Funds. Please specify payment amount for partial cash payment.");
@@ -118,16 +121,16 @@ public class VendCommunicator {
 			//If a different amount to be paid is specified, only pay off that portion
 			else {
 				//Verify there is enough change in the machine to pay the specified amount
-				if (receptacle.getValue() >= this.amount) {
+				if (credit >= this.amount) {
 					//Adjust amount so you don't overpay for the price of a pop
 					if (this.amount > this.costRemaining) {
 						this.amount = this.costRemaining;
 					}
 					//Decrease the receptacle value by the amount paid
-					//This happens on its own if dispensePopWithChange is called, don't want to double up
+					/*//This happens on its own if dispensePopWithChange is called, don't want to double up
 					else if (this.amount < this.costRemaining) {
 						receptacle.Purchase(this.amount);
-					}
+					}*/
 					this.costRemaining -= this.amount;
 					updateCredit(-1 * this.amount);
 					changePaid += this.amount;
@@ -182,6 +185,42 @@ public class VendCommunicator {
 		}
 
 		updateCredit(0);
+	}
+	
+	/**
+	 * A method to begin the timers for the welcome message
+	 */
+	public void welcomeMessageTimer() {
+		timer1 = new Timer();
+		timer1.scheduleAtFixedRate(new TimerTask() {
+				@Override
+				public void run() {
+					welcomeMessage();
+					}
+		}, 0, 15000);
+		
+		timer2 = new Timer();
+		timer2.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				clearDisplayMessage();
+				}
+		}, 5000, 15000);
+		
+	}
+	
+	/**
+	 * A method to push a welcome message to the display
+	 */
+	public void welcomeMessage() {
+		machine.getDisplay().display("Hi There!");
+	}
+	
+	/**
+	 * A method to clear the message to the display
+	 */
+	public void clearDisplayMessage() {
+		machine.getDisplay().display("");
 	}
 	
 	//Required setters and getters
@@ -248,10 +287,9 @@ public class VendCommunicator {
 		credit += value;
 		
 		if (this.credit == 0) {
-			emptyMsgL.reactivateMsg();
+			welcomeMessageTimer();
 		}
 		else {
-			emptyMsgL.reactivateMsg();
 			this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) this.getCredit() / 100)));
 		}
 	}
@@ -263,7 +301,7 @@ public class VendCommunicator {
 	*/
 	public void dispensePopWithChange(int index, int changePaid) {
 		try {
-			int change = receptacle.getValue() - changePaid;
+			int change = credit - changePaid;
 			machine.getCoinReceptacle().unload();
 			machine.getPopCanRack(index).dispensePopCan();
 			try {
@@ -272,7 +310,7 @@ public class VendCommunicator {
 				e.printStackTrace();
 			}
 			int remainder = giveChange(change);
-			receptacle.setValue(remainder);
+			credit = remainder;
 			try {
 				LogFile.writeLog("\n"+df.format(dateobj) + "\t" + getClass().getName() + "\t" + remainder + " cents in change given\n");
 			} catch (IOException e) {
@@ -298,9 +336,15 @@ public class VendCommunicator {
 	* message - the message being outputted to the display
 	*/
 	public void displayMsg(String message) {
-		//timer1.cancel();
-		//timer2.cancel();
+		if (timer1 != null) {
+			timer1.cancel();
+			timer2.cancel();
+		}
 		machine.getDisplay().display(message);
+	}
+	
+	public void displayCreditMsg() {
+		this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) credit / 100)));
 	}
 
 	/**

@@ -11,8 +11,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.lsmr.vending.hardware.IndicatorLight;
 
-import ca.ucalgary.seng300.a3.IndicatorLighListening;
-import ca.ucalgary.seng300.a3.LogFile;
+import ca.ucalgary.seng300.a2.IndicatorLighListening;
+import ca.ucalgary.seng300.a2.LogFile;
 
 public class IndicatorLightListeningTest {
 	

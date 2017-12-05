@@ -52,6 +52,7 @@ public class CoinSlotListening implements CoinSlotListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		vendCommunicator.updateCredit(coin.getValue());
 	}
 
 	/**

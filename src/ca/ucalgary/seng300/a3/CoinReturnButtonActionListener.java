@@ -33,8 +33,8 @@ public class CoinReturnButtonActionListener implements ActionListener {
 		vc.giveChange(vc.getReceptacle().getValue());
 		//update the display right away
 		gui.setDisplay("Credit: $0.00");
-		//the credit receptacle is now empty
-		vc.getReceptacle().setValue(0);
+		//empty receptacle of coins
+		vm.getCoinReceptacle().unload();
 	}
 
 }

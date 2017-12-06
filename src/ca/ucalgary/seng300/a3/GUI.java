@@ -51,6 +51,8 @@ public class GUI extends JFrame{
     private JLabel cardLabel = new JLabel("Card Slot: ", SwingConstants.RIGHT);
     private JTextField cardInput = new JTextField("Type a value");
     private JButton cardButton = new JButton("Confirm payment");
+   
+    private JButton lockUnlock = new JButton("Lock");
     
     //Soda Selection Buttons
     //An array that doesn't have a set size to start with
@@ -102,6 +104,12 @@ public class GUI extends JFrame{
         
         //Configure backgrounds/colors and the such
         display.setForeground(Color.blue);
+        
+        
+        c.gridy =12 ;
+        c.gridx =3 ;
+        p.add(lockUnlock, c);
+        
         
         c.gridy =0 ;
         c.gridx =3 ;
@@ -208,6 +216,10 @@ public class GUI extends JFrame{
         //Connecting coin return
         GUICoinReturnListener coinRet = new GUICoinReturnListener(vend, this);
         
+        GUILockPanelListener lock = new GUILockPanelListener(this, vend);
+        
+        lockUnlock.addActionListener(new LockUnlockButtonListener(vend,this,lock));        
+       
         //Connecting unload coins button
         retButton.addActionListener(new RetButtonActionListener(vend, this, coinRet));
         
@@ -324,6 +336,10 @@ public class GUI extends JFrame{
     public void setPopReturnVal(int value) {
     	popRetInput.setText(Integer.toString(value));
     	setVisible(true);
+    }
+    
+    public void changeTextLock(String text) {
+    	lockUnlock.setText(text);
     }
     
   

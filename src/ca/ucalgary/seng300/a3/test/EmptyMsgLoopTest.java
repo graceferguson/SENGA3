@@ -3,7 +3,7 @@ package ca.ucalgary.seng300.a3.test;
 import static org.junit.Assert.*;
 import org.lsmr.vending.*;
 import org.lsmr.vending.hardware.*;
-import ca.ucalgary.seng300.a2.*;
+import ca.ucalgary.seng300.a3.*;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
@@ -54,19 +54,15 @@ public class EmptyMsgLoopTest {
 		int[] coinKinds = new int[] {1,5,10,25,100,200};
 		
 		machine = new VendingMachine(coinKinds, 6, 200,10,200, 200, 200);
-		VendCommunicator communicator = new VendCommunicator();
-		msgLoop = new emptyMsgLoop("Hi there!", communicator);
-		
-
-
-		
+		VendCommunicator communicator = VendCommunicator.getInstance();
+		msgLoop = new emptyMsgLoop("Hi there!");
 
 		// communicator needs to be created before selection buttons, since
 		// selection button takes in a reference to the communicator
 //		VendCommunicator communicator = new VendCommunicator();
 
 		buttons = new SelectionButtonListening[numButtons];
-		receptacle = new CoinReceptacleListening(reCap,communicator,msgLoop); //ESB 
+		receptacle = new CoinReceptacleListening(reCap,msgLoop); //ESB 
 		canRacks = new PopCanRackListening[6];
 		chute = new DeliveryChuteListening();
 
@@ -100,7 +96,7 @@ public class EmptyMsgLoopTest {
 			rackMap.put(machine.getCoinRack(i), racks[i]);
 		}
 		for (int i = 0; i < numButtons; i++) {
-			buttons[i] = new SelectionButtonListening(i, communicator);
+			buttons[i] = new SelectionButtonListening(i);
 			machine.getSelectionButton(i).register(buttons[i]);
 		}
 		for (int i = 0; i < 6; i++) {
@@ -109,7 +105,7 @@ public class EmptyMsgLoopTest {
 			machine.getPopCanRack(i).load(new PopCan(machine.getPopKindName(i)));
 		}
 
-		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap);
+		communicator.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, machine, rackMap, null, reCap, null);
 		
 		
 		}
@@ -148,7 +144,8 @@ public class EmptyMsgLoopTest {
 		catch(InterruptedException e){
 			System.out.println("should not print");
 		}
-		assertEquals(myDisplay.getNum(), 2);
+		System.out.println(myDisplay.getNum());
+		assertEquals(myDisplay.getNum(), 3);
 		
 		msgLoop.interruptThread();
 		
@@ -159,7 +156,7 @@ public class EmptyMsgLoopTest {
 		catch(InterruptedException e){
 			System.out.println("should not print");
 		}
-		
+		System.out.println(myDisplay.getNum());
 		assertEquals(myDisplay.getNum(), 2);
 		
 		msgLoop.reactivateMsg();

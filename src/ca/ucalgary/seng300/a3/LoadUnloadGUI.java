@@ -34,44 +34,67 @@ public class LoadUnloadGUI extends JFrame {
 	private JButton[] loadCoinRack;
 	private JButton[] unloadCoinRack;
 	
+	private VendingMachine vend;
+	
 	public LoadUnloadGUI(VendingMachine vend) {
 		super("Loading and Unloading Panel");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.vend = vend;
 		
 		int numSoda = vend.getNumberOfPopCanRacks();
 		int numCoin = vend.getNumberOfCoinRacks();
+		int set = Math.max(numSoda, numCoin);
+		
+		setSize(700, 60*set);
+		setResizable(true);
+		
+		
+		loadSoda = new JButton[numSoda];
+		unloadSoda = new JButton[numSoda];
+		
+		loadCoinRack = new JButton[numCoin];
+		unloadCoinRack = new JButton[numCoin];
 		
 		//set all the soda buttons up
 		for(int i = 0; i < numSoda;i++ ) {
-			loadSoda[i] = new JButton("Load " + vend.getPopKindName(i));
-			unloadSoda[i] = new JButton("Unload " + vend.getPopKindName(i));
+			loadSoda[i] = new JButton("Load " + vend.getPopKindName(i) + " cans");
+			unloadSoda[i] = new JButton("Unload " + vend.getPopKindName(i) + " cans");
 		}
 		//set all the coin rack buttons up
 		for(int i = 0; i < numCoin;i++ ) {
-			loadSoda[i] = new JButton("Load " + vend.getCoinKindForCoinRack(i).toString() + " coin");
-			unloadSoda[i] = new JButton("Unload " + vend.getCoinKindForCoinRack(i).toString() + " coin");
+			loadCoinRack[i] = new JButton("Load " + vend.getCoinKindForCoinRack(i).toString() + " coin");
+			unloadCoinRack[i] = new JButton("Unload " + vend.getCoinKindForCoinRack(i).toString() + " coin");
 		}
 		
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.insets = new Insets(5,0,5,0);
 		
 		int counter = 0;
+	
 		//put buttons up.
-		for(int i = counter; i < (counter + numSoda);i++) {
+		for(int i = 0; i < numSoda;i++) {
 			c.gridx = 0; 
 			c.gridy = i;
-			p.add(loadSoda[i]);
+			p.add(loadSoda[i],c);
 			c.gridx = 1;
-			p.add(unloadSoda[i]);
+			p.add(unloadSoda[i],c);
+			counter++;
+			
 		}
+	
 		
-		for(int i = counter; i < (counter + numCoin);i++) {
+		for(int i = 0; i <  numCoin;i++) {
 			c.gridx = 2; 
 			c.gridy = i;
-			p.add(loadCoinRack[i]);
+			p.add(loadCoinRack[i],c);
 			c.gridx = 3;
-			p.add(unloadCoinRack[i]);
+			p.add(unloadCoinRack[i],c);
+			counter++;
 		}
+		
+		add(p);
+		setVisible(true);
+		System.out.println("Construction complete");
 		
 	}
 	
@@ -147,7 +170,7 @@ public class LoadUnloadGUI extends JFrame {
 		}
 		vendingMachine.loadCoins(coinLoading);
 		
-		new GUI(vendingMachine, comm);
+		new LoadUnloadGUI(vendingMachine);
 		
 		
 		

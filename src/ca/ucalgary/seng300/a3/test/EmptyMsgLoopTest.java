@@ -135,40 +135,23 @@ public class EmptyMsgLoopTest {
 	}	
 
 	@Test
-	public void emptyMsgLoopTest() throws DisabledException {
+	public void emptyMsgLoopTest() throws DisabledException, InterruptedException {
 		msgLoop.startThread();
-		try
-		{
-			TimeUnit.SECONDS.sleep(14);
-		}
-		catch(InterruptedException e){
-			System.out.println("should not print");
-		}
 		
+		TimeUnit.SECONDS.sleep(14);
+	
 		assertEquals(myDisplay.getNum(), 3);
 		
 		msgLoop.interruptThread();
 		
-		try
-		{
-			TimeUnit.SECONDS.sleep(14);
-		}
-		catch(InterruptedException e){
-			System.out.println("should not print");
-		}
-		
+		TimeUnit.SECONDS.sleep(14);
+
 		assertEquals(myDisplay.getNum(), 3);
 		
 		msgLoop.reactivateMsg();
 		
-		try
-		{
-			TimeUnit.SECONDS.sleep(14);
-		}
-		catch(InterruptedException e){
-			System.out.println("should not print");
-		}
-		
+		TimeUnit.SECONDS.sleep(14);
+
 		assertEquals(myDisplay.getNum(), 5);
 	}
 }

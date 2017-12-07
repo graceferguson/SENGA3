@@ -192,12 +192,12 @@ public class ButtonTests {
 		System.out.println("\n\n configPanelButtonEnter \n" + cplDisplayListener.getCurrMessage());
 		
 		String expected = "Choose a Pop type that you would like to change the price of: \n";
-		expected += "Pop1 : $2.50\n";
-		expected += "Pop2 : $2.50\n";
-		expected += "Pop3 : $2.50\n";
-		expected += "Pop4 : $2.50\n";
-		expected += "Pop5 : $2.50\n";
-		expected += "Pop6 : $2.50\n";
+		expected += "0 - Pop1 : $2.50\n";
+		expected += "1 - Pop2 : $2.50\n";
+		expected += "2 - Pop3 : $2.50\n";
+		expected += "3 - Pop4 : $2.50\n";
+		expected += "4 - Pop5 : $2.50\n";
+		expected += "5 - Pop6 : $2.50\n";
 		expected += "Selection: ";
 		
 		boolean result = cplDisplayListener.getCurrMessage().equals(expected); 

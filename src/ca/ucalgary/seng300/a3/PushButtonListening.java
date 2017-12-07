@@ -18,12 +18,12 @@ public class PushButtonListening implements PushButtonListener {
 
 	@Override
 	public void enabled(AbstractHardware<? extends AbstractHardwareListener> hardware) {
-		
+		// PushButton ignores the enabled/disabled state
 	}
 
 	@Override
 	public void disabled(AbstractHardware<? extends AbstractHardwareListener> hardware) {
-		
+		// PushButton ignores the enabled/disabled state
 	}
 	
     /**

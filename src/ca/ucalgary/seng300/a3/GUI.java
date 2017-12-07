@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.awt.event.*;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -65,8 +66,11 @@ public class GUI extends JFrame{
     private int	retAmount = 0;
     
     private JLabel popRetLabel = new JLabel("Pops in delivery chute:",SwingConstants.RIGHT);
-    private JLabel popRetInput = new JLabel("0",SwingConstants.CENTER);
+    private JTextArea popRetInput = new JTextArea("(None)");
+    //private JLabel popRetInput = new JLabel(popRetDefaultText,SwingConstants.CENTER);
     private JButton popRetButton = new JButton("Unload pop");
+    private int lastButtonPressed = -1; 
+    private String popsReturned = "(None)";
     
     private VendingMachine vend;
     private VendCommunicator communicator;
@@ -226,6 +230,7 @@ public class GUI extends JFrame{
         //Connecting pop delivery chute elements
         GUIPopReturnListener popsInChute = new GUIPopReturnListener(vend, this);
         popRetButton.addActionListener(new PopUnloadButtonActionListener(vend, this, popsInChute));
+        popRetInput.setEditable(false);
         
         //Connecting return coins button
         requestButton.addActionListener(new CoinReturnButtonActionListener(vend, this, communicator));
@@ -333,16 +338,28 @@ public class GUI extends JFrame{
      * Setter method for changing the value displayed in the pop delivery chute.
      * @param: value: the integer value to be set
      */
-    public void setPopReturnVal(int value) {
-    	popRetInput.setText(Integer.toString(value));
+    public void setPopReturnVal(String popsInChute) {
+    	popRetInput.setText(popsInChute);
+    	popsReturned = popsInChute;
     	setVisible(true);
     }
+    
+    public String getPopsReturned() {
+    	return popsReturned;
+    }
+    
     
     public void changeTextLock(String text) {
     	lockUnlock.setText(text);
     }
     
-  
+    public void setLastButtonPressed(int newPress) {
+    	lastButtonPressed = newPress;
+    }
+    
+    public int getLastButtonPressed() {
+    	return lastButtonPressed;
+    }
     
     //FOR TESTING PURPOSES-- REMOVE LATER********************************
     public static void main(String[] args) {
@@ -428,7 +445,7 @@ public class GUI extends JFrame{
 		GUIConfigPanel configP = new GUIConfigPanel(vendingMachine);
 		ConfigPanelDisplayListening configPanelDisplayListening = new ConfigPanelDisplayListening(configP);
 		vendingMachine.getConfigurationPanel().getDisplay().register(configPanelDisplayListening);
-		configP.init();
+		//configP.init();
 		
 		ConfigPanelLogicListener configListener = new ConfigPanelLogicListener(gui); // Where is the ConfigPanelLogic initialized????????????????
 		

@@ -292,8 +292,8 @@ public class ConfigPanelTests {
 		prices[1] = 50;
 		String message = cfp.modeInstructions(names, prices);
 		String expected = "Choose a Pop type that you would like to change the price of: \n";
-		expected += "Coke : $1.00\n";
-		expected += "Sprite : $0.50\n";
+		expected += "0 - Coke : $1.00\n";
+		expected += "1 - Sprite : $0.50\n";
 		expected += "Selection: ";
 		assertTrue(message.equals(expected));
 	}
@@ -309,8 +309,8 @@ public class ConfigPanelTests {
 		cfp.buttonPressed(1);
 		String message = cfp.modeInstructions(names, prices);
 		String expected = "Choose a Pop type that you would like to change the price of: \n";
-		expected += "Coke : $1.00\n";
-		expected += "Sprite : $0.50\n";
+		expected += "0 - Coke : $1.00\n";
+		expected += "1 - Sprite : $0.50\n";
 		expected += "Selection: Sprite";
 		assertTrue(message.equals(expected));
 	}

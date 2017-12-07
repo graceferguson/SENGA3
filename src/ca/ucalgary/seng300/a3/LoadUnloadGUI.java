@@ -118,8 +118,8 @@ public class LoadUnloadGUI extends JFrame {
 	 * @param index - The index of the pop rack to be loaded
 	 */
 	public void loadPop(int index){
-		if (canRacks[index].getAmount() == vendingMachine.getPopCanRack(index).getCapacity()) {
-			VendCommunicator.getInstance().displayMsg("No more room for pop in rack at index " + index);
+		if (vendingMachine.getPopCanRack(index).size() == vendingMachine.getPopCanRack(index).getCapacity()) {
+			VendCommunicator.getInstance().displayMsg("No more room for pop in rack for " + vendingMachine.getPopKindName(index));
 			try {
 				LogFile.writeLog("\n"+df.format(dateobj) + "\t" + getClass().getName() + "\tCould not load pop into full rack for " + vendingMachine.getPopKindName(index) + ".\n");
 			} catch (IOException e) {
@@ -165,7 +165,7 @@ public class LoadUnloadGUI extends JFrame {
 	 * @param index - The index of the pop rack to be unloaded
 	 */
     public void unloadPop(int index){
-    	if (canRacks[index].getAmount() > 0) {
+    	if (vendingMachine.getPopCanRack(index).size() > 0) {
 			canRacks[index].popCanRemoved(vendingMachine.getPopCanRack(index), new PopCan(vendingMachine.getPopKindName(index)));
 			try {
 				LogFile.writeLog("\n"+df.format(dateobj) + "\t" + getClass().getName() + "\tUnloaded pop from rack for " + vendingMachine.getPopKindName(index) + ".\n");

@@ -1,3 +1,9 @@
+/**
+ * SENG 300 Group Assignment 3
+ * 
+ * Class to update config panel GUI display
+ */
+
 package ca.ucalgary.seng300.a3;
 
 import org.lsmr.vending.hardware.AbstractHardware;
@@ -25,15 +31,14 @@ public class ConfigPanelDisplayListening implements DisplayListener{
 		isOn = false;
 		
 	}
-
+	
+	/**
+	 * Updates config panel GUI text field with new message(instruction) 
+	 * based on selections and menu
+	 */
 	@Override
 	public void messageChange(Display display, String oldMessage, String newMessage) {
 		configPanelGUI.updateDisplay(newMessage);
 		
 	}
-	//FOR REGISTERING 
-	//GUIConfigPanel configPanelGUI = new GUIConfigPanel();
-	//ConfigPanelDisplayListening configPanelDisplayListening = new ConfigPanelDisplayListening(configPanelGUI);
-	//machine.getDisplay().register(configPanelDisplayListening);
-
 }

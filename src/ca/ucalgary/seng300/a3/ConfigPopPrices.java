@@ -47,7 +47,7 @@ public class ConfigPopPrices extends AbstractConfigMode {
 		if (subMode == 0) {
 			message = "Choose a Pop type that you would like to change the price of: \n";
 			for (int i = 0; i < names.length; i++) {
-				message += names[i] + " : $" + String.format("%.2f", (double) ((double) prices[i] / 100)) + "\n";
+				message += i + " - " + names[i] + " : $" + String.format("%.2f", (double) ((double) prices[i] / 100)) + "\n";
 			}
 			if (selectedPop < 0)
 				message += "Selection: ";

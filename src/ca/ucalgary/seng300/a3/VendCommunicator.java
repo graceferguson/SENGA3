@@ -26,10 +26,13 @@ public class VendCommunicator {
 	private LockPanelListener lockPanel;
 	private boolean validCardFlag;
 	private int credit;
-	private boolean displayWelcome;
+	private ConfigPanelLogic configPanelLogic;
+	private emptyMsgLoop emptyMsgL;
+	private SwipeListening swipeListening;
+	private double partialAmount = 0;
 	private Timer timer1;
 	private Timer timer2;
-	
+
 	//For use with writing to our log file
 	static DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
     static Date dateobj = new Date();
@@ -55,7 +58,7 @@ public class VendCommunicator {
 
 	// Links the appropriate parts to their corresponding variables
 	public void linkVending(CoinReceptacleListening receptacle,IndicatorLighListening indicator, OutOfOrderLightListening display, PopCanRackListening[] pRacks, VendingMachine machine,
-			HashMap<CoinRack, CoinRackListening> cRacks, LockPanelListener lockPanel, int credit) {
+			HashMap<CoinRack, CoinRackListening> cRacks, LockPanelListener lockPanel, int credit, SwipeListening swipe) {
 		this.receptacle = receptacle;
 		this.pRacks = pRacks;
 		this.machine = machine;
@@ -67,10 +70,13 @@ public class VendCommunicator {
 		this.amount = -1; //Payment amount defaults to -1
 		this.validCardFlag = false; //Consider cards to be invalid by default
 		this.credit = credit;
-		if (credit == 0) {
-			displayWelcome = true;
-			welcomeMessageTimer();
-		}
+		configPanelLogic = ConfigPanelLogic.getInstance();
+		configPanelLogic.initializeCP(machine);
+		this.emptyMsgL = new emptyMsgLoop("Hi there!");
+		//emptyMsgL.reactivateMsg();
+		//emptyMsgL.startThread();
+		this.swipeListening = swipe;
+		welcomeMessageTimer();
 	}
 
 	/**
@@ -98,7 +104,7 @@ public class VendCommunicator {
 		}
 		int changePaid = 0;
 		if (pRacks[index].isEmpty()) {
-			System.out.println("Out of " + machine.getPopKindName(index));
+			displayMsg("Out of " + machine.getPopKindName(index));
 		}
 		//Take cash payments
 		else if (paymentType == 0) {
@@ -123,10 +129,10 @@ public class VendCommunicator {
 						this.amount = this.costRemaining;
 					}
 					//Decrease the receptacle value by the amount paid
-					//This happens on its own if dispensePopWithChange is called, don't want to double up
+					/*//This happens on its own if dispensePopWithChange is called, don't want to double up
 					else if (this.amount < this.costRemaining) {
 						receptacle.Purchase(this.amount);
-					}
+					}*/
 					this.costRemaining -= this.amount;
 					updateCredit(-1 * this.amount);
 					changePaid += this.amount;
@@ -179,6 +185,44 @@ public class VendCommunicator {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		updateCredit(0);
+	}
+	
+	/**
+	 * A method to begin the timers for the welcome message
+	 */
+	public void welcomeMessageTimer() {
+		timer1 = new Timer();
+		timer1.scheduleAtFixedRate(new TimerTask() {
+				@Override
+				public void run() {
+					welcomeMessage();
+					}
+		}, 0, 15000);
+		
+		timer2 = new Timer();
+		timer2.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				clearDisplayMessage();
+				}
+		}, 5000, 15000);
+		
+	}
+	
+	/**
+	 * A method to push a welcome message to the display
+	 */
+	public void welcomeMessage() {
+		machine.getDisplay().display("Hi There!");
+	}
+	
+	/**
+	 * A method to clear the message to the display
+	 */
+	public void clearDisplayMessage() {
+		machine.getDisplay().display("");
 	}
 	
 	//Required setters and getters
@@ -242,31 +286,16 @@ public class VendCommunicator {
 	* @param value - The value by which to increase or decrease credit in the machine
 	*/
 	public void updateCredit(int value) {
-		this.credit += value;
+		credit += value;
+		
+		if (this.credit == 0) {
+			welcomeMessageTimer();
+		}
+		else {
+			this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) this.getCredit() / 100)));
+		}
 	}
-	
-	/**
-     * A method to begin the timers for the welcome message
-     */
-    public void welcomeMessageTimer() {
-        displayWelcome = true;
-        timer1 = new Timer();
-        timer1.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    displayMsg("Hi there!");
-                    }
-        }, 0, 15000);
-        
-        timer2 = new Timer();
-        timer2.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-            	displayMsg("");
-                }
-        }, 5000, 15000);       
-    }
-	
+    
 	/**
 	* Function that is called when enough cash payment is taken to dispense a pop
 	*
@@ -274,7 +303,7 @@ public class VendCommunicator {
 	*/
 	public void dispensePopWithChange(int index, int changePaid) {
 		try {
-			int change = receptacle.getValue() - changePaid;
+			int change = credit - changePaid; //NEED TO FIX THIS
 			machine.getCoinReceptacle().unload();
 			machine.getPopCanRack(index).dispensePopCan();
 			try {
@@ -283,7 +312,7 @@ public class VendCommunicator {
 				e.printStackTrace();
 			}
 			int remainder = giveChange(change);
-			receptacle.setValue(remainder);
+			credit = remainder;
 			try {
 				LogFile.writeLog("\n"+df.format(dateobj) + "\t" + getClass().getName() + "\t" + remainder + " cents in change given\n");
 			} catch (IOException e) {
@@ -309,11 +338,15 @@ public class VendCommunicator {
 	* message - the message being outputted to the display
 	*/
 	public void displayMsg(String message) {
-		if (this.credit != 0) {
+		if (timer1 != null) {
 			timer1.cancel();
 			timer2.cancel();
 		}
 		machine.getDisplay().display(message);
+	}
+	
+	public void displayCreditMsg() {
+		this.displayMsg("Credit: $" + String.format("%.2f", (double) ((double) credit / 100)));
 	}
 
 	/**
@@ -520,5 +553,41 @@ public class VendCommunicator {
 			out += i;
 		}
 		return out;
+	}
+	
+	/**
+	*	A method that is used to determine what action the communicator should take when a button has been pressed.
+	*		The referenced button will be compared to all buttons in the vending machine to figure out what type of, 
+	*		and if nessasary what index, the button is.  This is then passed on to the appropriate method to complete the action.
+	*
+	*	@param button - the reference to the button that was pressed.
+	*/
+	public void determineButtonAction(PushButton button) {
+		boolean found = false;
+		// search through the selection buttons to see if the parameter button is a selection button
+		for (int index = 0; (found == false) && (index < machine.getNumberOfSelectionButtons()); index++) {
+			if (machine.getSelectionButton(index) == button) {
+				found = true;
+				if(machine.isSafetyEnabled() == false) {
+					purchasePop(index);
+				}
+			}
+		}
+		
+		
+		// search through the configuration panel to see if the parameter button is part of these buttons
+		// NOTE!!! the configuration panel has a hard coded list of 37 buttons.  If this changes it could cause an error here!
+		for (int index = 0; (found == false) && (index < 37); index++) {
+			if (machine.getConfigurationPanel().getButton(index) == button) {
+				found = true;
+				configPanelLogic.configButtonAction(button);
+			}
+		}
+		
+		// check to see if the button is the configuration panels enter button.
+		if ((found == false) && (button == machine.getConfigurationPanel().getEnterButton())) {
+			found = true;
+			configPanelLogic.configButtonAction(button);
+		}
 	}
 }

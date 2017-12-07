@@ -2,8 +2,7 @@
  * SENG 300 Group Assignment 3
  * Group 
  * 
- * Class to update GUI coin return value with the coins in the 
- * vending machine coin return
+ * Class to update GUI Pop delivery chute with which pops are in the chute
  */
 
 package ca.ucalgary.seng300.a3;
@@ -34,12 +33,27 @@ public class GUIPopReturnListener implements DeliveryChuteListener {
 		// Do nothing		
 	}
 
+	
+	
 	@Override
 	public void itemDelivered(DeliveryChute chute) {
-		//itemsInChute = chute.size();
-		//System.out.println(itemsInChute);
-		itemsInChute++;
-		gui.setPopReturnVal(itemsInChute);
+		//itemsInChute++;
+		//gui.setPopReturnVal(itemsInChute);
+		/*
+		 * Change display for pops in delivery chute with proper formatting
+		 */
+		String newPop = vend.getPopKindName(gui.getLastButtonPressed());
+		String popsInChute = gui.getPopsReturned();
+		String updatedPops;
+		if (popsInChute.equals("(None)")) {
+			updatedPops = newPop;
+		}
+		else {
+			updatedPops = popsInChute + "\n" + newPop;
+		}
+		gui.setPopReturnVal(updatedPops);
+		
+		
 	}
 
 	@Override

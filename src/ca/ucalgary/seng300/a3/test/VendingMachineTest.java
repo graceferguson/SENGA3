@@ -76,7 +76,7 @@ public class VendingMachineTest {
 		int[] coinKinds = new int[] {1,5,10,25,100,200};
 		
 		machine = new VendingMachine(coinKinds, 6, 200,10,200, 200, 200);
-		VendCommunicator communicator = new VendCommunicator();
+		VendCommunicator communicator = VendCommunicator.getInstance();
 		msgLoop = new emptyMsgLoop("Hi there!");
 		
 
@@ -171,7 +171,7 @@ public class VendingMachineTest {
 	public void insufficientFundsTest() throws DisabledException {
 		machine.getCoinSlot().addCoin(new Coin(200));
 		machine.getSelectionButton(2).press();
-		assertFalse(canRacks[2].isEmpty());
+		assertFalse(machine.getPopCanRack(4).size() == 0);
 	}
 
 	/**
@@ -255,10 +255,10 @@ public class VendingMachineTest {
 		machine.getCoinSlot().addCoin(new Coin(25));
 		machine.getCoinSlot().addCoin(new Coin(25));
 		machine.getSelectionButton(4).press();
-
 		machine.getCoinSlot().addCoin(new Coin(200));
 		machine.getSelectionButton(4).press();
-		assertFalse(canRacks[4].isEmpty());
+		
+		assertTrue(machine.getPopCanRack(4).size() == 0);
 	}
 	
 	
@@ -273,12 +273,12 @@ public class VendingMachineTest {
 		machine.getCoinSlot().addCoin(new Coin(200));
 		machine.getCoinSlot().addCoin(new Coin(200));
 		machine.loadCoins(100,100,100,100,100,100);
+		int remainingCredit = VendCommunicator.getInstance().getCredit() - machine.getPopKindCost(1);
 		machine.getSelectionButton(1).press();
-		int a = receptacle.getValue();
-		// canRacks[1].isEmpty() = True 
+
 		assertEquals(0, receptacle.getValue() )  ;
-		assertEquals(150, coinReturn.getValue());
-		//receptacle.setValue(remainder);
+		assertEquals(remainingCredit, coinReturn.getValue());
+
 	}
 	
 }

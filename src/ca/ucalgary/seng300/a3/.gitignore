@@ -38,3 +38,13 @@
 /ConfigPanelTests.class
 /ConfigPopPrices$ConfigPopPricesHolder.class
 /ConfigPopPrices.class
+/ConfigPanelDisplayListening.class
+/ConfigPanelLogicListener.class
+/GUIConfigListening.class
+/GUIConfigPanel$GUIConfigButtons.class
+/GUIConfigPanel.class
+/PushButtonListening.class
+/VendCommunicator$1.class
+/VendCommunicator$2.class
+/GUILockPanelListener.class
+/LockUnlockButtonListener.class

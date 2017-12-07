@@ -54,12 +54,8 @@ public class EmptyMsgLoopTest {
 		int[] coinKinds = new int[] {1,5,10,25,100,200};
 		
 		machine = new VendingMachine(coinKinds, 6, 200,10,200, 200, 200);
-		VendCommunicator communicator = new VendCommunicator();
+		VendCommunicator communicator = VendCommunicator.getInstance();
 		msgLoop = new emptyMsgLoop("Hi there!");
-		
-
-
-		
 
 		// communicator needs to be created before selection buttons, since
 		// selection button takes in a reference to the communicator
@@ -148,7 +144,8 @@ public class EmptyMsgLoopTest {
 		catch(InterruptedException e){
 			System.out.println("should not print");
 		}
-		assertEquals(myDisplay.getNum(), 2);
+		System.out.println(myDisplay.getNum());
+		assertEquals(myDisplay.getNum(), 3);
 		
 		msgLoop.interruptThread();
 		
@@ -159,7 +156,7 @@ public class EmptyMsgLoopTest {
 		catch(InterruptedException e){
 			System.out.println("should not print");
 		}
-		
+		System.out.println(myDisplay.getNum());
 		assertEquals(myDisplay.getNum(), 2);
 		
 		msgLoop.reactivateMsg();

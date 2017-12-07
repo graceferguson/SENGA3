@@ -1,0 +1,301 @@
+
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 13:51:14\n\n
+
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 13:51:14\n\n
+
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 0
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 0
+
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Choose a Pop type that you would like to change the price of: 
+Pop1 : $2.50
+Pop2 : $2.50
+Pop3 : $2.50
+Pop4 : $2.50
+Pop5 : $2.50
+Pop6 : $2.50
+Selection: 
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Choose a Pop type that you would like to change the price of: 
+Pop1 : $2.50
+Pop2 : $2.50
+Pop3 : $2.50
+Pop4 : $2.50
+Pop5 : $2.50
+Pop6 : $2.50
+Selection: 
+
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 13:51:14\n\n
+
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 0
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 0
+
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 13:51:14\n\n
+
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Insufficient Funds. Please specify payment amount for partial cash payment.
+
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+
+06/12/17 13:51:14	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 13:51:37\n\n
+
+06/12/17 13:51:37	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 
+06/12/17 13:51:37	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+06/12/17 13:51:37	ca.ucalgary.seng300.a3.DisplayListening	Insufficient Funds. Please specify payment amount for partial cash payment.
+
+06/12/17 13:51:37	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+06/12/17 13:51:37	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+
+06/12/17 13:51:37	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 13:52:22\n\n
+
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 13:53:49\n\n
+
+06/12/17 13:53:49	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 
+06/12/17 13:53:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+06/12/17 13:53:49	ca.ucalgary.seng300.a3.DisplayListening	Insufficient Funds. Please specify payment amount for partial cash payment.
+
+06/12/17 13:53:49	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+06/12/17 13:53:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+
+06/12/17 13:53:49	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.IndicatorLighListening	Light isActive value is now true
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+06/12/17 13:52:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:22\n\n
+
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:22\n\n
+
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 0
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 0
+
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Choose a Pop type that you would like to change the price of: 
+Pop1 : $2.50
+Pop2 : $2.50
+Pop3 : $2.50
+Pop4 : $2.50
+Pop5 : $2.50
+Pop6 : $2.50
+Selection: 
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Choose a Pop type that you would like to change the price of: 
+Pop1 : $2.50
+Pop2 : $2.50
+Pop3 : $2.50
+Pop4 : $2.50
+Pop5 : $2.50
+Pop6 : $2.50
+Selection: 
+
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:22\n\n
+
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 0
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 0
+
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:22\n\n
+
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Select which aspect to configure: 
+ 0 - Set Pop Price
+ Selection: 
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Insufficient Funds. Please specify payment amount for partial cash payment.
+
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+
+06/12/17 14:02:22	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:49\n\n
+
+06/12/17 14:02:49	ca.ucalgary.seng300.a3.DisplayListening	Hi There!
+--------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:02:58\n\n
+
+06/12/17 14:02:58	ca.ucalgary.seng300.a3.DisplayListening	Test
+06/12/17 14:02:58	ca.ucalgary.seng300.a3.DisplayListening	Test
+06/12/17 14:02:58	ca.ucalgary.seng300.a3.DisplayListening	Test
+06/12/17 14:02:58	ca.ucalgary.seng300.a3.DisplayListening	Test
+06/12/17 14:02:58	ca.ucalgary.seng300.a3.DisplayListening	Test

@@ -9,6 +9,7 @@ public class ConfigPanelLogic {
 	protected int input;		// input value from the user
 	protected VendingMachine vend;
 	protected ConfigPopPrices configPopPriceLogic;
+	protected ConfigPanelLogicListener listener;
 	
 	private ConfigPanelLogic() {
 	}
@@ -73,42 +74,44 @@ public class ConfigPanelLogic {
 	 * @param button - the reference to the button that was pressed 
 	 */
 	public void configButtonAction(PushButton button) {
-		if (button == vend.getConfigurationPanel().getEnterButton()) {
-			if (mode == 0) {
-				if (input + 1 <= MAX_MODE) {
-					mode = input + 1; // since the selections start at 0 but the new modes start at 1.
+		if (vend.getLock().isLocked() == true) {
+			if (button == vend.getConfigurationPanel().getEnterButton()) {
+				if (mode == 0) {
+					if (input + 1 <= MAX_MODE) {
+						mode = input + 1; // since the selections start at 0 but the new modes start at 1.
+					}
+					input = -1;
 				}
-				input = -1;
-			}
-			else if (mode == 1) {
-				boolean finished = configPopPriceLogic.enterKeyPressed();
-				if (finished) {
-					this.reconfigureVend();
-					configPopPriceLogic.reset();
-					mode = 0;
+				else if (mode == 1) {
+					boolean finished = configPopPriceLogic.enterKeyPressed();
+					if (finished) {
+						this.reconfigureVend();
+						configPopPriceLogic.reset();
+						mode = 0;
+					}
+				}
+				else {
+					//throw new SimulationException("Invalid Configuration panel mode in ConfigPanelLogic : mode = " + mode);
 				}
 			}
+			
 			else {
-				//throw new SimulationException("Invalid Configuration panel mode in ConfigPanelLogic : mode = " + mode);
-			}
-		}
-		
-		else {
-			for (int i = 0; i < 37; i++) {
-				if (button == vend.getConfigurationPanel().getButton(i)) {  
-					if (mode == 0) {
-						input = i;
-					}
-					else if (mode == 1) {
-						configPopPriceLogic.buttonPressed(i);
-					}
-					else {
-						//throw new SimulationException("Invalid Configuration panel mode in ConfigPanelLogic : mode = " + mode);
+				for (int i = 0; i < 37; i++) {
+					if (button == vend.getConfigurationPanel().getButton(i)) {  
+						if (mode == 0) {
+							input = i;
+						}
+						else if (mode == 1) {
+							configPopPriceLogic.buttonPressed(i);
+						}
+						else {
+							//throw new SimulationException("Invalid Configuration panel mode in ConfigPanelLogic : mode = " + mode);
+						}
 					}
 				}
 			}
+			this.displayConfigMessage();		// re-display the current state of the panel
 		}
-		this.displayConfigMessage();		// re-display the current state of the panel
 	}
 	
 	/**
@@ -130,5 +133,11 @@ public class ConfigPanelLogic {
 			else 
 				popCanCosts.add(i, vend.getPopKindCost(i));
 		}
+		vend.configure(popCanNames, popCanCosts);
+		listener.priceUpdate(changes[0], changes[1]);
+	}
+	
+	public void register(ConfigPanelLogicListener listen) {
+		listener = listen;
 	}
 }

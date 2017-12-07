@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.awt.event.*;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -51,6 +52,8 @@ public class GUI extends JFrame{
     private JLabel cardLabel = new JLabel("Card Slot: ", SwingConstants.RIGHT);
     private JTextField cardInput = new JTextField("Type a value");
     private JButton cardButton = new JButton("Confirm payment");
+   
+    private JButton lockUnlock = new JButton("Lock");
     
     //Soda Selection Buttons
     //An array that doesn't have a set size to start with
@@ -63,11 +66,16 @@ public class GUI extends JFrame{
     private int	retAmount = 0;
     
     private JLabel popRetLabel = new JLabel("Pops in delivery chute:",SwingConstants.RIGHT);
-    private JLabel popRetInput = new JLabel("0",SwingConstants.CENTER);
+    private JTextArea popRetInput = new JTextArea("(None)");
+    //private JLabel popRetInput = new JLabel(popRetDefaultText,SwingConstants.CENTER);
     private JButton popRetButton = new JButton("Unload pop");
+    private int lastButtonPressed = -1; 
+    private String popsReturned = "(None)";
     
     private VendingMachine vend;
     private VendCommunicator communicator;
+    
+    ConfigPanelDisplayListening configPanelDisplayListening;
     
     /**
      * 
@@ -100,6 +108,12 @@ public class GUI extends JFrame{
         
         //Configure backgrounds/colors and the such
         display.setForeground(Color.blue);
+        
+        
+        c.gridy =12 ;
+        c.gridx =3 ;
+        p.add(lockUnlock, c);
+        
         
         c.gridy =0 ;
         c.gridx =3 ;
@@ -206,16 +220,30 @@ public class GUI extends JFrame{
         //Connecting coin return
         GUICoinReturnListener coinRet = new GUICoinReturnListener(vend, this);
         
+        GUILockPanelListener lock = new GUILockPanelListener(this, vend);
+        
+        lockUnlock.addActionListener(new LockUnlockButtonListener(vend,this,lock));        
+       
         //Connecting unload coins button
         retButton.addActionListener(new RetButtonActionListener(vend, this, coinRet));
         
         //Connecting pop delivery chute elements
         GUIPopReturnListener popsInChute = new GUIPopReturnListener(vend, this);
         popRetButton.addActionListener(new PopUnloadButtonActionListener(vend, this, popsInChute));
+        popRetInput.setEditable(false);
         
         //Connecting return coins button
         requestButton.addActionListener(new CoinReturnButtonActionListener(vend, this, communicator));
         
+    }
+    
+    /**
+     * Changes the text of the pop buttons when their values are updated
+     * @param buttonIndex
+     * @param newText
+     */
+    public void setPopButtonText(int buttonIndex, double newPrice) {
+    	selection[buttonIndex].setText(vend.getPopKindName(buttonIndex) + "  $" + newPrice);
     }
     
     /**
@@ -310,12 +338,28 @@ public class GUI extends JFrame{
      * Setter method for changing the value displayed in the pop delivery chute.
      * @param: value: the integer value to be set
      */
-    public void setPopReturnVal(int value) {
-    	popRetInput.setText(Integer.toString(value));
+    public void setPopReturnVal(String popsInChute) {
+    	popRetInput.setText(popsInChute);
+    	popsReturned = popsInChute;
     	setVisible(true);
     }
     
-  
+    public String getPopsReturned() {
+    	return popsReturned;
+    }
+    
+    
+    public void changeTextLock(String text) {
+    	lockUnlock.setText(text);
+    }
+    
+    public void setLastButtonPressed(int newPress) {
+    	lastButtonPressed = newPress;
+    }
+    
+    public int getLastButtonPressed() {
+    	return lastButtonPressed;
+    }
     
     //FOR TESTING PURPOSES-- REMOVE LATER********************************
     public static void main(String[] args) {
@@ -325,7 +369,7 @@ public class GUI extends JFrame{
     	int coinRackCapacity = 15; 
     	int numPopTypes = 6;
 		VendingMachine vendingMachine = new VendingMachine(canadianCoins, numPopTypes, coinRackCapacity, 15, 200, 200, 15);
-		VendCommunicator comm = new VendCommunicator();
+		VendCommunicator comm = VendCommunicator.getInstance();
 		
 		// Do all the VendCommunicator things
 		try {
@@ -369,7 +413,14 @@ public class GUI extends JFrame{
 			vendingMachine.getPopCanRack(i).register(canRacks[i]);
 			vendingMachine.getPopCanRack(i).load(new PopCan(vendingMachine.getPopKindName(i)));
 		}
-		comm.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, vendingMachine, rackMap, null, numPopTypes, null);
+		
+		for (int i = 0; i < 37; i++) {
+			vendingMachine.getConfigurationPanel().getButton(i).register(new SelectionButtonListening(i));
+		}
+		
+		vendingMachine.getConfigurationPanel().getEnterButton().register(new SelectionButtonListening(37));
+		
+		comm.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, vendingMachine, rackMap, null, 0, null);
 		
 
 		// Customize the pop kinds and pop costs in the vending machine
@@ -389,9 +440,14 @@ public class GUI extends JFrame{
 		}
 		vendingMachine.loadCoins(coinLoading);
 		
-		new GUI(vendingMachine, comm);
+		GUI gui = new GUI(vendingMachine, comm);
 		
+		GUIConfigPanel configP = new GUIConfigPanel(vendingMachine);
+		ConfigPanelDisplayListening configPanelDisplayListening = new ConfigPanelDisplayListening(configP);
+		vendingMachine.getConfigurationPanel().getDisplay().register(configPanelDisplayListening);
+		//configP.init();
 		
+		ConfigPanelLogicListener configListener = new ConfigPanelLogicListener(gui); // Where is the ConfigPanelLogic initialized????????????????
 		
     } // end main
     

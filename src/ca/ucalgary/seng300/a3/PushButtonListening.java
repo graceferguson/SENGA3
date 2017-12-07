@@ -1,3 +1,9 @@
+/**
+ * SENG 300 Group Assignment 3
+ * 
+ * Class for push button listener 
+ */
+
 package ca.ucalgary.seng300.a3;
 
 import org.lsmr.vending.hardware.AbstractHardware;

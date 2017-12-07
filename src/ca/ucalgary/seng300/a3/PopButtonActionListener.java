@@ -38,9 +38,13 @@ public class PopButtonActionListener implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		graph.setLastButtonPressed(buttonIndex);
 		vend.getSelectionButton(buttonIndex).press();
 		double myVal = vcom.getCredit()/100.0;
 		graph.setDisplay("Credit: $" + myVal);
+		
+		
+
 	}
 
 }

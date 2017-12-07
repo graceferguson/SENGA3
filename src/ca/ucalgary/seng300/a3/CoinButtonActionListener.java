@@ -37,7 +37,11 @@ public class CoinButtonActionListener implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		try {
 			coinValue = cigl.getValue();
-			vend.getCoinSlot().addCoin(new Coin(coinValue));
+			if (coinValue == 0) {
+				// Do nothing
+			} else {
+				vend.getCoinSlot().addCoin(new Coin(coinValue));
+			}
 		} catch (DisabledException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -60,12 +60,12 @@ public class CoinInputGUIDocListener implements DocumentListener {
 	 * @return the value in the textbox as an integer, or 2
 	 */
 	public int getValue() {
-		int value = 2;
+		int value = 0;
 		
 		try {
 			value = Integer.parseInt(message);
 		} catch (NumberFormatException e) {
-			System.out.println("Not a number! Entering 2 for you instead! (P.S. this is not a valid coin value)");
+			System.out.println("Not a number! I'm not putting anything into the vending machine");
 		}
 		
 		return value;

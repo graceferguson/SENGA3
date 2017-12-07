@@ -80,7 +80,7 @@ public class testOutOfOrderLight {
 				int[] coinKinds = new int[] {1,5,10,25,100,200};
 				
 				machine = new VendingMachine(coinKinds, 6, 200,10,200, 200, 200);
-				VendCommunicator communicator = new VendCommunicator();
+				VendCommunicator communicator = VendCommunicator.getInstance();
 				msgLoop = new emptyMsgLoop("Hi there!");
 				
 

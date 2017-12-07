@@ -1,3 +1,9 @@
+/**
+ * SENG 300 Group Assignment 3
+ * 
+ * Class that creates GUI for configuration panel of a simulated vending machine
+ */
+
 package ca.ucalgary.seng300.a3;
 
 import java.awt.BorderLayout;
@@ -17,20 +23,13 @@ import org.lsmr.vending.hardware.CoinRack;
 import org.lsmr.vending.hardware.ConfigurationPanel;
 import org.lsmr.vending.hardware.VendingMachine;
 
-/**
- * The configuration window of a simulated vending machine
- *
- */
 public class GUIConfigPanel extends JFrame {
 	
+	// Panels and display
 	private JTextField display;
 	private GUIConfigButtons buttonPanel;
 	private ConfigurationPanel configPanel;
 
-	/**
-	 * @param comm
-	 *
-	 */
 	public GUIConfigPanel(VendingMachine vm) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1100, 350);
@@ -39,7 +38,7 @@ public class GUIConfigPanel extends JFrame {
 		}
 
 	/**
-	 * Initializes and displays configuration manager window.
+	 * Initializes and creates configuration panel window and panels
 	 */
 	public void init() {
 		setLayout(new BorderLayout());
@@ -55,17 +54,25 @@ public class GUIConfigPanel extends JFrame {
 		setResizable(true);
 	}
 
-	
+	/**
+	 * Creates display as JTextField
+	 */
 	public void createDisplay() {		
 
+		// Initialize JTextField with message that displays on opening config panel
 		display = new JTextField("Select which aspect to configure: \n 0 - Set Pop Price\n Selection: ");
 		
 		display.setPreferredSize(new Dimension(1000, 75));
-		display.setEditable(false);
+		display.setEditable(false); // So display cannot be edited by user without using onscreen buttons
 		add(display, BorderLayout.NORTH);
 		setVisible(true);
 	}
 
+	/**
+	 * Changes message on text field 
+	 * 
+	 * @param message updated message to display
+	 */
 	public void updateDisplay(String message) {
 		display.setText(message);
 		setVisible(true);
@@ -78,9 +85,10 @@ public class GUIConfigPanel extends JFrame {
 	 */
 	private class GUIConfigButtons extends JPanel {
 		
+		// 26 letters + 10 numbers + shift + enter
 		private int buttonLength = 38;
 		private JButton[] buttons;
-		private String[] upperChar = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Q", "W", "E", "R", "T)", "Y", "U", "I", "O", "P",
+		private String[] upperChar = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
 				"A", "S", "D", "F", "G", "H", "J", "K", "L", "Shift", "Z", "X", "C", "V", "B", "N", "M", "Enter"};
 		
 		private ConfigurationPanel configPanel;
@@ -89,6 +97,9 @@ public class GUIConfigPanel extends JFrame {
 			this.configPanel = configPanel;
 		}
 
+		/**
+		 * Creates buttons for button panel and connects to appropriate listeners
+		 */
 		public void createButtons() {
 			buttons = new JButton[buttonLength];
 			

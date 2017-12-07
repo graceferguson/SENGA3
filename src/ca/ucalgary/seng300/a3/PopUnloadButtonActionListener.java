@@ -28,8 +28,9 @@ public class PopUnloadButtonActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		vend.getDeliveryChute().removeItems();
-		gui.setPopReturnVal(0);
+		gui.setPopReturnVal("(None)");
 		l.clearItemsInChute();
+		
 	}
 
 }

@@ -1,3 +1,9 @@
+/**
+ * SENG 300 Group Assignment 3
+ * 
+ * Class for push button listener 
+ */
+
 package ca.ucalgary.seng300.a3;
 
 import org.lsmr.vending.hardware.AbstractHardware;
@@ -18,12 +24,12 @@ public class PushButtonListening implements PushButtonListener {
 
 	@Override
 	public void enabled(AbstractHardware<? extends AbstractHardwareListener> hardware) {
-		
+		// PushButton ignores the enabled/disabled state
 	}
 
 	@Override
 	public void disabled(AbstractHardware<? extends AbstractHardwareListener> hardware) {
-		
+		// PushButton ignores the enabled/disabled state
 	}
 	
     /**

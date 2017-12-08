@@ -29,6 +29,7 @@ import javax.swing.JLabel;
 public class GUI extends JFrame{
     private JPanel p = new JPanel(new GridBagLayout());
     private GridBagConstraints c = new GridBagConstraints();
+    //define colors to be used in the GUI
     private Color chartreuse = new Color(127,255,0);
     private Color clientBlue = new Color(0, 0, 255);
     
@@ -49,6 +50,7 @@ public class GUI extends JFrame{
     //Request to return coins button
     private JButton requestButton = new JButton("Return coins");
     
+    //for credit card if you wish to extend the vending machine
     private JLabel cardLabel = new JLabel("Card Slot: ", SwingConstants.RIGHT);
     private JTextField cardInput = new JTextField("Type a value");
     private JButton cardButton = new JButton("Confirm payment");
@@ -88,10 +90,12 @@ public class GUI extends JFrame{
     		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     		p.setBackground(chartreuse);
     		
+	    	//pass objects to the class attributes
     		communicator = comm;
     		int numSelections = vend.getNumberOfPopCanRacks();
     		this.vend = vend;
         
+	//size of the JFrame when opened 600 x 700 px
         setSize(600, 700);
         setResizable(true);
         selection = new JButton[numSelections];
@@ -109,35 +113,40 @@ public class GUI extends JFrame{
         //Configure backgrounds/colors and the such
         display.setForeground(Color.blue);
         
-        
+        //place lock button on grid
         c.gridy =12 ;
         c.gridx =3 ;
         p.add(lockUnlock, c);
         
-        
+        //place out of order light on grid
         c.gridy =0 ;
         c.gridx =3 ;
         p.add(outOfOrder, c);
 
+	//place exact change only light on grid
         c.gridy = 1;
         c.gridx = 3;
         p.add(exactOnly, c);
  
+	//place that shows contents of the displayy
         c.gridy = 0;
         c.gridx = 1;
         c.gridwidth = 2;
         p.add(display, c);
         
+	//label for the coin input
         c.gridwidth=1;
         c.gridy = 3;
         c.gridx = 0;
         p.add(coinLabel, c);
         
+	//coin input text field
         c.weightx = 0.7;
         c.gridy = 3;
         c.gridx = 1;
         p.add(coinInput, c);
         
+	//button used to insert coins after value typed
         c.weightx = 0.3;
         c.gridy = 3;
         c.gridx = 2;
@@ -153,7 +162,7 @@ public class GUI extends JFrame{
         c.gridwidth = 2;
         c.gridx = 1;
         
-        //for loop for soda selection buttons
+        //for loop for soda selection buttons, sets style
         for(int i = 0; i < numSelections; i++) {
             c.gridy = 5+i;
             p.add(selection[i], c);
@@ -207,6 +216,7 @@ public class GUI extends JFrame{
                 coinInput.setText("");
             }
         });
+	//register action listener for the insert coin button
         CoinInputGUIDocListener cigl = new CoinInputGUIDocListener(coinInput);
         coinInput.getDocument().addDocumentListener(cigl);
         coinButton.addActionListener(new CoinButtonActionListener(cigl, vend));
@@ -220,8 +230,8 @@ public class GUI extends JFrame{
         //Connecting coin return
         GUICoinReturnListener coinRet = new GUICoinReturnListener(vend, this);
         
+	//adding action listener for the lock, unlock button
         GUILockPanelListener lock = new GUILockPanelListener(this, vend);
-        
         lockUnlock.addActionListener(new LockUnlockButtonListener(vend,this,lock));        
        
         //Connecting unload coins button
@@ -314,6 +324,7 @@ public class GUI extends JFrame{
     	display.setText(message);
     	setVisible(true);
     }
+    // makes the vending machine display the current credit
     public void displayCredit() {
     	double val = communicator.getCredit()/100.0;
     	setDisplay("Credit: $" + val);
@@ -329,6 +340,7 @@ public class GUI extends JFrame{
     	retAmount = value;
     	setVisible(true);
     }
+    //returns the amount of change in the coin return
     public int getCoinReturnVal() {
     	return retAmount;
     }
@@ -346,8 +358,7 @@ public class GUI extends JFrame{
     
     public String getPopsReturned() {
     	return popsReturned;
-    }
-    
+    }    
     
     public void changeTextLock(String text) {
     	lockUnlock.setText(text);
@@ -361,11 +372,11 @@ public class GUI extends JFrame{
     	return lastButtonPressed;
     }
     
-    //FOR TESTING PURPOSES-- REMOVE LATER********************************
+    //******************* MAIN METHOD **********************
     public static void main(String[] args) {
+	 //valid coin amounts
     	int[] canadianCoins = { 5, 10, 25, 100, 200 };
-
-
+	//vending machine parameters
     	int coinRackCapacity = 15; 
     	int numPopTypes = 6;
 		VendingMachine vendingMachine = new VendingMachine(canadianCoins, numPopTypes, coinRackCapacity, 15, 200, 200, 15);
@@ -381,9 +392,11 @@ public class GUI extends JFrame{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	    	//-------------- Register Listeners for everything -----------------
 		CoinSlotListening slot = new CoinSlotListening();
 		CoinRackListening[] racks = new CoinRackListening[canadianCoins.length];
 		SelectionButtonListening[] buttons = new SelectionButtonListening[numPopTypes];
+	    	//start the display loop that flashes hi there when there is no credit
 		emptyMsgLoop msgLoop = new emptyMsgLoop("Hi there!");
 		CoinReceptacleListening receptacle = new CoinReceptacleListening(50,msgLoop); //ESB 
 		PopCanRackListening[] canRacks = new PopCanRackListening[6];
@@ -398,26 +411,29 @@ public class GUI extends JFrame{
 		vendingMachine.getDeliveryChute().register(chute);
 		vendingMachine.getExactChangeLight().register(changeLight);
 		vendingMachine.getOutOfOrderLight().register(outOfOrderLight);
+	    	//register listeners for each coin rack
 		for (int i = 0; i < canadianCoins.length; i++) {
 			racks[i] = new CoinRackListening(canadianCoins[i]);
 			vendingMachine.getCoinRack(i).register(racks[i]);
 			//machine.getCoinRack(i).connect(new CoinChannel(new CoinReturn(200)));
 			rackMap.put(vendingMachine.getCoinRack(i), racks[i]);
 		}
+	    	//register a listener for each selection button
 		for (int i = 0; i < numPopTypes; i++) {
 			buttons[i] = new SelectionButtonListening(i);
 			vendingMachine.getSelectionButton(i).register(buttons[i]);
 		}
+	    	// register listener for each pop can rack
 		for (int i = 0; i < 6; i++) {
 			canRacks[i] = new PopCanRackListening();
 			vendingMachine.getPopCanRack(i).register(canRacks[i]);
 			vendingMachine.getPopCanRack(i).load(new PopCan(vendingMachine.getPopKindName(i)));
 		}
-		
+		//register listeners for the configuration panel buttons
 		for (int i = 0; i < 37; i++) {
 			vendingMachine.getConfigurationPanel().getButton(i).register(new SelectionButtonListening(i));
 		}
-		
+		//special listener for the enter button
 		vendingMachine.getConfigurationPanel().getEnterButton().register(new SelectionButtonListening(37));
 		
 		comm.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, vendingMachine, rackMap, null, 0, null);
@@ -430,7 +446,9 @@ public class GUI extends JFrame{
 		for (int i = 0; i < popCanCounts.length; i++) {
 			popCanCounts[i] = 1;
 		}
-	
+		/*configure the vending machine with the pop cans and prices above 
+		* and load pop cans to their max capacity
+		*/
 		vendingMachine.configure(popCanNames, popCanCosts);		
 		vendingMachine.loadPopCans(popCanCounts);
 		

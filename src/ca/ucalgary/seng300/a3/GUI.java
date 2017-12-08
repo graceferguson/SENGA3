@@ -92,6 +92,7 @@ public class GUI extends JFrame{
     		int numSelections = vend.getNumberOfPopCanRacks();
     		this.vend = vend;
         
+	//default size of GUI when launched 600 x 700px
         setSize(600, 700);
         setResizable(true);
         selection = new JButton[numSelections];
@@ -109,7 +110,7 @@ public class GUI extends JFrame{
         //Configure backgrounds/colors and the such
         display.setForeground(Color.blue);
         
-        
+        //Place all button and fields in their respective places
         c.gridy =12 ;
         c.gridx =3 ;
         p.add(lockUnlock, c);
@@ -153,7 +154,7 @@ public class GUI extends JFrame{
         c.gridwidth = 2;
         c.gridx = 1;
         
-        //for loop for soda selection buttons
+        //for loop for soda selection buttons, sets style
         for(int i = 0; i < numSelections; i++) {
             c.gridy = 5+i;
             p.add(selection[i], c);
@@ -166,6 +167,7 @@ public class GUI extends JFrame{
         //reset c.gridwidth to 1 and restore other constraints
         c.gridwidth = 1;
         
+	//continuing to place elements on the grid
         c.gridy = numSelections + 5;
         c.gridx = 0;
         p.add(retLabel, c);
@@ -207,6 +209,7 @@ public class GUI extends JFrame{
                 coinInput.setText("");
             }
         });
+	//listener for the button that inserts the coin
         CoinInputGUIDocListener cigl = new CoinInputGUIDocListener(coinInput);
         coinInput.getDocument().addDocumentListener(cigl);
         coinButton.addActionListener(new CoinButtonActionListener(cigl, vend));
@@ -361,13 +364,15 @@ public class GUI extends JFrame{
     	return lastButtonPressed;
     }
     
-    //FOR TESTING PURPOSES-- REMOVE LATER********************************
+    //*********************  MAIN METHOD  ***************************
     public static void main(String[] args) {
+	 // valid accepted coins (canadian)
     	int[] canadianCoins = { 5, 10, 25, 100, 200 };
 
 
     	int coinRackCapacity = 15; 
     	int numPopTypes = 6;
+	// instantiate a vending machine
 		VendingMachine vendingMachine = new VendingMachine(canadianCoins, numPopTypes, coinRackCapacity, 15, 200, 200, 15);
 		VendCommunicator comm = VendCommunicator.getInstance();
 		
@@ -381,6 +386,7 @@ public class GUI extends JFrame{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	    	// ------------- Register all the listeners for the hardware and GUI ---------------
 		CoinSlotListening slot = new CoinSlotListening();
 		CoinRackListening[] racks = new CoinRackListening[canadianCoins.length];
 		SelectionButtonListening[] buttons = new SelectionButtonListening[numPopTypes];
@@ -398,26 +404,29 @@ public class GUI extends JFrame{
 		vendingMachine.getDeliveryChute().register(chute);
 		vendingMachine.getExactChangeLight().register(changeLight);
 		vendingMachine.getOutOfOrderLight().register(outOfOrderLight);
+	    	//Listeners for each coin rack
 		for (int i = 0; i < canadianCoins.length; i++) {
 			racks[i] = new CoinRackListening(canadianCoins[i]);
 			vendingMachine.getCoinRack(i).register(racks[i]);
 			//machine.getCoinRack(i).connect(new CoinChannel(new CoinReturn(200)));
 			rackMap.put(vendingMachine.getCoinRack(i), racks[i]);
 		}
+	    	//Listeners for each pop selection button
 		for (int i = 0; i < numPopTypes; i++) {
 			buttons[i] = new SelectionButtonListening(i);
 			vendingMachine.getSelectionButton(i).register(buttons[i]);
 		}
+	    	//Listeners for each pop can rack
 		for (int i = 0; i < 6; i++) {
 			canRacks[i] = new PopCanRackListening();
 			vendingMachine.getPopCanRack(i).register(canRacks[i]);
 			vendingMachine.getPopCanRack(i).load(new PopCan(vendingMachine.getPopKindName(i)));
 		}
-		
+		//Listeners for each button in the configuration panel
 		for (int i = 0; i < 37; i++) {
 			vendingMachine.getConfigurationPanel().getButton(i).register(new SelectionButtonListening(i));
 		}
-		
+		//special listener for the configuration panel's enter button
 		vendingMachine.getConfigurationPanel().getEnterButton().register(new SelectionButtonListening(37));
 		
 		comm.linkVending(receptacle, changeLight, outOfOrderLight, canRacks, vendingMachine, rackMap, null, 0, null);
@@ -430,14 +439,16 @@ public class GUI extends JFrame{
 		for (int i = 0; i < popCanCounts.length; i++) {
 			popCanCounts[i] = 1;
 		}
-	
-		vendingMachine.configure(popCanNames, popCanCosts);		
+		//configure the vending machine to have the pops, and prices listed above
+		vendingMachine.configure(popCanNames, popCanCosts);
+	    	//load each pop can rack until it's full
 		vendingMachine.loadPopCans(popCanCounts);
 		
 		int[] coinLoading = new int[vendingMachine.getNumberOfCoinRacks()];
 		for (int i = 0; i < coinLoading.length; i++) {
 			coinLoading[i] = coinRackCapacity - 5;
 		}
+	    	//load coins (for change) to 2/3 their max capacity
 		vendingMachine.loadCoins(coinLoading);
 		
 		GUI gui = new GUI(vendingMachine, comm);

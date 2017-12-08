@@ -8,31 +8,23 @@ package ca.ucalgary.seng300.a3;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.HashMap;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import org.lsmr.vending.PopCan;
-import org.lsmr.vending.hardware.CoinRack;
+import javax.swing.JTextArea;
 import org.lsmr.vending.hardware.ConfigurationPanel;
 import org.lsmr.vending.hardware.VendingMachine;
 
 public class GUIConfigPanel extends JFrame {
 	
 	// Panels and display
-	private JTextField display;
+	private JTextArea display;
 	private GUIConfigButtons buttonPanel;
 	private ConfigurationPanel configPanel;
 
 	public GUIConfigPanel(VendingMachine vm) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1100, 350);
+		setSize(1100, 400);
 		setTitle("Configuration Panel");
 		configPanel = vm.getConfigurationPanel();
 		}
@@ -60,9 +52,9 @@ public class GUIConfigPanel extends JFrame {
 	public void createDisplay() {		
 
 		// Initialize JTextField with message that displays on opening config panel
-		display = new JTextField("Select which aspect to configure: \n 0 - Set Pop Price\n Selection: ");
+		display = new JTextArea("Select which aspect to configure: \n 0 - Set Pop Price\n Selection: ");
 		
-		display.setPreferredSize(new Dimension(1000, 75));
+		display.setPreferredSize(new Dimension(1000, 150));
 		display.setEditable(false); // So display cannot be edited by user without using onscreen buttons
 		add(display, BorderLayout.NORTH);
 		setVisible(true);

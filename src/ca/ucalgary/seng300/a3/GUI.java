@@ -48,7 +48,7 @@ public class GUI extends JFrame{
     private JButton coinButton = new JButton("Enter coins");
     
     //Request to return coins button
-    private JButton requestButton = new JButton("Return coins");
+    //private JButton requestButton = new JButton("Return coins");
     
     private JLabel cardLabel = new JLabel("Card Slot: ", SwingConstants.RIGHT);
     private JTextField cardInput = new JTextField("Type a value");
@@ -143,11 +143,11 @@ public class GUI extends JFrame{
         c.gridy = 3;
         c.gridx = 2;
         p.add(coinButton, c);
-        
+       /* Add a coin return button
         c.weightx = 0.5;
         c.gridy = 3;
         c.gridx = 3;
-        p.add(requestButton, c);
+        p.add(requestButton, c);*/
         
         //set constraints for pop buttons outside of loop since they are all the same
         

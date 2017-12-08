@@ -238,7 +238,7 @@ public class GUI extends JFrame{
         popRetInput.setEditable(false);
         
         //Connecting return coins button
-        requestButton.addActionListener(new CoinReturnButtonActionListener(vend, this, communicator));
+        //requestButton.addActionListener(new CoinReturnButtonActionListener(vend));
         
     }
     

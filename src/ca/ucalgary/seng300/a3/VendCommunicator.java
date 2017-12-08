@@ -99,7 +99,9 @@ public class VendCommunicator {
 	 */
 	public void purchasePop(int index) {
 		//Variables to calculate remaining cost and change that was paid
-		this.costRemaining = machine.getPopKindCost(index);
+		if (this.costRemaining == 0) {
+			this.costRemaining = machine.getPopKindCost(index);
+		}
 		int changePaid = 0;
 		if (pRacks[index].isEmpty()) {
 			displayMsg("Out of " + machine.getPopKindName(index));
@@ -109,10 +111,10 @@ public class VendCommunicator {
 			//If amount is -1, then no amount was specified. User pays for the full price in change.
 			if (this.amount == -1) {
 				//Verify there is enough change in the machine to pay for the full price
-				if (credit >= machine.getPopKindCost(index)) {
-					this.costRemaining = 0;
-					changePaid = 0;
-					updateCredit(-1 * machine.getPopKindCost(index));
+				if (this.credit >= this.costRemaining) {
+					updateCredit(-1 * this.costRemaining);
+					changePaid += this.costRemaining;
+					this.costRemaining -= this.costRemaining;
 				}
 				else {
 					displayMsg("Insufficient Funds. Please specify payment amount for partial cash payment.");
@@ -121,7 +123,7 @@ public class VendCommunicator {
 			//If a different amount to be paid is specified, only pay off that portion
 			else {
 				//Verify there is enough change in the machine to pay the specified amount
-				if (credit >= this.amount) {
+				if (this.credit >= this.amount) {
 					//Adjust amount so you don't overpay for the price of a pop
 					if (this.amount > this.costRemaining) {
 						this.amount = this.costRemaining;
@@ -150,7 +152,7 @@ public class VendCommunicator {
 			if (this.amount == -1) {
 				//Make sure the card is valid before taking payment
 				if (verifyCard(this.validCardFlag)) {
-					this.costRemaining -= machine.getPopKindCost(index);
+					this.costRemaining -= this.costRemaining;
 				}
 			}
 			//If an amount to be paid was specified, then the user only pays for that amount
@@ -230,6 +232,7 @@ public class VendCommunicator {
 	public void setChangeLightFlag(boolean flag) {
 		changeLightFlag = flag;
 	}
+	/*
 	public void changeLight(boolean flag2) {
 		if (flag2) {
 			machine.getExactChangeLight().activate();
@@ -237,7 +240,7 @@ public class VendCommunicator {
 		else {
 			machine.getExactChangeLight().deactivate();
 		}
-	}
+	}*/
 	public int getCredit() {
 		return this.credit;
 	}
@@ -285,7 +288,7 @@ public class VendCommunicator {
 	*/
 	public void updateCredit(int value) {
 		credit += value;
-		
+		isExactChangePossible();
 		if (this.credit == 0) {
 			welcomeMessageTimer();
 		}
@@ -301,7 +304,7 @@ public class VendCommunicator {
 	*/
 	public void dispensePopWithChange(int index, int changePaid) {
 		try {
-			int change = credit - changePaid;
+			int change = credit - changePaid; //NEED TO FIX THIS
 			machine.getCoinReceptacle().unload();
 			machine.getPopCanRack(index).dispensePopCan();
 			try {
@@ -316,11 +319,11 @@ public class VendCommunicator {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			if (!hasChange() && !changeLightFlag) {
+			if (!isExactChangePossible()) {
 				machine.getExactChangeLight().activate();
 				changeLightFlag = true;
 			}
-			else if (hasChange() && changeLightFlag) {
+			else if (isExactChangePossible()) {
 				machine.getExactChangeLight().deactivate();
 				changeLightFlag = false;
 			}
@@ -348,80 +351,24 @@ public class VendCommunicator {
 	}
 
 	/**
-	 * Determines whether or not there are enough coins in the coin racks to give
-	 * any arbitrary amount of change back after a transaction has occurred.
-	 * 
-	 * @return True if the machine can return exact change, false otherwise
+	 * A method to set the Out of order light if there is no pop available 
 	 */
-	public boolean hasChange() {
-		int[] coinKinds = new int[machine.getNumberOfCoinRacks()]; // get the coin kinds used in the machine
-		for (int i = 0; i < machine.getNumberOfCoinRacks(); i++) {
-			coinKinds[i] = machine.getCoinKindForCoinRack(i);
-		}
-		Arrays.sort(coinKinds); // sort in ascending order
-
-		int[] coinsIn = new int[machine.getNumberOfCoinRacks()];
-
-		for (int i = 0; i < machine.getNumberOfCoinRacks(); i++) {
-			coinsIn[i] = cRacks.get(machine.getCoinRackForCoinKind(coinKinds[i])).getCoins();
-
-		}
-		int change = coinKinds[coinKinds.length - 1];
-		int[][] bestChange = new int[change + 1][coinKinds.length];
-
-		for (int i = 1; i <= change; i++) {
-			int[] best = new int[coinKinds.length];
-			int bestLength = change + 1;
-			for (int j = 0; j < coinKinds.length; j++) {
-				if (coinKinds[j] > i) { // coin denomination is more than change than we have to make
-					continue;
-				}
-				if (coinsIn[j] == 0) { // there are no coins of this type
-					continue;
-				}
-
-				int changeLeft = i - coinKinds[j];
-				int[] changePossible = new int[best.length];
-
-				for (int k = 0; k < best.length; k++) { //
-					changePossible[k] = bestChange[changeLeft][k];
-				}
-
-				if (changeLeft == 0) { // returning only this coin will give the amount of change necessary
-					best = new int[best.length];
-					best[j] = 1;
-					bestLength = 1;
-					break;
-				}
-				if (bestChange[changeLeft][j] == coinsIn[j]) { // we've already used up every type of this coin
-					continue;
-				}
-				if (sumArray(bestChange[changeLeft]) == 0) { // change could not be made for this particular
-																// denomination
-					continue;
-				}
-				changePossible[j] += 1;
-
-				if (sumArray(changePossible) <= bestLength) {
-					for (int k = 0; k < changePossible.length; k++) {
-						best[k] = changePossible[k];
-					}
-					bestLength = sumArray(changePossible);
-				}
-
+	public void isOutOfOrder() {
+		boolean hasPop = false;
+		for (int i = 0; i < machine.getNumberOfSelectionButtons(); i++) {
+			if (machine.getPopCanRack(i).size() != 0) {
+				hasPop = true;
 			}
-
-			for (int k = 0; k < best.length; k++) {
-				if (sumArray(best) == 0) { // if we can't make change for some denomination up to and including the
-											// greatest coin value, we can't guarantee change at all
-					return false;
-				}
-				bestChange[i][k] = best[k];
-			}
+		}	
+	
+		if (hasPop) {
+			machine.getOutOfOrderLight().deactivate();
 		}
-		return true;
+		else {
+			machine.getOutOfOrderLight().activate();
+		}
 	}
-
+		
 	/**
 	 * Removes a specified amount of money from the coin racks and delivers them to
 	 * the coin racks' sink This method is intended for giving change. This method
@@ -438,121 +385,84 @@ public class VendCommunicator {
 	 *         was given)
 	 */
 	public int giveChange(int change) {
-		if (change == 0) {
-			return 0;
-		}
-		// System.out.println(machine.getNumberOfCoinRacks());
-		int[] coinKinds = new int[machine.getNumberOfCoinRacks()]; // get the coin kinds used in the machine
-		for (int i = 0; i < machine.getNumberOfCoinRacks(); i++) {
-			coinKinds[i] = machine.getCoinKindForCoinRack(i);
-		}
-
-		Arrays.sort(coinKinds); // sort in ascending order
-
-		int[] coinsIn = new int[machine.getNumberOfCoinRacks()];
-
-		for (int i = 0; i < machine.getNumberOfCoinRacks(); i++) {
-			coinsIn[i] = cRacks.get(machine.getCoinRackForCoinKind(coinKinds[i])).getCoins();
-		}
-
-
-		HashMap<Integer, Integer> cha = makeChange(coinsIn, coinKinds, change);
-
-		// gives change
-		for (int coin : coinKinds) {
-			try {
-				for (int i = cha.get(coin); i > 0; i--) {
-					machine.getCoinRackForCoinKind(coin).releaseCoin();
-					change -= coin;
-				}
-			} catch (CapacityExceededException e) {
-				e.printStackTrace();
-			} catch (EmptyException e) {
-				System.out.println("This shouldn't have happened.");
-				e.printStackTrace();
-			} catch (DisabledException e) {// do not dispense coins
-				break;
-			}
-		}
-		return change;
-
-	}
-
-	// internal function for giveChange
-	private HashMap<Integer, Integer> makeChange(int[] coinsIn, int[] coinKinds, int change) {
-		int[][] bestChange = new int[change + 1][coinKinds.length];
-
-		for (int i = 1; i <= change; i++) {
-			int[] best = new int[coinKinds.length];
-			int bestLength = change + 1;
-			for (int j = 0; j < coinKinds.length; j++) {
-				if (coinKinds[j] > i) { // coin denomination is more than change than we have to make
-					continue;
-				}
-				if (coinsIn[j] == 0) { // there are no coins of this type
-					continue;
-				}
-
-				int changeLeft = i - coinKinds[j];
-				int[] changePossible = new int[best.length];
-
-				for (int k = 0; k < best.length; k++) { //
-					changePossible[k] = bestChange[changeLeft][k];
-				}
-
-				if (changeLeft == 0) { // returning only this coin will give the amount of change necessary
-					best = new int[best.length];
-					best[j] = 1;
-					bestLength = 1;
-					break;
-				}
-				if (bestChange[changeLeft][j] == coinsIn[j]) { // we've already used up every type of this coin
-					continue;
-				}
-				if (sumArray(bestChange[changeLeft]) == 0) { // change could not be made for this particular
-																// denomination
-					continue;
-				}
-				changePossible[j] += 1;
-
-				if (sumArray(changePossible) <= bestLength) {
-					for (int k = 0; k < changePossible.length; k++) {
-						best[k] = changePossible[k];
+		int tempCredit = credit;
+		if (machine.getCoinReturn() != null) {
+			int[] coinKinds = {200, 100, 25, 10, 5};		// legal value of Canadian coins. only types returned
+			for (int i = 0; i < coinKinds.length; i++) {
+				CoinRack rack = machine.getCoinRackForCoinKind(coinKinds[i]);		// the coin rack for the coin value indicated by the loop
+				if (rack != null) {									// if rack = null. coin kind is not a valid change option
+					while ((!machine.isSafetyEnabled()) && (tempCredit >= coinKinds[i]) && (!rack.isDisabled()) && (rack.size() > 0)) {
+						try {
+							rack.releaseCoin();
+							tempCredit -= coinKinds[i];			// subtracting (i) cents from the credit
+						} catch (CapacityExceededException e) {
+							// should never happen, receptacle full should enable the safety, which is in the loop guard
+							e.printStackTrace();
+						} catch (EmptyException e) {
+							// should never happen, checked for in the loop guard
+							e.printStackTrace();
+						} catch (DisabledException e) {
+							// should never happen, checked for in the loop guard
+							e.printStackTrace();
+						}
 					}
-					bestLength = sumArray(changePossible);
 				}
-
-			}
-
-			for (int k = 0; k < best.length; k++) {
-				bestChange[i][k] = best[k];
 			}
 		}
-
-		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-		for (int i = 0; i < coinKinds.length; i++) {
-			map.put(coinKinds[i], 0);
-		}
-
-		for (int i = change; i >= 0; i--) {
-			if (sumArray(bestChange[i]) > 0) {
-				for (int j = 0; j < coinKinds.length; j++) {
-					map.put(coinKinds[j], bestChange[i][j]);
-				}
-				break;
-			}
-		}
-		return map;
-	}
-
-	private int sumArray(int[] a) {
-		int out = 0;
-		for (int i : a) {
-			out += i;
-		}
-		return out;
+		else
+			machine.getDisplay().display("Unable to return any change");
+		
+		isExactChangePossible();
+		
+		return tempCredit;
 	}
 	
+	/**
+	 * a Method to determine if exact change is possible given the prices of the pop and the current credit
+	 * Checks if the credit - price can be created using the available coins is the racks
+	 * checks for every pop price in the machine.
+	 *   
+	 * @return possible - A boolean describing if it is possible to create change for every possible transaction.
+	 */
+	public boolean isExactChangePossible() {
+		boolean possible = true;
+		if (machine.getCoinReturn() != null) {
+			for (int i = 0; i < machine.getNumberOfSelectionButtons(); i++) {		// get the price for every possible pop
+				int credRemaining = credit;
+				int price = machine.getPopKindCost(i);
+				if (credRemaining >= price) {
+					credRemaining -= price;
+					int changePossible = 0;
+
+					int[] coinKinds = {200, 100, 25, 10, 5};		// legal value of Canadian coins. only types returned
+					for (int value = 0; value < coinKinds.length; value++) {
+						CoinRack rack = machine.getCoinRackForCoinKind(coinKinds[value]);		// the coin rack for the coin value indicated by the loop
+						if (rack != null) {									// if rack = null. coin kind is not a valid change option
+							int coinsNeeded = 0;
+							while ((!rack.isDisabled()) && (credRemaining >= (changePossible + coinKinds[value])) && (rack.size() > coinsNeeded)) {
+								coinsNeeded++;
+								changePossible += coinKinds[value];			// sum of available coins
+							}
+						}
+					}
+					if (credRemaining != changePossible)		// if after going through all the coin racks, the exact change cannot be created
+						possible = false;			//  return that it is not possible to 
+				}
+			}
+		}
+		else 
+			possible = false;			// if the CoinReturn is not there (null) return false.
+		
+		if (!possible)
+			machine.getExactChangeLight().activate();
+		else 
+			machine.getExactChangeLight().deactivate();
+		
+		changeLightFlag = possible;
+
+		return possible;
+	}
+
 	/**
 	*	A method that is used to determine what action the communicator should take when a button has been pressed.
 	*		The referenced button will be compared to all buttons in the vending machine to figure out what type of, 

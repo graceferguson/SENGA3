@@ -59,7 +59,7 @@ public class LockPanelListener implements org.lsmr.vending.hardware.LockListener
 		// TODO Auto-generated method stub
 		communicator.disableSafety();
 		panelLocked();
-		
+		communicator.isOutOfOrder();		
 	}
 
 	@Override

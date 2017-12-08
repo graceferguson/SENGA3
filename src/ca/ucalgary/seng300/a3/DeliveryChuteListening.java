@@ -20,7 +20,7 @@ public class DeliveryChuteListening implements DeliveryChuteListener {
 	boolean active;
 	PopCan[] itemsReturned; // now Popcan instead of Deliverable since changes
 							// hardware by client
-
+	final VendCommunicator comm = VendCommunicator.getInstance();
 	static DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
 	static Date dateobj = new Date();
 
@@ -53,6 +53,7 @@ public class DeliveryChuteListening implements DeliveryChuteListener {
 				}
 			}
 		}
+		comm.isOutOfOrder();
 	}
 
 	/**

@@ -22,6 +22,7 @@ public class CoinReturnButtonActionListener implements ActionListener {
 	int ret = 0;
 
 	public CoinReturnButtonActionListener(VendingMachine vend, GUI graph, VendCommunicator vcom) {
+	//pass all the objects needed to this class
 		vm = vend;
 		gui = graph;
 		vc = vcom;

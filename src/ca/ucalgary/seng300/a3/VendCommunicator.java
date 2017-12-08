@@ -355,17 +355,19 @@ public class VendCommunicator {
 	 */
 	public void isOutOfOrder() {
 		boolean hasPop = false;
-		for (int i = 0; i < machine.getNumberOfSelectionButtons(); i++) {
-			if (machine.getPopCanRack(i).size() != 0) {
-				hasPop = true;
+		if (machine != null) {	
+			for (int i = 0; i < machine.getNumberOfPopCanRacks(); i++) {
+				if (machine.getPopCanRack(i).size() != 0) {
+					hasPop = true;
+				}
+			}	
+		
+			if (hasPop) {
+				machine.getOutOfOrderLight().deactivate();
 			}
-		}	
-	
-		if (hasPop) {
-			machine.getOutOfOrderLight().deactivate();
-		}
-		else {
-			machine.getOutOfOrderLight().activate();
+			else {
+				machine.getOutOfOrderLight().activate();
+			}
 		}
 	}
 		

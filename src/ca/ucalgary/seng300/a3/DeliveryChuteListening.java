@@ -53,7 +53,6 @@ public class DeliveryChuteListening implements DeliveryChuteListener {
 				}
 			}
 		}
-		comm.isOutOfOrder();
 	}
 
 	/**

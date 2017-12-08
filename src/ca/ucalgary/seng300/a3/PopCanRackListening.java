@@ -16,6 +16,7 @@ import org.lsmr.vending.hardware.*;
 public class PopCanRackListening implements PopCanRackListener {
 	private boolean isOn;
 	private boolean isEmpty;
+	private final VendCommunicator comm = VendCommunicator.getInstance();
 
 	/**
 	 * method for enabling listener
@@ -44,6 +45,7 @@ public class PopCanRackListening implements PopCanRackListener {
 	 * method for removing pop cans
 	 */
 	public void popCanRemoved(PopCanRack popCanRack, PopCan popCan) {
+		comm.isOutOfOrder();
 	}
 
 	/**
@@ -66,6 +68,7 @@ public class PopCanRackListening implements PopCanRackListener {
 		if (isEmpty) {
 			isEmpty = false;
 		}
+		comm.isOutOfOrder();
 	}
 
 	/**
@@ -73,6 +76,7 @@ public class PopCanRackListening implements PopCanRackListener {
 	 */
 	public void popCansUnloaded(PopCanRack rack, PopCan... popCans) {
 		isEmpty = true;
+		comm.isOutOfOrder();
 	}
 
 	/**

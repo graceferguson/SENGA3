@@ -33,7 +33,8 @@ public class CoinReturnListening implements CoinReturnListener{
 	}
 
 	/**
-	 * coinsDelibered 
+	 * coinsDelivered 
+	 * keeps track of value of all coins inside the coin return
 	 */
 	@Override
 	public void coinsDelivered(CoinReturn coinReturn, Coin[] coins) {

@@ -10915,3 +10915,732 @@ Selection:
 --------------------This is the start of a new run for VM--------------------- Time of creation 06/12/17 14:37:59\n\n
 
 06/12/17 14:37:59	ca.ucalgary.seng300.a3.IndicatorLighListening	Light isActive value is now true
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 15:15:53\n\n
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.IndicatorLighListening	Light isActive value is now true
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	125 cents in change given
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	75 cents in change given
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	25 cents in change given
+
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:15:53	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 15:17:14\n\n
+
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.IndicatorLighListening	Light isActive value is now true
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	125 cents in change given
+
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:17:14	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 15:18:03\n\n
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.IndicatorLighListening	Light isActive value is now true
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	0 cents in change given
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.DeliveryChuteListening	pop dispensed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	pop dispensed
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	55 cents in change given
+
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.VendCommunicator	button pressed
+
+07/12/17 15:18:03	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 15:48:08\n\n
+
+
+07/12/17 15:48:08	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:48:08	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:48:08	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:48:08	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 15:50:00\n\n
+
+
+07/12/17 15:50:00	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:50:00	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 15:57:54\n\n
+
+
+07/12/17 15:57:54	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+
+07/12/17 15:57:54	ca.ucalgary.seng300.a3.CoinSlotListening	coin inserted
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 16:35:05\n\n
+
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:35:05	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 16:36:05\n\n
+
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:36:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 16:37:10\n\n
+
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:37:10	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 16:44:28\n\n
+
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:44:28	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 16:53:42\n\n
+
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:53:42	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 16:54:46\n\n
+
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:54:46	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 16:55:59\n\n
+
+
+07/12/17 16:55:59	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:55:59	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:55:59	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:55:59	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 16:56:19\n\n
+
+
+07/12/17 16:56:19	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:56:19	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 16:59:13\n\n
+
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 16:59:13	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 17:03:32\n\n
+
+
+07/12/17 17:03:32	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:03:32	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 17:10:04\n\n
+
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:10:04	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 17:12:24\n\n
+
+
+07/12/17 17:12:24	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:12:24	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:12:24	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:12:24	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:12:24	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:12:24	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:12:24	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:12:24	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 17:12:50\n\n
+
+
+07/12/17 17:12:50	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 17:14:56\n\n
+
+
+07/12/17 17:14:56	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:14:56	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:14:56	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:14:56	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:14:56	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:14:56	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:14:56	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:14:56	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:14:56	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+--------------------This is the start of a new run for VM--------------------- Time of creation 07/12/17 17:17:06\n\n
+
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed
+
+07/12/17 17:17:06	ca.ucalgary.seng300.a3.SelectionButtonListening	button pressed

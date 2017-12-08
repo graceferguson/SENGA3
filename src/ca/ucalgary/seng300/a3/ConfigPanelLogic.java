@@ -27,6 +27,7 @@ public class ConfigPanelLogic {
 		mode = 0;
 		input = -1;
 		configPopPriceLogic = ConfigPopPrices.getInstance();
+		configPopPriceLogic.initializeCPP(vend.getNumberOfSelectionButtons());
 		this.displayConfigMessage();
 	}
 	

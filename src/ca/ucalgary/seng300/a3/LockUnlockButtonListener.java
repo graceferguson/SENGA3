@@ -28,10 +28,11 @@ public class LockUnlockButtonListener implements ActionListener{
             text = ((JButton) arg0.getSource()).getText();
             if (text.equals("Lock")) {
             		vend.getLock().lock();
+            		gui.getGUIConfig().init();
             }
             else {
             	vend.getLock().unlock();
-            	
+            	gui.getGUIConfig().dispose();
             }
          }
 	

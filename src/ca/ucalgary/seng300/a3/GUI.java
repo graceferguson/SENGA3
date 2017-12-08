@@ -31,6 +31,7 @@ public class GUI extends JFrame{
     private GridBagConstraints c = new GridBagConstraints();
     private Color chartreuse = new Color(127,255,0);
     private Color clientBlue = new Color(0, 0, 255);
+    private GUIConfigPanel configP;
     
     //Indicator "lights", they are labels with a background that changes
     private JLabel outOfOrder = new JLabel("Out of Order", SwingConstants.CENTER);
@@ -222,6 +223,10 @@ public class GUI extends JFrame{
         
         GUILockPanelListener lock = new GUILockPanelListener(this, vend);
         
+		configP = new GUIConfigPanel(vend);
+		ConfigPanelDisplayListening configPanelDisplayListening = new ConfigPanelDisplayListening(configP);
+		vend.getConfigurationPanel().getDisplay().register(configPanelDisplayListening);
+		
         lockUnlock.addActionListener(new LockUnlockButtonListener(vend,this,lock));        
        
         //Connecting unload coins button
@@ -235,6 +240,10 @@ public class GUI extends JFrame{
         //Connecting return coins button
         requestButton.addActionListener(new CoinReturnButtonActionListener(vend, this, communicator));
         
+    }
+    
+    public GUIConfigPanel getGUIConfig() {
+    	return configP;
     }
     
     /**
@@ -442,13 +451,18 @@ public class GUI extends JFrame{
 		
 		GUI gui = new GUI(vendingMachine, comm);
 		
-		GUIConfigPanel configP = new GUIConfigPanel(vendingMachine);
-		ConfigPanelDisplayListening configPanelDisplayListening = new ConfigPanelDisplayListening(configP);
-		vendingMachine.getConfigurationPanel().getDisplay().register(configPanelDisplayListening);
-		//configP.init();
+//		GUIConfigPanel configP = new GUIConfigPanel(vendingMachine);
+//		ConfigPanelDisplayListening configPanelDisplayListening = new ConfigPanelDisplayListening(configP);
+//		vendingMachine.getConfigurationPanel().getDisplay().register(configPanelDisplayListening);
+//		configP.init();
+		//gui.openConfig();
 		
-		ConfigPanelLogicListener configListener = new ConfigPanelLogicListener(gui); // Where is the ConfigPanelLogic initialized????????????????
+		ConfigPanelLogicListener configListener = new ConfigPanelLogicListener(gui);
 		
     } // end main
+    
+    public void openConfig() {
+    	configP.init();
+    }
     
 } // end class
